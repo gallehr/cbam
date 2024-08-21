@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SUP-{#########}",
+ "creation": "2024-08-20 15:35:42.305765",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "column_break_xlzx",
+  "is_data_confirmed",
+  "contact_details_section",
+  "supplier_name",
+  "company_phone_number",
+  "column_break_uisi",
+  "street",
+  "city",
+  "country",
+  "responsible_employee_section",
+  "last_name",
+  "first_name",
+  "position",
+  "column_break_mlvd",
+  "email",
+  "phone_number",
+  "goods_list_section",
+  "table_ulml"
+ ],
+ "fields": [
+  {
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "street",
+   "fieldtype": "Data",
+   "label": "Street"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name"
+  },
+  {
+   "fieldname": "column_break_uisi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Raw Data",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Raw Data\nSent to Supplier\nConfirmed by Supplier\nChecked"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "responsible_employee_section",
+   "fieldtype": "Section Break",
+   "label": "Responsible Employee"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Employee Phone Number"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "column_break_mlvd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_phone_number",
+   "fieldtype": "Phone",
+   "label": "Company Phone Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_data_confirmed",
+   "fieldtype": "Check",
+   "label": "Confirmed by Supplier"
+  },
+  {
+   "fieldname": "column_break_xlzx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "goods_list_section",
+   "fieldtype": "Section Break",
+   "label": "Goods List"
+  },
+  {
+   "fieldname": "table_ulml",
+   "fieldtype": "Table",
+   "options": "Good Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-21 13:54:43.603729",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "Supplier",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Yellow",
+   "title": "Before Supplier Confirmation"
+  },
+  {
+   "color": "Light Blue",
+   "title": "Confirmed by Supplier"
+  },
+  {
+   "color": "Green",
+   "title": "Checked"
+  }
+ ]
+}

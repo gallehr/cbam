@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:GOO-{cn_name}",
+ "creation": "2024-08-20 15:54:48.908679",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "precursors_name",
+  "cn_name",
+  "cn_number",
+  "supplier"
+ ],
+ "fields": [
+  {
+   "fieldname": "cn_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "CN Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cn_number",
+   "fieldtype": "Data",
+   "label": "CN Number"
+  },
+  {
+   "fieldname": "precursors_name",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-21 13:57:19.292501",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "Good",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
