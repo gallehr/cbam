@@ -1,7 +1,7 @@
 // Copyright (c) 2024, phamos GmbH and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Import", {
+// frappe.ui.form.on("Supplier Employee", {
 // 	refresh(frm) {
 
 // 	},

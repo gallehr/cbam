@@ -6,36 +6,37 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "good_cn_number",
-  "good_cn_name",
+  "good_number",
+  "good_description",
   "good_source"
  ],
  "fields": [
-  {
-   "fieldname": "good_cn_name",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Good CN Name",
-   "options": "Good"
-  },
-  {
-   "fieldname": "good_cn_number",
-   "fieldtype": "Data",
-   "label": "Good CN Number"
-  },
   {
    "fieldname": "good_source",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Good Source",
-   "options": "Self produced\nImported from other Supplier\nNot my good",
-   "reqd": 1
+   "options": "Self produced\nImported from other Supplier\nNot my good"
+  },
+  {
+   "fetch_from": "master_reference_number_mrn.good_description",
+   "fieldname": "good_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Good description"
+  },
+  {
+   "fieldname": "good_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Good Number",
+   "options": "Good"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-21 14:12:50.761938",
+ "modified": "2024-08-22 14:27:49.219696",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good Item",

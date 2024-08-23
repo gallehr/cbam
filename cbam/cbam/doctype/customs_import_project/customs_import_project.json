@@ -26,15 +26,15 @@
    "fieldname": "suppliers",
    "fieldtype": "Table",
    "label": "Suppliers",
-   "options": "Supplier Item"
+   "options": "OLD Supplier Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-21 13:46:50.555515",
+ "modified": "2024-08-22 11:44:15.950830",
  "modified_by": "Administrator",
  "module": "CBAM",
- "name": "Import",
+ "name": "Customs Import Project",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

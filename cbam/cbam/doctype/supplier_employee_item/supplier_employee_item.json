@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-22 10:12:57.551454",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_number",
+  "employee_last_name",
+  "employee_first_name",
+  "employee_email",
+  "is_main_contact"
+ ],
+ "fields": [
+  {
+   "fetch_from": "employee_number.last_name",
+   "fieldname": "employee_last_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Last Name"
+  },
+  {
+   "fetch_from": "employee_number.first_name",
+   "fieldname": "employee_first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee First Name"
+  },
+  {
+   "fetch_from": "employee_number.email",
+   "fieldname": "employee_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Email"
+  },
+  {
+   "fieldname": "employee_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee Number",
+   "options": "Supplier Employee"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_main_contact",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "is Main Contact"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-22 13:49:28.638259",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "Supplier Employee Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

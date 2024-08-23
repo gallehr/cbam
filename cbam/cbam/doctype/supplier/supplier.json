@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SUP-{#########}",
+ "autoname": "format:SUP-{supplier_number}-{supplier_name}",
  "creation": "2024-08-20 15:35:42.305765",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,21 +10,19 @@
   "column_break_xlzx",
   "is_data_confirmed",
   "contact_details_section",
+  "supplier_number",
   "supplier_name",
   "company_phone_number",
+  "company_email",
   "column_break_uisi",
   "street",
+  "zip_code",
   "city",
   "country",
-  "responsible_employee_section",
-  "last_name",
-  "first_name",
-  "position",
-  "column_break_mlvd",
-  "email",
-  "phone_number",
+  "employee_section",
+  "employees",
   "goods_list_section",
-  "table_ulml"
+  "goods"
  ],
  "fields": [
   {
@@ -35,22 +33,29 @@
   {
    "fieldname": "street",
    "fieldtype": "Data",
-   "label": "Street"
+   "in_list_view": 1,
+   "label": "Street",
+   "reqd": 1
   },
   {
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City"
+   "label": "City",
+   "reqd": 1
   },
   {
    "fieldname": "country",
-   "fieldtype": "Data",
-   "label": "Country"
+   "fieldtype": "Link",
+   "label": "Country Code",
+   "options": "Country Code",
+   "reqd": 1
   },
   {
    "fieldname": "supplier_name",
    "fieldtype": "Data",
-   "label": "Supplier Name"
+   "in_list_view": 1,
+   "label": "Supplier Name",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_uisi",
@@ -61,55 +66,13 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Raw Data\nSent to Supplier\nConfirmed by Supplier\nChecked"
-  },
-  {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Email",
-   "options": "Email",
-   "reqd": 1
-  },
-  {
-   "fieldname": "responsible_employee_section",
-   "fieldtype": "Section Break",
-   "label": "Responsible Employee"
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "label": "Last Name"
-  },
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "label": "First Name"
-  },
-  {
-   "fieldname": "phone_number",
-   "fieldtype": "Phone",
-   "label": "Employee Phone Number"
-  },
-  {
-   "fieldname": "position",
-   "fieldtype": "Data",
-   "label": "Position"
-  },
-  {
-   "fieldname": "column_break_mlvd",
-   "fieldtype": "Column Break"
+   "options": "Raw Data\nSent to Supplier\nConfirmed by Supplier",
+   "read_only_depends_on": "eval:doc.is_data_confirmed==true"
   },
   {
    "fieldname": "company_phone_number",
    "fieldtype": "Phone",
    "label": "Company Phone Number"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_data_confirmed",
-   "fieldtype": "Check",
-   "label": "Confirmed by Supplier"
   },
   {
    "fieldname": "column_break_xlzx",
@@ -121,14 +84,55 @@
    "label": "Goods List"
   },
   {
-   "fieldname": "table_ulml",
+   "default": "0",
+   "fieldname": "is_data_confirmed",
+   "fieldtype": "Check",
+   "label": "Contact details confirmed by supplier",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "supplier_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zip_code",
+   "fieldtype": "Data",
+   "label": "Zip code",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "employees",
    "fieldtype": "Table",
+   "label": "Employees",
+   "options": "Supplier Employee Item"
+  },
+  {
+   "fieldname": "employee_section",
+   "fieldtype": "Section Break",
+   "label": "Employees"
+  },
+  {
+   "fieldname": "goods",
+   "fieldtype": "Table",
+   "label": "Goods",
    "options": "Good Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-21 13:54:43.603729",
+ "modified": "2024-08-22 15:56:24.823558",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
@@ -152,16 +156,17 @@
  "sort_order": "DESC",
  "states": [
   {
-   "color": "Yellow",
-   "title": "Before Supplier Confirmation"
+   "color": "Gray",
+   "title": "Raw Data"
   },
   {
-   "color": "Light Blue",
-   "title": "Confirmed by Supplier"
+   "color": "Yellow",
+   "title": "Sent to Supplier"
   },
   {
    "color": "Green",
-   "title": "Checked"
+   "title": "Confirmed by Supplier"
   }
- ]
+ ],
+ "title_field": "supplier_number"
 }
