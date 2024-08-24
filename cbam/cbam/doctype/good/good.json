@@ -19,7 +19,7 @@
   "good_split_information_html",
   "good_values",
   "1_component_section",
-  "split_percentage",
+  "split_percentage_1",
   "responsibility_1",
   "column_break_havl",
   "responsible_internal_employee_1",
@@ -200,13 +200,6 @@
    "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_percentage",
-   "fieldtype": "Int",
-   "label": "1. Component in Percentage",
-   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
-  },
-  {
    "fieldname": "split_the_good_in_various_components_section",
    "fieldtype": "Section Break",
    "label": "Split the Good in various Components, if needed"
@@ -216,7 +209,7 @@
    "fieldname": "split_action_html",
    "fieldtype": "HTML",
    "label": "Split Action HTML",
-   "options": "<a href=\"/check-supplier-data/SUP-00000003-Liferant3/edit\" class=\"submit-btn btn btn-primary btn-sm ml-2\">Split Good into several Components</a>"
+   "options": "<a href=\"/check-supplier-data/SUP-00000003-Liferant3/edit\" class=\"submit-btn btn btn-primary btn-sm ml-2\">Split Good into several Components</a>\n<script>frappe.ui.form.on(\"Good\", {\n\trefresh(frm) {\n\t\tfrm.add_custom_button(__(\"Split Good\"), function () {\n\t\t\tfrappe.call({\n\t\t\t\tmethod: \"cbam.api.split_good\",\n\t\t\t\targs: {\n\t\t\t\t\tparent_good: frm.doc.name,\n\t\t\t\t\tpercentage1: frm.doc.split_percentage_1,\n\t\t\t\t\tpercentage2: frm.doc.split_percentage_2,\n\t\t\t\t\tpercentage3: frm.doc.split_percentage_3,\n\t\t\t\t\tpercentage4: frm.doc.split_percentage_4,\n\t\t\t\t\tpercentage5: frm.doc.split_percentage_5,\n\t\t\t\t},\n\t\t\t});\n\t\t});\n\t},\n});</script>"
   },
   {
    "fieldname": "good_split_information_html",
@@ -319,6 +312,7 @@
    "options": "Supplier"
   },
   {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "1_component_section",
    "fieldtype": "Section Break",
    "label": "1. Component"
@@ -328,6 +322,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "2_component_section",
    "fieldtype": "Section Break",
    "label": "2. Component"
@@ -337,16 +332,19 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "3_component_if_needed_section",
    "fieldtype": "Section Break",
    "label": "3. Component, if needed"
   },
   {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "4_component_if_needed_section",
    "fieldtype": "Section Break",
    "label": "4. Component, if needed"
   },
   {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "5_component_if_needed_section",
    "fieldtype": "Section Break",
    "label": "5. Component, if needed"
@@ -354,11 +352,18 @@
   {
    "fieldname": "section_break_vhdv",
    "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "fieldname": "split_percentage_1",
+   "fieldtype": "Int",
+   "label": "1. Component in Percentage",
+   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-23 17:54:44.633478",
+ "modified": "2024-08-23 18:57:01.272379",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
