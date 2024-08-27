@@ -18,7 +18,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-21 16:09:01.176938",
+ "modified": "2024-08-27 09:54:35.883463",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "check-goods-list-supplier",
@@ -28,7 +28,7 @@
  "show_attachments": 0,
  "show_list": 0,
  "show_sidebar": 0,
- "title": "Check Goods List Supplier",
+ "title": "OLD Check Goods List Supplier",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,

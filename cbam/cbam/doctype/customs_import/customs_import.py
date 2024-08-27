@@ -1,9 +1,9 @@
 # Copyright (c) 2024, phamos GmbH and contributors
 # For license information, please see license.txt
 
-# import frappe
+# customs_import frappe
 from frappe.model.document import Document
 
 
-class Aggregatedgoodscategory(Document):
+class CustomsImport(Document):
 	pass

@@ -1,12 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SEM-{supplier_company}-{#####}",
+ "autoname": "format:EMP-{###}-{supplier_company}",
  "creation": "2024-08-22 10:08:47.311389",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "status",
   "supplier_company",
+  "column_break_wcmc",
+  "is_data_confirmed",
   "employee_data_section",
   "last_name",
   "first_name",
@@ -50,17 +53,37 @@
    "fieldname": "supplier_company",
    "fieldtype": "Link",
    "label": "Supplier Company",
-   "options": "Supplier"
+   "options": "Supplier",
+   "permlevel": 1
   },
   {
    "fieldname": "employee_data_section",
    "fieldtype": "Section Break",
    "label": "Employee Data"
+  },
+  {
+   "default": "Raw Data",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Raw Data\nSent to Supplier\nConfirmed by Supplier",
+   "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_data_confirmed",
+   "fieldtype": "Check",
+   "label": "Contact details confirmed by supplier",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "column_break_wcmc",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-22 10:12:14.106961",
+ "modified": "2024-08-27 09:52:17.280659",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
@@ -82,5 +105,19 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Raw Data"
+  },
+  {
+   "color": "Yellow",
+   "title": "Sent to Supplier"
+  },
+  {
+   "color": "Green",
+   "title": "Confirmed by Supplier"
+  }
+ ],
+ "title_field": "email"
 }

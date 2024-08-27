@@ -6,4 +6,6 @@ from frappe.model.document import Document
 
 
 class SupplierEmployee(Document):
-	pass
+	def before_save(self):
+		if self.is_data_confirmed == True:
+			self.status = "Confirmed by Supplier"

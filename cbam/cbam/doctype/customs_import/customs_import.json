@@ -1,27 +1,34 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "prompt",
- "creation": "2024-08-21 09:52:01.443244",
+ "autoname": "format:IMP-{#####}",
+ "creation": "2024-08-20 15:25:42.757431",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "description"
+  "product_name",
+  "goods"
  ],
  "fields": [
   {
-   "fieldname": "description",
-   "fieldtype": "Small Text",
-   "label": "Description"
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "label": "Import Name"
+  },
+  {
+   "fieldname": "goods",
+   "fieldtype": "Table",
+   "label": "Goods",
+   "options": "Good Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-21 09:52:27.944349",
+ "modified": "2024-08-27 12:11:26.886376",
  "modified_by": "Administrator",
  "module": "CBAM",
- "name": "Aggregated goods category",
- "naming_rule": "Set by user",
+ "name": "Customs Import",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

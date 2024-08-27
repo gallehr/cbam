@@ -6,11 +6,24 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "status",
   "master_reference_number_mrn",
-  "good_description",
-  "column_break_qjtl",
-  "customs_tariff_number",
+  "column_break_nktj",
+  "is_data_confirmed",
   "hand_over_date",
+  "goods_data_section",
+  "article_number",
+  "customs_tariff_number",
+  "column_break_qjtl",
+  "good_description",
+  "values_section",
+  "column_break_kaso",
+  "raw_mass",
+  "customs_procedure",
+  "customs_value",
+  "column_break_jims",
+  "country_of_origin",
+  "shipping_country",
   "supplier_section",
   "supplier",
   "column_break_lqxr",
@@ -19,39 +32,42 @@
   "good_split_information_html",
   "good_values",
   "1_component_section",
-  "split_percentage_1",
+  "split_raw_mass_1",
   "responsibility_1",
   "column_break_havl",
-  "responsible_internal_employee_1",
+  "responsible_employee_1",
   "responsible_supplier_1",
   "2_component_section",
-  "split_percentage_2",
+  "split_raw_mass_2",
   "responsibility_2",
   "column_break_ipid",
-  "internal_employee_2",
+  "responsible_employee_2",
   "responsible_supplier_2",
   "3_component_if_needed_section",
-  "split_percentage_3",
+  "split_raw_mass_3",
   "responsibility_3",
+  "column_break_ryft",
+  "responsible_employee_3",
+  "responsible_supplier_3",
   "4_component_if_needed_section",
-  "split_percentage_4",
+  "split_raw_mass_4",
   "responsibility_4",
+  "column_break_flpa",
+  "responsible_employee_4",
+  "responsible_supplier_4",
   "5_component_if_needed_section",
-  "split_percentage_5",
+  "split_raw_mass_5",
   "responsibility_5",
+  "column_break_rjiw",
+  "responsible_employee_5",
+  "responsible_supplier_5",
   "section_break_vhdv",
   "split_action_html",
-  "values_section",
-  "column_break_kaso",
-  "raw_mass",
-  "country_of_origin",
-  "customs_procedure",
-  "column_break_jims",
-  "customs_value",
-  "shipping_country",
   "requested_data_section",
-  "co2",
-  "requested_data2",
+  "installation",
+  "column_break_wczo",
+  "emission_data_1",
+  "emission_data_2",
   "good_splits_section",
   "good_splits"
  ],
@@ -62,9 +78,11 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Master Reference Number MRN",
+   "permlevel": 1,
    "reqd": 1
   },
   {
+   "description": "DE: Warenbezeichnung",
    "fieldname": "good_description",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -76,7 +94,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "GER: Zolltariefnummer",
+   "description": "DE: Zolltariefnummer",
    "fieldname": "customs_tariff_number",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -85,10 +103,12 @@
    "reqd": 1
   },
   {
+   "description": "DE: \u00dcberlassungsdatum",
    "fieldname": "hand_over_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Hand over date",
+   "permlevel": 1,
    "reqd": 1
   },
   {
@@ -97,10 +117,10 @@
    "label": "Values"
   },
   {
-   "description": "GER: Rohmasse (in metrischen Tonnen)",
+   "description": "DE: Rohmasse (in metrischen Kilogram)",
    "fieldname": "raw_mass",
-   "fieldtype": "Float",
-   "label": "Raw mass",
+   "fieldtype": "Int",
+   "label": "Raw mass in Kilograms",
    "non_negative": 1,
    "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
@@ -112,6 +132,7 @@
    "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
   {
+   "description": "DE: Zollverfahren",
    "fieldname": "customs_procedure",
    "fieldtype": "Data",
    "label": "Customs procedure",
@@ -122,10 +143,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "\u20ac",
+   "description": "DE: Zollwert",
    "fieldname": "customs_value",
    "fieldtype": "Currency",
-   "label": "Customs value",
+   "label": "Customs value in Euro",
    "non_negative": 1,
    "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
@@ -151,13 +172,16 @@
    "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "good_splits_section",
    "fieldtype": "Section Break",
-   "label": "Good Splits"
+   "label": "Good Splits",
+   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
   {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
    "fieldname": "good_splits",
    "fieldtype": "Table",
    "label": "Good Splits",
-   "options": "Good Item"
+   "options": "Good Item",
+   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
   {
    "default": "Only one Component",
@@ -175,29 +199,17 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "of this Supplier",
    "fieldname": "employee",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Employee",
-   "read_only": 1
+   "options": "Supplier Employee"
   },
   {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "requested_data_section",
    "fieldtype": "Section Break",
    "label": "Requested Data"
-  },
-  {
-   "fieldname": "co2",
-   "fieldtype": "Data",
-   "label": "CO2",
-   "mandatory_depends_on": "eval:doc.good_values==\"Only one Component\"",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
-  },
-  {
-   "fieldname": "requested_data2",
-   "fieldtype": "Data",
-   "label": "Requested Data2",
-   "mandatory_depends_on": "eval:doc.good_values==\"Only one Component\"",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
   },
   {
    "fieldname": "split_the_good_in_various_components_section",
@@ -209,38 +221,13 @@
    "fieldname": "split_action_html",
    "fieldtype": "HTML",
    "label": "Split Action HTML",
-   "options": "<a href=\"/check-supplier-data/SUP-00000003-Liferant3/edit\" class=\"submit-btn btn btn-primary btn-sm ml-2\">Split Good into several Components</a>\n<script>frappe.ui.form.on(\"Good\", {\n\trefresh(frm) {\n\t\tfrm.add_custom_button(__(\"Split Good\"), function () {\n\t\t\tfrappe.call({\n\t\t\t\tmethod: \"cbam.api.split_good\",\n\t\t\t\targs: {\n\t\t\t\t\tparent_good: frm.doc.name,\n\t\t\t\t\tpercentage1: frm.doc.split_percentage_1,\n\t\t\t\t\tpercentage2: frm.doc.split_percentage_2,\n\t\t\t\t\tpercentage3: frm.doc.split_percentage_3,\n\t\t\t\t\tpercentage4: frm.doc.split_percentage_4,\n\t\t\t\t\tpercentage5: frm.doc.split_percentage_5,\n\t\t\t\t},\n\t\t\t});\n\t\t});\n\t},\n});</script>"
+   "options": "<button></button>"
   },
   {
    "fieldname": "good_split_information_html",
    "fieldtype": "HTML",
    "label": "Good Split information HTML",
    "options": "<h4>Important</h4>\n<p>\n    If this Good is part of several components that have different CO2 values or need to be forwarded to other employees or suppliers, you need to <strong>split this Good</strong>. The present Good will become <em>immutable</em>. The requested data will be required for the resulting Good-Components.\n</p>\n<p>\n    Goods Components for which you aren't responsible will be forwarded. For this, it's <strong>mandatory</strong> that you provide the contact details of the responsible internal employee or the external supplier who provided you with the Good.\n</p>\n<p><strong>If you need to split, choose \u201cVarious Components\u201d here:</strong></p>\n<br>"
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_percentage_2",
-   "fieldtype": "Int",
-   "label": "2. Component in Percentage",
-   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_percentage_3",
-   "fieldtype": "Int",
-   "label": "3. Component in Percentage"
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_percentage_4",
-   "fieldtype": "Int",
-   "label": "4. Component in Percentage"
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_percentage_5",
-   "fieldtype": "Int",
-   "label": "5. Component in Percentage"
   },
   {
    "depends_on": "eval:doc.good_values==\"Various Components\"",
@@ -278,22 +265,6 @@
    "fieldtype": "Select",
    "label": "Responsibility for 5. Component",
    "options": "I'm the responsible Person\nAnother employee is responsible\nAnother supplier is responsible"
-  },
-  {
-   "depends_on": "eval:doc.responsibility_2==\"Another employee is responsible\"",
-   "fieldname": "internal_employee_2",
-   "fieldtype": "Link",
-   "label": "Responsible internal employee of 2. Component",
-   "mandatory_depends_on": "eval:doc.responsibility_2==\"Another employee is responsible\"",
-   "options": "Supplier Employee"
-  },
-  {
-   "depends_on": "eval:doc.responsibility_1==\"Another employee is responsible\"",
-   "fieldname": "responsible_internal_employee_1",
-   "fieldtype": "Link",
-   "label": "Responsible internal employee of 1. Component",
-   "mandatory_depends_on": "eval:doc.responsibility_1==\"Another employee is responsible\"",
-   "options": "Supplier Employee"
   },
   {
    "depends_on": "eval:doc.responsibility_1==\"Another supplier is responsible\"",
@@ -354,16 +325,168 @@
    "fieldtype": "Section Break"
   },
   {
+   "fieldname": "article_number",
+   "fieldtype": "Data",
+   "label": "Article Number"
+  },
+  {
+   "fieldname": "column_break_nktj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "goods_data_section",
+   "fieldtype": "Section Break",
+   "label": "Goods Data"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fieldname": "installation",
+   "fieldtype": "Data",
+   "label": "Installation"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fieldname": "emission_data_1",
+   "fieldtype": "Data",
+   "label": "Emission Data 1"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fieldname": "emission_data_2",
+   "fieldtype": "Data",
+   "label": "Emission Data 2"
+  },
+  {
+   "fieldname": "column_break_ryft",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wczo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_3==\"Another supplier is responsible\"",
+   "fieldname": "responsible_supplier_3",
+   "fieldtype": "Link",
+   "label": "Responsible Supplier of 3. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_3==\"Another supplier is responsible\"",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "column_break_flpa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_4==\"Another supplier is responsible\"",
+   "fieldname": "responsible_supplier_4",
+   "fieldtype": "Link",
+   "label": "Responsible Supplier of 4. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_4==\"Another supplier is responsible\"",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "column_break_rjiw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_5==\"Another supplier is responsible\"",
+   "fieldname": "responsible_supplier_5",
+   "fieldtype": "Link",
+   "label": "Responsible Supplier of 5. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_5==\"Another supplier is responsible\"",
+   "options": "Supplier"
+  },
+  {
    "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_percentage_1",
+   "fieldname": "split_raw_mass_1",
    "fieldtype": "Int",
-   "label": "1. Component in Percentage",
+   "label": "1. Component raw mass in Kilograms",
    "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "fieldname": "split_raw_mass_2",
+   "fieldtype": "Int",
+   "label": "2. Component raw mass in Kilograms",
+   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "fieldname": "split_raw_mass_3",
+   "fieldtype": "Int",
+   "label": "3. Component raw mass in Kilograms"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "fieldname": "split_raw_mass_4",
+   "fieldtype": "Int",
+   "label": "4. Component raw mass in Kilograms"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "fieldname": "split_raw_mass_5",
+   "fieldtype": "Int",
+   "label": "5. Component raw mass in Kilograms"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_1==\"Another employee is responsible\"",
+   "fieldname": "responsible_employee_1",
+   "fieldtype": "Link",
+   "label": "Responsible internal employee of 1. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_1==\"Another employee is responsible\"",
+   "options": "Supplier Employee"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_2==\"Another employee is responsible\"",
+   "fieldname": "responsible_employee_2",
+   "fieldtype": "Link",
+   "label": "Responsible internal employee of 2. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_2==\"Another employee is responsible\"",
+   "options": "Supplier Employee"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_3==\"Another employee is responsible\"",
+   "fieldname": "responsible_employee_3",
+   "fieldtype": "Link",
+   "label": "Responsible internal employee of 3. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_3==\"Another employee is responsible\"",
+   "options": "Supplier Employee"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_4==\"Another employee is responsible\"",
+   "fieldname": "responsible_employee_4",
+   "fieldtype": "Link",
+   "label": "Responsible internal employee of 4. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_3==\"Another employee is responsible\"",
+   "options": "Supplier Employee"
+  },
+  {
+   "depends_on": "eval:doc.responsibility_5==\"Another employee is responsible\"",
+   "fieldname": "responsible_employee_5",
+   "fieldtype": "Link",
+   "label": "Responsible internal employee of 5. Component",
+   "mandatory_depends_on": "eval:doc.responsibility_5==\"Another employee is responsible\"",
+   "options": "Supplier Employee"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nDone",
+   "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_data_confirmed",
+   "fieldtype": "Check",
+   "label": "Good details confirmed or split by supplier",
+   "permlevel": 2
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-23 18:57:01.272379",
+ "modified": "2024-08-26 16:14:30.569282",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -385,5 +508,14 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Open"
+  },
+  {
+   "color": "Green",
+   "title": "Done"
+  }
+ ]
 }

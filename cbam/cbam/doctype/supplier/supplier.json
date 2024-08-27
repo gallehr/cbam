@@ -19,6 +19,13 @@
   "zip_code",
   "city",
   "country",
+  "main_contact_section",
+  "main_contact_employee_last_name",
+  "main_contact_employee_first_name",
+  "column_break_qmcl",
+  "main_contact_employee_email",
+  "main_contact_employee_phone_number",
+  "main_contact_employee_position",
   "employee_section",
   "employees",
   "goods_list_section",
@@ -34,21 +41,18 @@
    "fieldname": "street",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Street",
-   "reqd": 1
+   "label": "Street"
   },
   {
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City",
-   "reqd": 1
+   "label": "City"
   },
   {
    "fieldname": "country",
    "fieldtype": "Link",
    "label": "Country Code",
-   "options": "Country Code",
-   "reqd": 1
+   "options": "Country Code"
   },
   {
    "fieldname": "supplier_name",
@@ -94,23 +98,20 @@
    "fieldname": "supplier_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Supplier Number",
-   "reqd": 1
+   "label": "Supplier Number"
   },
   {
    "fieldname": "company_email",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Company Email",
-   "options": "Email",
-   "reqd": 1
+   "options": "Email"
   },
   {
    "fieldname": "zip_code",
    "fieldtype": "Data",
    "label": "Zip code",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "employees",
@@ -121,18 +122,56 @@
   {
    "fieldname": "employee_section",
    "fieldtype": "Section Break",
-   "label": "Employees"
+   "label": "Overview all Employees"
   },
   {
    "fieldname": "goods",
    "fieldtype": "Table",
    "label": "Goods",
    "options": "Good Item"
+  },
+  {
+   "fieldname": "main_contact_employee_last_name",
+   "fieldtype": "Data",
+   "label": "Main Contact Employee Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "main_contact_employee_first_name",
+   "fieldtype": "Data",
+   "label": "Main Contact Employee First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "main_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Main Contact"
+  },
+  {
+   "fieldname": "column_break_qmcl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "main_contact_employee_email",
+   "fieldtype": "Data",
+   "label": "Main Contact Employee Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "main_contact_employee_phone_number",
+   "fieldtype": "Phone",
+   "label": "Main Contact Employee Phone Number"
+  },
+  {
+   "fieldname": "main_contact_employee_position",
+   "fieldtype": "Data",
+   "label": "Main Contact Employee Position"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-22 15:56:24.823558",
+ "modified": "2024-08-27 13:06:32.283861",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
@@ -168,5 +207,5 @@
    "title": "Confirmed by Supplier"
   }
  ],
- "title_field": "supplier_number"
+ "title_field": "supplier_name"
 }
