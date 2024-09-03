@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SUP-{supplier_number}-{supplier_name}",
+ "autoname": "format:{supplier_number}",
  "creation": "2024-08-20 15:35:42.305765",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -15,10 +15,10 @@
   "company_phone_number",
   "company_email",
   "column_break_uisi",
-  "street",
+  "street_and_number",
   "zip_code",
   "city",
-  "country",
+  "country_code",
   "main_contact_section",
   "main_contact_employee_last_name",
   "main_contact_employee_first_name",
@@ -38,21 +38,9 @@
    "label": "Contact Details"
   },
   {
-   "fieldname": "street",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Street"
-  },
-  {
    "fieldname": "city",
    "fieldtype": "Data",
    "label": "City"
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Link",
-   "label": "Country Code",
-   "options": "Country Code"
   },
   {
    "fieldname": "supplier_name",
@@ -143,6 +131,7 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.employees.map(child => child.is_main_contact).includes(1) == 0",
    "fieldname": "main_contact_section",
    "fieldtype": "Section Break",
    "label": "Main Contact"
@@ -167,11 +156,23 @@
    "fieldname": "main_contact_employee_position",
    "fieldtype": "Data",
    "label": "Main Contact Employee Position"
+  },
+  {
+   "fieldname": "street_and_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Street and Number"
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Link",
+   "label": "Country Code",
+   "options": "Country Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 13:06:32.283861",
+ "modified": "2024-08-29 08:55:28.471640",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
@@ -191,8 +192,8 @@
    "write": 1
   }
  ],
- "sort_field": "creation",
- "sort_order": "DESC",
+ "sort_field": "status",
+ "sort_order": "ASC",
  "states": [
   {
    "color": "Gray",

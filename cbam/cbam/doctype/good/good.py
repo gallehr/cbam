@@ -10,9 +10,16 @@ class Good(Document):
 		self.get_responsible_employee()
 		self.split_good()
 
+	def after_insert(self):
+		self.add_to_linked_supplier()
+		self.add_to_linked_customs_import()
+
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Done"
+
+	def on_trash(self):
+		self.delete_good_item()
 
 	def get_responsible_employee(self):
 		if self.supplier and not self.employee:
@@ -160,3 +167,22 @@ class Good(Document):
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
 					next_highest_split_number += 1
+
+	def add_to_linked_supplier(self):
+		supplier = frappe.get_doc("Supplier", self.supplier)
+		supplier.append("goods", {
+			"good_number": self.name
+		})
+		supplier.save()
+
+	def add_to_linked_customs_import(self):
+		customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
+		customs_import.append("goods", {
+			"good_number": self.name
+		})
+		customs_import.save()
+
+	def delete_good_item(self):
+		supplier_item = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
+		for item in supplier_item:
+			item.delete()
