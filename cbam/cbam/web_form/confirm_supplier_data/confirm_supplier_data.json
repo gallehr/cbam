@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-03 15:14:44.066084",
+ "modified": "2024-09-03 15:25:19.518004",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-supplier-data",
@@ -32,7 +32,7 @@
  "success_message": "Please wait.",
  "success_title": "Thank you, you will be forwarded to the next mandatory form.",
  "success_url": "/confirm-employee-details/EMP-059-00000057",
- "title": "Please confirm the Data",
+ "title": "Please confirm the Supplier Data",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,

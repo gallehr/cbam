@@ -40,7 +40,7 @@
  "list_title": "Your Goods",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-03 14:56:59.780269",
+ "modified": "2024-09-03 15:48:49.449431",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "complete-goods-data",
@@ -50,7 +50,7 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
- "title": "Please Confirm the Goods Data6",
+ "title": "Please Confirm the Goods Data",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
@@ -856,16 +856,16 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "default": "0",
+   "default": "1",
    "fieldname": "is_data_confirmed",
    "fieldtype": "Check",
    "hidden": 0,
-   "label": "Good details I confirm that the information provided is accurate and complete.",
+   "label": "I confirm that the information provided is accurate and complete.",
    "max_length": 0,
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
