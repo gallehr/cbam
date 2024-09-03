@@ -40,7 +40,7 @@
  "list_title": "Your Goods",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-29 10:03:30.481093",
+ "modified": "2024-09-03 14:56:59.780269",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "complete-goods-data",
@@ -50,7 +50,7 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
- "title": "Please Confirm the Goods Datadsf",
+ "title": "Please Confirm the Goods Data6",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,

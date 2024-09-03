@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-26 14:48:43.680208",
+ "modified": "2024-09-03 15:08:21.641202",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-supplier-data",
@@ -29,7 +29,7 @@
  "show_attachments": 0,
  "show_list": 0,
  "show_sidebar": 0,
- "title": "Please confirm your Data",
+ "title": "Please confirm the Data",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
@@ -125,15 +125,15 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "street",
+   "fieldname": "street_and_number",
    "fieldtype": "Data",
    "hidden": 0,
-   "label": "Street",
+   "label": "Street and Number",
    "max_length": 0,
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -164,7 +164,7 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "country",
+   "fieldname": "country_code",
    "fieldtype": "Link",
    "hidden": 0,
    "label": "Country Code",
@@ -173,7 +173,7 @@
    "options": "Country Code",
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   }
  ]
