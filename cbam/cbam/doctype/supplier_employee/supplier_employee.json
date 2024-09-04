@@ -42,7 +42,8 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
-   "options": "Email"
+   "options": "Email",
+   "read_only_depends_on": "eval:doc.status != \"Raw Data\""
   },
   {
    "fieldname": "phone_number",
@@ -83,7 +84,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 09:52:17.280659",
+ "modified": "2024-09-04 12:05:46.902550",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",

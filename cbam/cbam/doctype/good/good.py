@@ -9,6 +9,8 @@ class Good(Document):
 	def validate(self):
 		self.get_responsible_employee()
 		self.split_good()
+		if self.sent_to_supplier_employee == "Sent":
+			self.create_new_employee_user()
 
 	def after_insert(self):
 		self.add_to_linked_supplier()
@@ -186,3 +188,18 @@ class Good(Document):
 		supplier_item = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
 		for item in supplier_item:
 			item.delete()
+
+	def create_new_employee_user(self):
+		employee_email = frappe.get_value("Supplier Employee", self.employee, "email")
+		employee_last_name = frappe.get_value("Supplier Employee", self.employee, "last_name")
+		employee_first_name = frappe.get_value("Supplier Employee", self.employee, "first_name")
+		all_users_list = frappe.get_all("User", filters={'email': employee_email}, fields=["name"], pluck="name")
+		if not all_users_list:
+			new_user = frappe.new_doc("User")
+			new_user.email = employee_email
+			new_user.last_name = employee_last_name
+			new_user.first_name = employee_first_name
+			new_user.append("role_profiles", {
+				"role_profile": "00 Supplier"
+			})
+			new_user.insert()

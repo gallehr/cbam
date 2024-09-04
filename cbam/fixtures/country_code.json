@@ -1,1382 +1,1388 @@
 [
-    {
-      "country_full_name": "Afghanistan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AF"
-    },
-    {
-      "country_full_name": "Albania",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AL"
-    },
-    {
-      "country_full_name": "Algeria",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "DZ"
-    },
-    {
-      "country_full_name": "Andorra",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AD"
-    },
-    {
-      "country_full_name": "Angola",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AO"
-    },
-    {
-      "country_full_name": "Antigua and Barbuda",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AG"
-    },
-    {
-      "country_full_name": "Argentina",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AR"
-    },
-    {
-      "country_full_name": "Armenia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AM"
-    },
-    {
-      "country_full_name": "Australia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AU"
-    },
-    {
-      "country_full_name": "Austria",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AT"
-    },
-    {
-      "country_full_name": "Azerbaijan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AZ"
-    },
-    {
-      "country_full_name": "Bahamas",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BS"
-    },
-    {
-      "country_full_name": "Bahrain",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BH"
-    },
-    {
-      "country_full_name": "Bangladesh",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BD"
-    },
-    {
-      "country_full_name": "Barbados",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BB"
-    },
-    {
-      "country_full_name": "Belarus",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BY"
-    },
-    {
-      "country_full_name": "Belgium",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BE"
-    },
-    {
-      "country_full_name": "Belize",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BZ"
-    },
-    {
-      "country_full_name": "Benin",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BJ"
-    },
-    {
-      "country_full_name": "Bhutan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BT"
-    },
-    {
-      "country_full_name": "Bolivia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BO"
-    },
-    {
-      "country_full_name": "Bosnia and Herzegovina",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BA"
-    },
-    {
-      "country_full_name": "Botswana",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BW"
-    },
-    {
-      "country_full_name": "Brazil",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BR"
-    },
-    {
-      "country_full_name": "Brunei",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BN"
-    },
-    {
-      "country_full_name": "Bulgaria",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BG"
-    },
-    {
-      "country_full_name": "Burkina Faso",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BF"
-    },
-    {
-      "country_full_name": "Burundi",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "BI"
-    },
-    {
-      "country_full_name": "Cabo Verde",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CV"
-    },
-    {
-      "country_full_name": "Cambodia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KH"
-    },
-    {
-      "country_full_name": "Cameroon",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CM"
-    },
-    {
-      "country_full_name": "Canada",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CA"
-    },
-    {
-      "country_full_name": "Central African Republic",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CF"
-    },
-    {
-      "country_full_name": "Chad",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TD"
-    },
-    {
-      "country_full_name": "Chile",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CL"
-    },
-    {
-      "country_full_name": "China",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CN"
-    },
-    {
-      "country_full_name": "Colombia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CO"
-    },
-    {
-      "country_full_name": "Comoros",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KM"
-    },
-    {
-      "country_full_name": "Congo, Democratic Republic of the",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CD"
-    },
-    {
-      "country_full_name": "Congo, Republic of the",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CG"
-    },
-    {
-      "country_full_name": "Costa Rica",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CR"
-    },
-    {
-      "country_full_name": "Croatia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "HR"
-    },
-    {
-      "country_full_name": "Cuba",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CU"
-    },
-    {
-      "country_full_name": "Cyprus",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CY"
-    },
-    {
-      "country_full_name": "Czech Republic",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CZ"
-    },
-    {
-      "country_full_name": "Denmark",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "DK"
-    },
-    {
-      "country_full_name": "Djibouti",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "DJ"
-    },
-    {
-      "country_full_name": "Dominica",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "DM"
-    },
-    {
-      "country_full_name": "Dominican Republic",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "DO"
-    },
-    {
-      "country_full_name": "Ecuador",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "EC"
-    },
-    {
-      "country_full_name": "Egypt",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "EG"
-    },
-    {
-      "country_full_name": "El Salvador",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SV"
-    },
-    {
-      "country_full_name": "Equatorial Guinea",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GQ"
-    },
-    {
-      "country_full_name": "Eritrea",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ER"
-    },
-    {
-      "country_full_name": "Estonia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "EE"
-    },
-    {
-      "country_full_name": "Eswatini",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SZ"
-    },
-    {
-      "country_full_name": "Ethiopia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ET"
-    },
-    {
-      "country_full_name": "Fiji",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "FJ"
-    },
-    {
-      "country_full_name": "Finland",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "FI"
-    },
-    {
-      "country_full_name": "France",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "FR"
-    },
-    {
-      "country_full_name": "Gabon",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GA"
-    },
-    {
-      "country_full_name": "Gambia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GM"
-    },
-    {
-      "country_full_name": "Georgia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GE"
-    },
-    {
-      "country_full_name": "Germany",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:12.218405",
-      "name": "DE"
-    },
-    {
-      "country_full_name": "Ghana",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GH"
-    },
-    {
-      "country_full_name": "Greece",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GR"
-    },
-    {
-      "country_full_name": "Grenada",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GD"
-    },
-    {
-      "country_full_name": "Guatemala",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GT"
-    },
-    {
-      "country_full_name": "Guinea",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GN"
-    },
-    {
-      "country_full_name": "Guinea-Bissau",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GW"
-    },
-    {
-      "country_full_name": "Guyana",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GY"
-    },
-    {
-      "country_full_name": "Haiti",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "HT"
-    },
-    {
-      "country_full_name": "Honduras",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "HN"
-    },
-    {
-        "country_full_name": "Hong Kong",
-        "docstatus": 0,
-        "doctype": "Country Code",
-        "modified": "2024-09-03 12:52:03.209142",
-        "name": "HK"
-      },
-    {
-      "country_full_name": "Hungary",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "HU"
-    },
-    {
-      "country_full_name": "Iceland",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IS"
-    },
-    {
-      "country_full_name": "India",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IN"
-    },
-    {
-      "country_full_name": "Indonesia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ID"
-    },
-    {
-      "country_full_name": "Iran",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IR"
-    },
-    {
-      "country_full_name": "Iraq",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IQ"
-    },
-    {
-      "country_full_name": "Ireland",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IE"
-    },
-    {
-      "country_full_name": "Israel",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IL"
-    },
-    {
-      "country_full_name": "Italy",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "IT"
-    },
-    {
-      "country_full_name": "Jamaica",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "JM"
-    },
-    {
-      "country_full_name": "Japan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "JP"
-    },
-    {
-      "country_full_name": "Jordan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "JO"
-    },
-    {
-      "country_full_name": "Kazakhstan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KZ"
-    },
-    {
-      "country_full_name": "Kenya",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KE"
-    },
-    {
-      "country_full_name": "Kiribati",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KI"
-    },
-    {
-      "country_full_name": "Kuwait",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KW"
-    },
-    {
-      "country_full_name": "Kyrgyzstan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KG"
-    },
-    {
-      "country_full_name": "Laos",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LA"
-    },
-    {
-      "country_full_name": "Latvia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LV"
-    },
-    {
-      "country_full_name": "Lebanon",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LB"
-    },
-    {
-      "country_full_name": "Lesotho",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LS"
-    },
-    {
-      "country_full_name": "Liberia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LR"
-    },
-    {
-      "country_full_name": "Libya",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LY"
-    },
-    {
-      "country_full_name": "Liechtenstein",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LI"
-    },
-    {
-      "country_full_name": "Lithuania",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LT"
-    },
-    {
-      "country_full_name": "Luxembourg",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LU"
-    },
-    {
-      "country_full_name": "Madagascar",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MG"
-    },
-    {
-      "country_full_name": "Malawi",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MW"
-    },
-    {
-      "country_full_name": "Malaysia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MY"
-    },
-    {
-      "country_full_name": "Maldives",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MV"
-    },
-    {
-      "country_full_name": "Mali",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ML"
-    },
-    {
-      "country_full_name": "Malta",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MT"
-    },
-    {
-      "country_full_name": "Marshall Islands",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MH"
-    },
-    {
-      "country_full_name": "Mauritania",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MR"
-    },
-    {
-      "country_full_name": "Mauritius",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MU"
-    },
-    {
-      "country_full_name": "Mexico",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MX"
-    },
-    {
-      "country_full_name": "Micronesia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "FM"
-    },
-    {
-      "country_full_name": "Moldova",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MD"
-    },
-    {
-      "country_full_name": "Monaco",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MC"
-    },
-    {
-      "country_full_name": "Mongolia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MN"
-    },
-    {
-      "country_full_name": "Montenegro",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ME"
-    },
-    {
-      "country_full_name": "Morocco",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MA"
-    },
-    {
-      "country_full_name": "Mozambique",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MZ"
-    },
-    {
-      "country_full_name": "Myanmar",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MM"
-    },
-    {
-      "country_full_name": "Namibia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NA"
-    },
-    {
-      "country_full_name": "Nauru",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NR"
-    },
-    {
-      "country_full_name": "Nepal",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NP"
-    },
-    {
-      "country_full_name": "Netherlands",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NL"
-    },
-    {
-      "country_full_name": "New Zealand",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NZ"
-    },
-    {
-      "country_full_name": "Nicaragua",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NI"
-    },
-    {
-      "country_full_name": "Niger",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NE"
-    },
-    {
-      "country_full_name": "Nigeria",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NG"
-    },
-    {
-      "country_full_name": "North Korea",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KP"
-    },
-    {
-      "country_full_name": "North Macedonia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "MK"
-    },
-    {
-      "country_full_name": "Norway",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "NO"
-    },
-    {
-      "country_full_name": "Oman",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "OM"
-    },
-    {
-      "country_full_name": "Pakistan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PK"
-    },
-    {
-      "country_full_name": "Palau",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PW"
-    },
-    {
-      "country_full_name": "Palestine",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PS"
-    },
-    {
-      "country_full_name": "Panama",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PA"
-    },
-    {
-      "country_full_name": "Papua New Guinea",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PG"
-    },
-    {
-      "country_full_name": "Paraguay",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PY"
-    },
-    {
-      "country_full_name": "Peru",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PE"
-    },
-    {
-      "country_full_name": "Philippines",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PH"
-    },
-    {
-      "country_full_name": "Poland",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PL"
-    },
-    {
-      "country_full_name": "Portugal",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "PT"
-    },
-    {
-      "country_full_name": "Qatar",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "QA"
-    },
-    {
-      "country_full_name": "Republic of the Congo",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CG"
-    },
-    {
-      "country_full_name": "Romania",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "RO"
-    },
-    {
-      "country_full_name": "Russia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "RU"
-    },
-    {
-      "country_full_name": "Rwanda",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "RW"
-    },
-    {
-      "country_full_name": "Saint Kitts and Nevis",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KN"
-    },
-    {
-      "country_full_name": "Saint Lucia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LC"
-    },
-    {
-      "country_full_name": "Saint Vincent and the Grenadines",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "VC"
-    },
-    {
-      "country_full_name": "Samoa",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "WS"
-    },
-    {
-      "country_full_name": "San Marino",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SM"
-    },
-    {
-      "country_full_name": "Sao Tome and Principe",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ST"
-    },
-    {
-      "country_full_name": "Saudi Arabia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SA"
-    },
-    {
-      "country_full_name": "Senegal",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SN"
-    },
-    {
-      "country_full_name": "Serbia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "RS"
-    },
-    {
-      "country_full_name": "Seychelles",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SC"
-    },
-    {
-      "country_full_name": "Sierra Leone",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SL"
-    },
-    {
-      "country_full_name": "Singapore",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SG"
-    },
-    {
-      "country_full_name": "Slovakia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SK"
-    },
-    {
-      "country_full_name": "Slovenia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SI"
-    },
-    {
-      "country_full_name": "Solomon Islands",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SB"
-    },
-    {
-      "country_full_name": "Somalia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SO"
-    },
-    {
-      "country_full_name": "South Africa",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ZA"
-    },
-    {
-      "country_full_name": "South Korea",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "KR"
-    },
-    {
-      "country_full_name": "South Sudan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SS"
-    },
-    {
-      "country_full_name": "Spain",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ES"
-    },
-    {
-      "country_full_name": "Sri Lanka",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "LK"
-    },
-    {
-      "country_full_name": "Sudan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SD"
-    },
-    {
-      "country_full_name": "Suriname",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SR"
-    },
-    {
-      "country_full_name": "Sweden",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SE"
-    },
-    {
-      "country_full_name": "Switzerland",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "CH"
-    },
-    {
-      "country_full_name": "Syria",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "SY"
-    },
-    {
-      "country_full_name": "Taiwan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TW"
-    },
-    {
-      "country_full_name": "Tajikistan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TJ"
-    },
-    {
-      "country_full_name": "Tanzania",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TZ"
-    },
-    {
-      "country_full_name": "Thailand",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TH"
-    },
-    {
-      "country_full_name": "Timor-Leste",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TL"
-    },
-    {
-      "country_full_name": "Togo",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TG"
-    },
-    {
-      "country_full_name": "Tonga",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TO"
-    },
-    {
-      "country_full_name": "Trinidad and Tobago",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TT"
-    },
-    {
-      "country_full_name": "Tunisia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TN"
-    },
-    {
-      "country_full_name": "Turkey",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TR"
-    },
-    {
-      "country_full_name": "Turkmenistan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TM"
-    },
-    {
-      "country_full_name": "Tuvalu",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "TV"
-    },
-    {
-      "country_full_name": "Uganda",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "UG"
-    },
-    {
-      "country_full_name": "Ukraine",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "UA"
-    },
-    {
-      "country_full_name": "United Arab Emirates",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "AE"
-    },
-    {
-      "country_full_name": "United Kingdom",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "GB"
-    },
-    {
-      "country_full_name": "United States",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "US"
-    },
-    {
-      "country_full_name": "Uruguay",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "UY"
-    },
-    {
-      "country_full_name": "Uzbekistan",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "UZ"
-    },
-    {
-      "country_full_name": "Vanuatu",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "VU"
-    },
-    {
-      "country_full_name": "Vatican City",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "VA"
-    },
-    {
-      "country_full_name": "Venezuela",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "VE"
-    },
-    {
-      "country_full_name": "Vietnam",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "VN"
-    },
-    {
-      "country_full_name": "Yemen",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "YE"
-    },
-    {
-      "country_full_name": "Zambia",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ZM"
-    },
-    {
-      "country_full_name": "Zimbabwe",
-      "docstatus": 0,
-      "doctype": "Country Code",
-      "modified": "2024-09-03 12:52:03.209142",
-      "name": "ZW"
-    }
-  ]
-  
+ {
+  "country_full_name": "",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:47.004993",
+  "name": "UK"
+ },
+ {
+  "country_full_name": "Serbia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "XS"
+ },
+ {
+  "country_full_name": "Afghanistan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AF"
+ },
+ {
+  "country_full_name": "Albania",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AL"
+ },
+ {
+  "country_full_name": "Algeria",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "DZ"
+ },
+ {
+  "country_full_name": "Andorra",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AD"
+ },
+ {
+  "country_full_name": "Angola",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AO"
+ },
+ {
+  "country_full_name": "Antigua and Barbuda",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AG"
+ },
+ {
+  "country_full_name": "Argentina",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AR"
+ },
+ {
+  "country_full_name": "Armenia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AM"
+ },
+ {
+  "country_full_name": "Australia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AU"
+ },
+ {
+  "country_full_name": "Austria",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AT"
+ },
+ {
+  "country_full_name": "Azerbaijan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AZ"
+ },
+ {
+  "country_full_name": "Bahamas",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BS"
+ },
+ {
+  "country_full_name": "Bahrain",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BH"
+ },
+ {
+  "country_full_name": "Bangladesh",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BD"
+ },
+ {
+  "country_full_name": "Barbados",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BB"
+ },
+ {
+  "country_full_name": "Belarus",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BY"
+ },
+ {
+  "country_full_name": "Belgium",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BE"
+ },
+ {
+  "country_full_name": "Belize",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BZ"
+ },
+ {
+  "country_full_name": "Benin",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BJ"
+ },
+ {
+  "country_full_name": "Bhutan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BT"
+ },
+ {
+  "country_full_name": "Bolivia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BO"
+ },
+ {
+  "country_full_name": "Bosnia and Herzegovina",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BA"
+ },
+ {
+  "country_full_name": "Botswana",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BW"
+ },
+ {
+  "country_full_name": "Brazil",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BR"
+ },
+ {
+  "country_full_name": "Brunei",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BN"
+ },
+ {
+  "country_full_name": "Bulgaria",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BG"
+ },
+ {
+  "country_full_name": "Burkina Faso",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BF"
+ },
+ {
+  "country_full_name": "Burundi",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "BI"
+ },
+ {
+  "country_full_name": "Cabo Verde",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CV"
+ },
+ {
+  "country_full_name": "Cambodia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KH"
+ },
+ {
+  "country_full_name": "Cameroon",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CM"
+ },
+ {
+  "country_full_name": "Canada",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CA"
+ },
+ {
+  "country_full_name": "Central African Republic",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CF"
+ },
+ {
+  "country_full_name": "Chad",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TD"
+ },
+ {
+  "country_full_name": "Chile",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CL"
+ },
+ {
+  "country_full_name": "China",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CN"
+ },
+ {
+  "country_full_name": "Colombia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CO"
+ },
+ {
+  "country_full_name": "Comoros",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KM"
+ },
+ {
+  "country_full_name": "Congo, Democratic Republic of the",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CD"
+ },
+ {
+  "country_full_name": "Costa Rica",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CR"
+ },
+ {
+  "country_full_name": "Croatia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "HR"
+ },
+ {
+  "country_full_name": "Cuba",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CU"
+ },
+ {
+  "country_full_name": "Cyprus",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CY"
+ },
+ {
+  "country_full_name": "Czech Republic",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CZ"
+ },
+ {
+  "country_full_name": "Denmark",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "DK"
+ },
+ {
+  "country_full_name": "Djibouti",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "DJ"
+ },
+ {
+  "country_full_name": "Dominica",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "DM"
+ },
+ {
+  "country_full_name": "Dominican Republic",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "DO"
+ },
+ {
+  "country_full_name": "Ecuador",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "EC"
+ },
+ {
+  "country_full_name": "Egypt",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "EG"
+ },
+ {
+  "country_full_name": "El Salvador",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SV"
+ },
+ {
+  "country_full_name": "Equatorial Guinea",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GQ"
+ },
+ {
+  "country_full_name": "Eritrea",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ER"
+ },
+ {
+  "country_full_name": "Estonia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "EE"
+ },
+ {
+  "country_full_name": "Eswatini",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SZ"
+ },
+ {
+  "country_full_name": "Ethiopia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ET"
+ },
+ {
+  "country_full_name": "Fiji",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "FJ"
+ },
+ {
+  "country_full_name": "Finland",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "FI"
+ },
+ {
+  "country_full_name": "France",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "FR"
+ },
+ {
+  "country_full_name": "Gabon",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GA"
+ },
+ {
+  "country_full_name": "Gambia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GM"
+ },
+ {
+  "country_full_name": "Georgia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GE"
+ },
+ {
+  "country_full_name": "Ghana",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GH"
+ },
+ {
+  "country_full_name": "Greece",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GR"
+ },
+ {
+  "country_full_name": "Grenada",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GD"
+ },
+ {
+  "country_full_name": "Guatemala",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GT"
+ },
+ {
+  "country_full_name": "Guinea",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GN"
+ },
+ {
+  "country_full_name": "Guinea-Bissau",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GW"
+ },
+ {
+  "country_full_name": "Guyana",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GY"
+ },
+ {
+  "country_full_name": "Haiti",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "HT"
+ },
+ {
+  "country_full_name": "Honduras",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "HN"
+ },
+ {
+  "country_full_name": "Hong Kong",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "HK"
+ },
+ {
+  "country_full_name": "Hungary",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "HU"
+ },
+ {
+  "country_full_name": "Iceland",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IS"
+ },
+ {
+  "country_full_name": "India",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IN"
+ },
+ {
+  "country_full_name": "Indonesia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ID"
+ },
+ {
+  "country_full_name": "Iran",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IR"
+ },
+ {
+  "country_full_name": "Iraq",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IQ"
+ },
+ {
+  "country_full_name": "Ireland",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IE"
+ },
+ {
+  "country_full_name": "Israel",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IL"
+ },
+ {
+  "country_full_name": "Italy",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IT"
+ },
+ {
+  "country_full_name": "Jamaica",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "JM"
+ },
+ {
+  "country_full_name": "Jordan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "JO"
+ },
+ {
+  "country_full_name": "Kazakhstan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KZ"
+ },
+ {
+  "country_full_name": "Kenya",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KE"
+ },
+ {
+  "country_full_name": "Kiribati",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KI"
+ },
+ {
+  "country_full_name": "Kuwait",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KW"
+ },
+ {
+  "country_full_name": "Kyrgyzstan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KG"
+ },
+ {
+  "country_full_name": "Laos",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LA"
+ },
+ {
+  "country_full_name": "Latvia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LV"
+ },
+ {
+  "country_full_name": "Lebanon",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LB"
+ },
+ {
+  "country_full_name": "Lesotho",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LS"
+ },
+ {
+  "country_full_name": "Liberia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LR"
+ },
+ {
+  "country_full_name": "Libya",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LY"
+ },
+ {
+  "country_full_name": "Liechtenstein",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LI"
+ },
+ {
+  "country_full_name": "Lithuania",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LT"
+ },
+ {
+  "country_full_name": "Luxembourg",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LU"
+ },
+ {
+  "country_full_name": "Madagascar",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MG"
+ },
+ {
+  "country_full_name": "Malawi",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MW"
+ },
+ {
+  "country_full_name": "Malaysia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MY"
+ },
+ {
+  "country_full_name": "Maldives",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MV"
+ },
+ {
+  "country_full_name": "Mali",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ML"
+ },
+ {
+  "country_full_name": "Malta",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MT"
+ },
+ {
+  "country_full_name": "Marshall Islands",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MH"
+ },
+ {
+  "country_full_name": "Mauritania",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MR"
+ },
+ {
+  "country_full_name": "Mauritius",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MU"
+ },
+ {
+  "country_full_name": "Mexico",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MX"
+ },
+ {
+  "country_full_name": "Micronesia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "FM"
+ },
+ {
+  "country_full_name": "Moldova",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MD"
+ },
+ {
+  "country_full_name": "Monaco",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MC"
+ },
+ {
+  "country_full_name": "Mongolia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MN"
+ },
+ {
+  "country_full_name": "Montenegro",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ME"
+ },
+ {
+  "country_full_name": "Morocco",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MA"
+ },
+ {
+  "country_full_name": "Mozambique",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MZ"
+ },
+ {
+  "country_full_name": "Myanmar",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MM"
+ },
+ {
+  "country_full_name": "Namibia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NA"
+ },
+ {
+  "country_full_name": "Nauru",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NR"
+ },
+ {
+  "country_full_name": "Nepal",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NP"
+ },
+ {
+  "country_full_name": "Netherlands",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NL"
+ },
+ {
+  "country_full_name": "New Zealand",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NZ"
+ },
+ {
+  "country_full_name": "Nicaragua",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NI"
+ },
+ {
+  "country_full_name": "Niger",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NE"
+ },
+ {
+  "country_full_name": "Nigeria",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NG"
+ },
+ {
+  "country_full_name": "North Korea",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KP"
+ },
+ {
+  "country_full_name": "North Macedonia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "MK"
+ },
+ {
+  "country_full_name": "Norway",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "NO"
+ },
+ {
+  "country_full_name": "Oman",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "OM"
+ },
+ {
+  "country_full_name": "Pakistan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PK"
+ },
+ {
+  "country_full_name": "Palau",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PW"
+ },
+ {
+  "country_full_name": "Palestine",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PS"
+ },
+ {
+  "country_full_name": "Panama",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PA"
+ },
+ {
+  "country_full_name": "Papua New Guinea",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PG"
+ },
+ {
+  "country_full_name": "Paraguay",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PY"
+ },
+ {
+  "country_full_name": "Peru",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PE"
+ },
+ {
+  "country_full_name": "Philippines",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PH"
+ },
+ {
+  "country_full_name": "Poland",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PL"
+ },
+ {
+  "country_full_name": "Portugal",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "PT"
+ },
+ {
+  "country_full_name": "Qatar",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "QA"
+ },
+ {
+  "country_full_name": "Republic of the Congo",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CG"
+ },
+ {
+  "country_full_name": "Romania",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "RO"
+ },
+ {
+  "country_full_name": "Russia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "RU"
+ },
+ {
+  "country_full_name": "Rwanda",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "RW"
+ },
+ {
+  "country_full_name": "Saint Kitts and Nevis",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KN"
+ },
+ {
+  "country_full_name": "Saint Lucia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LC"
+ },
+ {
+  "country_full_name": "Saint Vincent and the Grenadines",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "VC"
+ },
+ {
+  "country_full_name": "Samoa",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "WS"
+ },
+ {
+  "country_full_name": "San Marino",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SM"
+ },
+ {
+  "country_full_name": "Sao Tome and Principe",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ST"
+ },
+ {
+  "country_full_name": "Saudi Arabia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SA"
+ },
+ {
+  "country_full_name": "Senegal",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SN"
+ },
+ {
+  "country_full_name": "Serbia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "RS"
+ },
+ {
+  "country_full_name": "Seychelles",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SC"
+ },
+ {
+  "country_full_name": "Sierra Leone",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SL"
+ },
+ {
+  "country_full_name": "Singapore",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SG"
+ },
+ {
+  "country_full_name": "Slovakia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SK"
+ },
+ {
+  "country_full_name": "Slovenia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SI"
+ },
+ {
+  "country_full_name": "Solomon Islands",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SB"
+ },
+ {
+  "country_full_name": "Somalia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SO"
+ },
+ {
+  "country_full_name": "South Africa",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ZA"
+ },
+ {
+  "country_full_name": "South Korea",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "KR"
+ },
+ {
+  "country_full_name": "South Sudan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SS"
+ },
+ {
+  "country_full_name": "Spain",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ES"
+ },
+ {
+  "country_full_name": "Sri Lanka",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "LK"
+ },
+ {
+  "country_full_name": "Sudan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SD"
+ },
+ {
+  "country_full_name": "Suriname",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SR"
+ },
+ {
+  "country_full_name": "Sweden",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SE"
+ },
+ {
+  "country_full_name": "Switzerland",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "CH"
+ },
+ {
+  "country_full_name": "Syria",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SY"
+ },
+ {
+  "country_full_name": "Taiwan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TW"
+ },
+ {
+  "country_full_name": "Tajikistan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TJ"
+ },
+ {
+  "country_full_name": "Tanzania",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TZ"
+ },
+ {
+  "country_full_name": "Thailand",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TH"
+ },
+ {
+  "country_full_name": "Timor-Leste",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TL"
+ },
+ {
+  "country_full_name": "Togo",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TG"
+ },
+ {
+  "country_full_name": "Tonga",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TO"
+ },
+ {
+  "country_full_name": "Trinidad and Tobago",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TT"
+ },
+ {
+  "country_full_name": "Tunisia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TN"
+ },
+ {
+  "country_full_name": "Turkmenistan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TM"
+ },
+ {
+  "country_full_name": "Tuvalu",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TV"
+ },
+ {
+  "country_full_name": "Uganda",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "UG"
+ },
+ {
+  "country_full_name": "Ukraine",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "UA"
+ },
+ {
+  "country_full_name": "United Arab Emirates",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AE"
+ },
+ {
+  "country_full_name": "United Kingdom",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "GB"
+ },
+ {
+  "country_full_name": "United States",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "US"
+ },
+ {
+  "country_full_name": "Uruguay",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "UY"
+ },
+ {
+  "country_full_name": "Uzbekistan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "UZ"
+ },
+ {
+  "country_full_name": "Vanuatu",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "VU"
+ },
+ {
+  "country_full_name": "Vatican City",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "VA"
+ },
+ {
+  "country_full_name": "Venezuela",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "VE"
+ },
+ {
+  "country_full_name": "Vietnam",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "VN"
+ },
+ {
+  "country_full_name": "Yemen",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "YE"
+ },
+ {
+  "country_full_name": "Zambia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ZM"
+ },
+ {
+  "country_full_name": "Zimbabwe",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ZW"
+ },
+ {
+  "country_full_name": "Japan",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "JP"
+ },
+ {
+  "country_full_name": "Turkey",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "TR"
+ },
+ {
+  "country_full_name": "Germany",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:12.218405",
+  "name": "DE"
+ }
+]

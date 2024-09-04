@@ -1,13 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:IMP-{import_name}",
+ "autoname": "format:{import_name}",
  "creation": "2024-08-20 15:25:42.757431",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "import_name",
-  "is_goods_imported",
+  "is_goods_import_complete",
   "goods"
  ],
  "fields": [
@@ -15,24 +15,25 @@
    "fieldname": "goods",
    "fieldtype": "Table",
    "label": "Goods",
-   "options": "Good Item"
+   "options": "Good Item",
+   "read_only": 1
   },
   {
    "fieldname": "import_name",
    "fieldtype": "Data",
    "label": "Import Name",
-   "read_only_depends_on": "eval:doc.is_goods_imported == 1"
+   "read_only_depends_on": "eval:doc.is_goods_import_complete == 1"
   },
   {
    "default": "0",
-   "fieldname": "is_goods_imported",
+   "fieldname": "is_goods_import_complete",
    "fieldtype": "Check",
-   "label": "Goods Imported"
+   "label": "Goods Import Complete"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 11:18:56.220886",
+ "modified": "2024-09-03 18:09:29.958408",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Customs Import",

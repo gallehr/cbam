@@ -243,5 +243,21 @@ app_license = "mit"
 # }
 
 fixtures = [
-    {"dt": "Country Code"}
+    {"dt": "Country Code"},
+    {"dt": "Role", "filters": [
+    [
+        "name", "in", [
+            "Reporting Declarant",
+            "Supplier"
+        ]
+    ]
+]},
+    {"dt": "Role Profile", "filters": [
+    [
+        "name", "in", [
+            "00 Reporting Declarant",
+            "00 Supplier"
+        ]
+    ]
+]}
 ]

@@ -8,41 +8,28 @@ from frappe.model.document import Document
 
 
 class Supplier(Document):
-	def validate(self):
-		pass
-
-	def after_insert(self):
-		self.add_linked_goods_to_childtable()
-		if self.status == "Sent to Supplier":
-			self.create_new_supplier_user()
+	# def after_insert(self):
+		# self.add_linked_goods_to_childtable() INFORMATION:replaced by logic in good doctype
+		# if self.status == "Sent to Supplier":
+		# 	self.create_new_supplier_user()
 
 	def on_update(self):
 		self.create_new_employee()
 		self.add_main_employee_to_cht()
-		self.add_linked_goods_to_childtable()
+		# self.add_linked_goods_to_childtable() INFORMATION:replaced by logic in good doctype
 
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Confirmed by Supplier"
 
-	def create_new_supplier_user(self):
-		new_user = frappe.new_doc("User")
-		new_user.email = self.company_email
-		new_user.first_name = self.supplier_name
-		new_user.append("role_profiles", {
-			"name": "ibr1s5ocqu",
-			"role_profile": "Supplier"
-		})
-		new_user.insert()
-
-	def add_linked_goods_to_childtable(self):
-		good_list = frappe.get_list("Good", pluck="name")
-		for good in good_list:
-			linked_supplier = frappe.get_value("Good", good, "supplier")
-			if linked_supplier == self.name:
-				self.append("goods", {
-					"good_number": good
-				})
+	# def add_linked_goods_to_childtable(self): INFORMATION:replaced by logic in good doctype
+	# 	good_list = frappe.get_list("Good", pluck="name")
+	# 	for good in good_list:
+	# 		linked_supplier = frappe.get_value("Good", good, "supplier")
+	# 		if linked_supplier == self.name:
+	# 			self.append("goods", {
+	# 				"good_number": good
+	# 			})
 
 	def create_new_employee(self):
 		is_employee_registered = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")

@@ -6,11 +6,12 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "sent_to_supplier_employee",
   "status",
-  "internal_customs_import_number",
   "master_reference_number_mrn",
   "column_break_nktj",
   "is_data_confirmed",
+  "internal_customs_import_number",
   "hand_over_date",
   "goods_data_section",
   "article_number",
@@ -494,11 +495,19 @@
    "fieldtype": "Link",
    "label": "Internal Customs Import Number",
    "options": "Customs Import"
+  },
+  {
+   "default": "Not sent",
+   "fieldname": "sent_to_supplier_employee",
+   "fieldtype": "Select",
+   "label": "Sent to Supplier Employee?",
+   "options": "Not sent\nSent",
+   "read_only_depends_on": "eval:doc.sent_to_supplier_employee==\"Sent\""
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-29 10:11:23.665737",
+ "modified": "2024-09-04 13:41:51.792278",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",

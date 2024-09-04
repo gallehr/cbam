@@ -116,7 +116,8 @@
    "fieldname": "goods",
    "fieldtype": "Table",
    "label": "Goods",
-   "options": "Good Item"
+   "options": "Good Item",
+   "read_only": 1
   },
   {
    "fieldname": "main_contact_employee_last_name",
@@ -127,8 +128,7 @@
   {
    "fieldname": "main_contact_employee_first_name",
    "fieldtype": "Data",
-   "label": "Main Contact Employee First Name",
-   "reqd": 1
+   "label": "Main Contact Employee First Name"
   },
   {
    "depends_on": "eval:doc.employees.map(child => child.is_main_contact).includes(1) == 0",
@@ -172,7 +172,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-29 08:55:28.471640",
+ "modified": "2024-09-04 11:44:16.801284",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
