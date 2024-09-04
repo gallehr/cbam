@@ -58,7 +58,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Raw Data\nSent to Supplier\nConfirmed by Supplier",
+   "options": "Raw Data\nSent for confirmation\nConfirmed",
    "read_only_depends_on": "eval:doc.is_data_confirmed==true"
   },
   {
@@ -172,7 +172,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 11:44:16.801284",
+ "modified": "2024-09-04 13:59:15.643436",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
@@ -201,11 +201,11 @@
   },
   {
    "color": "Yellow",
-   "title": "Sent to Supplier"
+   "title": "Sent for confirmation"
   },
   {
    "color": "Green",
-   "title": "Confirmed by Supplier"
+   "title": "Confirmed"
   }
  ],
  "title_field": "supplier_name"

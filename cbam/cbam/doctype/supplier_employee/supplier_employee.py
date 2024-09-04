@@ -8,7 +8,7 @@ from frappe.model.document import Document
 class SupplierEmployee(Document):
 	def before_save(self):
 		if self.is_data_confirmed == True:
-			self.status = "Confirmed by Supplier"
+			self.status = "Data confirmed by Employee"
 
 	def on_trash(self):
 		self.delete_child()

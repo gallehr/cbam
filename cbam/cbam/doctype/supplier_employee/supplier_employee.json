@@ -64,11 +64,13 @@
   },
   {
    "default": "Raw Data",
+   "description": "Describes the state of the Data Confirmation by the Employee him/her self.\nRaw Data =  Not sent to the Employee yet.\n",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Raw Data\nSent to Supplier\nConfirmed by Supplier",
-   "permlevel": 1
+   "options": "Raw Data\nSent to Supplier Employee\nData confirmed by Employee",
+   "permlevel": 1,
+   "read_only": 1
   },
   {
    "default": "0",
@@ -84,7 +86,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 12:05:46.902550",
+ "modified": "2024-09-04 14:08:15.107287",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
@@ -113,11 +115,11 @@
   },
   {
    "color": "Yellow",
-   "title": "Sent to Supplier"
+   "title": "Sent to Supplier Employee"
   },
   {
    "color": "Green",
-   "title": "Confirmed by Supplier"
+   "title": "Data confirmed by Employee"
   }
  ],
  "title_field": "email"

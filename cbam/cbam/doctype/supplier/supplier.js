@@ -38,9 +38,21 @@ frappe.ui.form.on('Supplier Employee Item', {
 		frm.set_query("employee_number", (doc) => {
 			return {
 				filters: {
-					"supplier_company": "00000001", // whatever state is selected
+					"supplier_company": "00000001",
 				},
 			};
 		});
 	},
 });
+
+//  https://discuss.frappe.io/t/filter-child-table/86467 or https://discuss.frappe.io/t/filter-link-field-on-child-table/75184 
+function filterChildFields(frm, tableName, fieldTrigger, fieldName, fieldFiltered) {
+    frm.fields_dict[tableName].grid.get_field(fieldFiltered).get_query = function(doc, cdt, cdn) {
+        var child = locals[cdt][cdn];
+        return {
+            filters:[
+                [fieldName, '=', child[fieldTrigger]]
+            ]
+        }
+    }
+}
