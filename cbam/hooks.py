@@ -259,5 +259,13 @@ fixtures = [
             "00 Supplier"
         ]
     ]
-]}
+]},
+    {"dt": "Custom DocPerm", "filters": [
+        [
+            "role", "in", [
+                "Supplier",
+                "Reporting Declarant",
+            ]
+        ]
+    ]},
 ]
