@@ -190,12 +190,12 @@ class Good(Document):
 			item.delete()
 
 	def create_new_employee_user(self):
-		employee_docname = frappe.get_value("Supplier Employee", self.employee, "name")
 		employee_email = frappe.get_value("Supplier Employee", self.employee, "email")
-		employee_last_name = frappe.get_value("Supplier Employee", self.employee, "last_name")
-		employee_first_name = frappe.get_value("Supplier Employee", self.employee, "first_name")
 		all_users_list = frappe.get_all("User", filters={'email': employee_email}, fields=["name"], pluck="name")
 		if not all_users_list:
+			employee_docname = frappe.get_value("Supplier Employee", self.employee, "name")
+			employee_last_name = frappe.get_value("Supplier Employee", self.employee, "last_name")
+			employee_first_name = frappe.get_value("Supplier Employee", self.employee, "first_name")
 			frappe.db.set_value("Supplier Employee", employee_docname, "Status", "Sent to Supplier Employee")
 			new_user = frappe.new_doc("User")
 			new_user.email = employee_email

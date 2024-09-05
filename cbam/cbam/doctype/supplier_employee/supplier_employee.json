@@ -74,6 +74,7 @@
   },
   {
    "default": "0",
+   "description": "Only the Supplier Employee can check this checkbox.",
    "fieldname": "is_data_confirmed",
    "fieldtype": "Check",
    "label": "Contact details confirmed by supplier",
@@ -86,7 +87,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 14:08:15.107287",
+ "modified": "2024-09-04 18:01:28.865644",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",

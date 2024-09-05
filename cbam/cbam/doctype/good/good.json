@@ -110,8 +110,7 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Hand over date",
-   "permlevel": 1,
-   "reqd": 1
+   "permlevel": 1
   },
   {
    "fieldname": "values_section",
@@ -485,6 +484,7 @@
   },
   {
    "default": "0",
+   "description": "Only the Supplier Employee can check this checkbox.",
    "fieldname": "is_data_confirmed",
    "fieldtype": "Check",
    "label": "Good details confirmed or split by supplier",
@@ -507,7 +507,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 13:41:51.792278",
+ "modified": "2024-09-04 19:47:07.960591",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",

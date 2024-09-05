@@ -12,6 +12,9 @@ class Supplier(Document):
 		# self.add_linked_goods_to_childtable() INFORMATION:replaced by logic in good doctype
 		# if self.status == "Sent to Supplier":
 		# 	self.create_new_supplier_user()
+	def before_insert(self):
+		self.add_supplier_number_to_parent_field()
+		self.add_doc_name_as_supplier_number()
 
 	def on_update(self):
 		self.create_new_employee()
@@ -53,3 +56,16 @@ class Supplier(Document):
 				"is_main_contact": 1
 			})
 			self.save()
+
+	def add_supplier_number_to_parent_field(self):
+		user_role_profile = frappe.session.user
+		user_doc = frappe.get_doc("User", user_role_profile)
+		user_role_profiles_list = [role_profile.role_profile for role_profile in user_doc.role_profiles]
+		if "00 Supplier" in user_role_profiles_list:
+			supplier = frappe.get_value("Supplier Employee", {'email': user_doc.email}, ['supplier_company'])
+			self.parent_supplier = supplier
+			user_doc.save()
+
+	def add_doc_name_as_supplier_number(self):
+		if not self.supplier_number:
+			self.supplier_number = self.name

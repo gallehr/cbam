@@ -9,6 +9,7 @@
   "status",
   "column_break_xlzx",
   "is_data_confirmed",
+  "parent_supplier",
   "contact_details_section",
   "supplier_number",
   "supplier_name",
@@ -55,6 +56,7 @@
   },
   {
    "default": "Raw Data",
+   "description": "Describes the state of the Data Confirmation by the Main Contact Employee. \nRaw Data = Not sent to the Main Contact Employee yet.",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -77,6 +79,7 @@
   },
   {
    "default": "0",
+   "description": "Only the Supplier Employee (Main Contact) can check this checkbox.",
    "fieldname": "is_data_confirmed",
    "fieldtype": "Check",
    "label": "Contact details confirmed by supplier",
@@ -168,11 +171,18 @@
    "fieldtype": "Link",
    "label": "Country Code",
    "options": "Country Code"
+  },
+  {
+   "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
+   "fieldname": "parent_supplier",
+   "fieldtype": "Data",
+   "label": "Parent Supplier",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 13:59:15.643436",
+ "modified": "2024-09-04 18:06:34.222001",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
