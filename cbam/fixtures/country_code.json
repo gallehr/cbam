@@ -1365,11 +1365,11 @@
   "name": "ZW"
  },
  {
-  "country_full_name": "Japan",
+  "country_full_name": "Germany",
   "docstatus": 0,
   "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:03.209142",
-  "name": "JP"
+  "modified": "2024-09-03 12:52:12.218405",
+  "name": "DE"
  },
  {
   "country_full_name": "Turkey",
@@ -1379,10 +1379,10 @@
   "name": "TR"
  },
  {
-  "country_full_name": "Germany",
+  "country_full_name": "Japan",
   "docstatus": 0,
   "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:12.218405",
-  "name": "DE"
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "JP"
  }
 ]

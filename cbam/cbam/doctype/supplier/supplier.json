@@ -92,6 +92,7 @@
    "label": "Supplier Number"
   },
   {
+   "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
    "fieldname": "company_email",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -182,7 +183,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 18:06:34.222001",
+ "modified": "2024-09-05 10:43:23.169741",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
