@@ -19,6 +19,7 @@ def send_email(supplier, employee):
 
     if not is_data_confirmed_supplier and is_employee_main_contact:
         message_confirm_supplier = f"- Please check and confirm that the data we have of your Company by clicking on the following link: https://fuzzy-fortnight-7j67vp54w6rf74-8000.app.github.dev/confirm-supplier-details/{supplier}/edit\n\n"
+        frappe.set_value('Supplier', supplier, 'status', "Sent for confirmation")
     else:
         message_confirm_supplier = ""
 

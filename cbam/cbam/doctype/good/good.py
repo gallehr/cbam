@@ -73,6 +73,8 @@ class Good(Document):
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
+					# self.append("good_splits", new_good) DOESN'T WORK
+					# self.save()
 					next_highest_split_number += 1
 				if self.split_raw_mass_2 and self.split_raw_mass_2 != "0":
 					new_good = frappe.new_doc("Good")
@@ -80,6 +82,7 @@ class Good(Document):
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
 					new_good.good_description = self.good_description
+					new_good.internal_customs_import_number = self.internal_customs_import_number
 					new_good.customs_tariff_number = self.customs_tariff_number
 					new_good.country_of_origin = self.country_of_origin
 					new_good.shipping_country = self.shipping_country
@@ -104,6 +107,7 @@ class Good(Document):
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
 					new_good.good_description = self.good_description
+					new_good.internal_customs_import_number = self.internal_customs_import_number
 					new_good.customs_tariff_number = self.customs_tariff_number
 					new_good.country_of_origin = self.country_of_origin
 					new_good.shipping_country = self.shipping_country
@@ -128,6 +132,7 @@ class Good(Document):
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
 					new_good.good_description = self.good_description
+					new_good.internal_customs_import_number = self.internal_customs_import_number
 					new_good.customs_tariff_number = self.customs_tariff_number
 					new_good.country_of_origin = self.country_of_origin
 					new_good.shipping_country = self.shipping_country
@@ -152,6 +157,7 @@ class Good(Document):
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
 					new_good.good_description = self.good_description
+					new_good.internal_customs_import_number = self.internal_customs_import_number
 					new_good.customs_tariff_number = self.customs_tariff_number
 					new_good.country_of_origin = self.country_of_origin
 					new_good.shipping_country = self.shipping_country
