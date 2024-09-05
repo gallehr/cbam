@@ -54,8 +54,9 @@ class Good(Document):
 					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
-					new_good.good_description = self.good_description
 					new_good.customs_tariff_number = self.customs_tariff_number
+					new_good.good_description = self.good_description
+					new_good.internal_customs_import_number = self.internal_customs_import_number
 					new_good.country_of_origin = self.country_of_origin
 					new_good.shipping_country = self.shipping_country
 					new_good.customs_procedure = self.customs_procedure

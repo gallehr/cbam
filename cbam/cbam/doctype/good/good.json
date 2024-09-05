@@ -480,7 +480,7 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Open\nDone",
-   "permlevel": 1
+   "read_only": 1
   },
   {
    "default": "0",
@@ -507,7 +507,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 19:47:07.960591",
+ "modified": "2024-09-05 11:17:26.959201",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
