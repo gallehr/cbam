@@ -8,10 +8,6 @@ from frappe.model.document import Document
 
 
 class Supplier(Document):
-	# def after_insert(self):
-		# self.add_linked_goods_to_childtable() INFORMATION:replaced by logic in good doctype
-		# if self.status == "Sent to Supplier":
-		# 	self.create_new_supplier_user()
 	def before_insert(self):
 		self.add_supplier_number_to_parent_field()
 		self.add_doc_name_as_supplier_number()
@@ -19,20 +15,10 @@ class Supplier(Document):
 	def on_update(self):
 		self.create_new_employee()
 		self.add_main_employee_to_cht()
-		# self.add_linked_goods_to_childtable() INFORMATION:replaced by logic in good doctype
 
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Confirmed"
-
-	# def add_linked_goods_to_childtable(self): INFORMATION:replaced by logic in good doctype
-	# 	good_list = frappe.get_list("Good", pluck="name")
-	# 	for good in good_list:
-	# 		linked_supplier = frappe.get_value("Good", good, "supplier")
-	# 		if linked_supplier == self.name:
-	# 			self.append("goods", {
-	# 				"good_number": good
-	# 			})
 
 	def create_new_employee(self):
 		is_employee_registered = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")
@@ -58,13 +44,19 @@ class Supplier(Document):
 			self.save()
 
 	def add_supplier_number_to_parent_field(self):
-		user_role_profile = frappe.session.user
-		user_doc = frappe.get_doc("User", user_role_profile)
-		user_role_profiles_list = [role_profile.role_profile for role_profile in user_doc.role_profiles]
-		if "00 Supplier" in user_role_profiles_list:
-			supplier = frappe.get_value("Supplier Employee", {'email': user_doc.email}, ['supplier_company'])
-			self.parent_supplier = supplier
-			user_doc.save()
+		try:
+			user = frappe.session.user
+			user_doc = frappe.get_doc("User", user)
+		except Exception as e:
+			frappe.log_error(message=str(e), title="Error fetching user details")
+			return
+
+		if user_doc.role_profiles:
+			user_role_profiles_list = [profile.role_profile for profile in user_doc.role_profiles]
+			if "00 Supplier" in user_role_profiles_list:
+				supplier = frappe.get_value("Supplier Employee", {'email': user_doc.email}, ['supplier_company'])
+				self.parent_supplier = supplier
+				user_doc.save()
 
 	def add_doc_name_as_supplier_number(self):
 		if not self.supplier_number:
