@@ -515,8 +515,13 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-09-06 18:02:32.768079",
+ "links": [
+  {
+   "link_doctype": "Supplier",
+   "link_fieldname": "supplier"
+  }
+ ],
+ "modified": "2024-09-06 20:25:22.935216",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -536,6 +541,7 @@
    "write": 1
   }
  ],
+ "search_fields": "master_reference_number_mrn",
  "sort_field": "name",
  "sort_order": "ASC",
  "states": [

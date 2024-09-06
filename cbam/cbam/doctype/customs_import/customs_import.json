@@ -32,8 +32,13 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-09-03 18:09:29.958408",
+ "links": [
+  {
+   "link_doctype": "Good",
+   "link_fieldname": "good_number"
+  }
+ ],
+ "modified": "2024-09-06 20:28:11.774005",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Customs Import",

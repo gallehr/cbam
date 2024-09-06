@@ -138,10 +138,10 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
+# 	"Workspace": {
+# 		"on_update": "cbam.doc_events_workspace_role.add_reporting_declarant_role",
+# 		# "on_cancel": "method",
+# 		# "on_trash": "method"
 # 	}
 # }
 
