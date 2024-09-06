@@ -190,7 +190,8 @@
    "fieldname": "good_values",
    "fieldtype": "Select",
    "label": "Good Components",
-   "options": "Only one Component\nVarious Components"
+   "options": "Only one Component\nVarious Components",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_kaso",
@@ -211,7 +212,8 @@
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "requested_data_section",
    "fieldtype": "Section Break",
-   "label": "Requested Data"
+   "label": "Requested Data",
+   "read_only": 1
   },
   {
    "fieldname": "split_the_good_in_various_components_section",
@@ -223,7 +225,7 @@
    "fieldname": "split_action_html",
    "fieldtype": "HTML",
    "label": "Split Action HTML",
-   "options": "<button></button>"
+   "options": "<button>Test Button - Not working ATM</button>"
   },
   {
    "fieldname": "good_split_information_html",
@@ -500,8 +502,7 @@
    "in_list_view": 1,
    "label": "Sent to Supplier Employee?",
    "options": "Not sent\nSent",
-   "read_only": 1,
-   "read_only_depends_on": "eval:doc.sent_to_supplier_employee==\"Sent\""
+   "read_only": 1
   },
   {
    "fieldname": "sending_and_confirmation_states_section",
@@ -515,7 +516,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-06 13:46:54.889105",
+ "modified": "2024-09-06 18:02:32.768079",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
