@@ -15,13 +15,14 @@
 // })
 
 frappe.ui.form.on("Good", {
-	sent_to_supplier_employee(frm) {
+	refresh(frm) {
+		frm.add_custom_button(__("Sent Email"), function () {
 			frappe.call({
-				method: "cbam.detail_confirmation_email.send_email",
+				method: "cbam.detail_confirmation_email.send_email", // OPEN
 				args: {
-					supplier: cur_frm.doc.supplier,
-                    employee: cur_frm.doc.employee
+					goods_list: cur_frm.docname,
 				},
 			});
+		}, __("⚠️ Look out! ⚠️"));
 	},
 });
