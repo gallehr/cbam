@@ -21,7 +21,7 @@
   "select": 0,
   "share": 0,
   "submit": 0,
-  "write": 0
+  "write": 1
  },
  {
   "amend": 0,
