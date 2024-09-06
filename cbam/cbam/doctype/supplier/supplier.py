@@ -23,7 +23,7 @@ class Supplier(Document):
 
 	def before_save(self):
 		if self.is_data_confirmed == True:
-			self.status = "Confirmed by Main Contact Employee"
+			self.status = "Confirmed"
 
 	# def add_linked_goods_to_childtable(self): INFORMATION:replaced by logic in good doctype
 	# 	good_list = frappe.get_list("Good", pluck="name")

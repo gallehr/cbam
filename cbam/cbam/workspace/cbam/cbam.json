@@ -9,7 +9,7 @@
    "label": "Good Status"
   }
  ],
- "content": "[{\"id\":\"PlDXw0rUoK\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">CBAM</span>\",\"col\":12}},{\"id\":\"Zrn94khC9Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Custom Import\",\"col\":3}},{\"id\":\"MftZ-Vthqn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier List\",\"col\":3}},{\"id\":\"Px4vhZvF0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Goods List\",\"col\":3}},{\"id\":\"GSVaAFlInt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vY2XLnRqJX\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Supplier Status\",\"col\":7}},{\"id\":\"zvAlOMnhd9\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed Supplier Details\",\"col\":4}},{\"id\":\"bLcxiEisU_\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Good Status\",\"col\":7}},{\"id\":\"i0--is7Z-_\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed or split Goods\",\"col\":4}},{\"id\":\"kN0hCEtpEF\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Suppliers since Yesterday\",\"col\":4}},{\"id\":\"2pwOx24n-_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Goods since Yesterday\",\"col\":4}}]",
+ "content": "[{\"id\":\"PlDXw0rUoK\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">CBAM</span>\",\"col\":12}},{\"id\":\"Zrn94khC9Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Custom Import\",\"col\":3}},{\"id\":\"MftZ-Vthqn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier List\",\"col\":3}},{\"id\":\"Px4vhZvF0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Goods List\",\"col\":3}},{\"id\":\"GSVaAFlInt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vY2XLnRqJX\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Supplier Status\",\"col\":8}},{\"id\":\"zvAlOMnhd9\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed Supplier Details\",\"col\":4}},{\"id\":\"bLcxiEisU_\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Good Status\",\"col\":8}},{\"id\":\"i0--is7Z-_\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed or split Goods\",\"col\":4}},{\"id\":\"kN0hCEtpEF\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Suppliers since Yesterday\",\"col\":4}},{\"id\":\"2pwOx24n-_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Goods since Yesterday\",\"col\":4}}]",
  "creation": "2024-08-26 18:20:30.498993",
  "custom_blocks": [],
  "docstatus": 0,
@@ -33,7 +33,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-09-03 15:59:11.686675",
+ "modified": "2024-09-06 13:16:33.132421",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM",

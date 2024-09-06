@@ -3,21 +3,25 @@ from frappe.core.doctype.communication.email import make
 import json
 
 @frappe.whitelist()
-def send_email(goods_list): #NOT TESTED COMPLETELY
-    domain = "https://cbam-dev.frappe.cloud/"
+def send_email(goods_list):
     try:
         all_goods = json.loads(goods_list)
         for item in all_goods:
             if item['sent_to_employee'] == 'Not Sent':
                 good = item['good_number']
                 supplier = item['supplier']
-                create_email(good, supplier)
+                frappe.enqueue(create_email, queue='default', param1=good, param2=supplier)
     except json.JSONDecodeError:
         good = goods_list
-        supplier = frappe.get_value('Good', good, 'supplier')
-        create_email(good, supplier)
+        sending_status = frappe.get_value('Good', good, 'sent_to_supplier_employee')
+        if sending_status == 'Not sent':
+            supplier = frappe.get_value('Good', good, 'supplier')
+            create_email(good, supplier)
+        else:
+            frappe.msgprint(f"Email already sent for good {good}")
 
 def create_email(good, supplier):
+    domain = "https://cbam-dev.frappe.cloud/"
     frappe.set_value('Good', good, 'sent_to_supplier_employee', 'Sent')
     employee = frappe.get_value("Good", good, "employee")
     is_data_confirmed_employee = frappe.db.get_value('Supplier Employee', employee, 'is_data_confirmed')
@@ -47,10 +51,15 @@ def create_email(good, supplier):
     else:
         message_confirm_employee = ""
 
-    message_end = f"- Review the list of goods we purchased from you, click each item, and update it with the required information. The list can be found by clicking this link: {domain}complete-goods-data/list\n\nWe would appreciate it if you could complete these steps at your earliest convenience.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n\n[Your Name]\n[Your Position]\n[Your Company Name]"
+    message_end = f"- Review the list of goods we purchased from you, click each item, and update it with the required information. The list can be found by clicking this link: {domain}complete-goods-data/list\n\nWe would appreciate it if you could complete these steps at your earliest convenience.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n[John Doe]\n[Procurement Manager]\n[Company XYZ]"
 
-    frappe.msgprint(f"Email sent to {employee_email}")
+    message = message_start + message_confirm_supplier + message_confirm_employee + message_end
 
+    # For testing purposes
+    message = message.replace("\n", "<br>")
+    frappe.msgprint(f"Email sent to {employee_email}:<br><br>{message}")
+
+    # Uncomment the following code to send the email
     # make(
     #     recipients=employee_email,
     #     sender=None,
