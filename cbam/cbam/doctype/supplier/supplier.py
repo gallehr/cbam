@@ -47,16 +47,21 @@ class Supplier(Document):
 		try:
 			user = frappe.session.user
 			user_doc = frappe.get_doc("User", user)
-		except Exception as e:
-			frappe.log_error(message=str(e), title="Error fetching user details")
-			return
 
-		if user_doc.role_profiles:
-			user_role_profiles_list = [profile.role_profile for profile in user_doc.role_profiles]
-			if "00 Supplier" in user_role_profiles_list:
-				supplier = frappe.get_value("Supplier Employee", {'email': user_doc.email}, ['supplier_company'])
-				self.parent_supplier = supplier
-				user_doc.save()
+			# Ensure role_profiles exists and is a list
+			role_profiles = user_doc.get('role_profiles', [])
+			if role_profiles:
+				user_role_profiles_list = [profile.get('role_profile') for profile in role_profiles]
+
+				if "00 Supplier" in user_role_profiles_list:
+					supplier = frappe.get_value("Supplier Employee", {'email': user_doc.get('email')}, ['supplier_company'])
+					self.parent_supplier = supplier
+					user_doc.save()
+
+		except Exception as e:
+			# Log any errors encountered
+			frappe.log_error(message=str(e), title="Error processing supplier number")
+
 
 	def add_doc_name_as_supplier_number(self):
 		if not self.supplier_number:
