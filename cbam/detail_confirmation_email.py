@@ -13,21 +13,21 @@ def send_email(goods_list):
                 frappe.enqueue(create_email, queue='default', param1=good, param2=supplier)
     except json.JSONDecodeError:
         good = goods_list
-        sending_status = frappe.get_value('Good', good, 'sent_to_supplier_employee')
+        sending_status = frappe.db.get_value('Good', good, 'sent_to_supplier_employee')
         if sending_status == 'Not sent':
-            supplier = frappe.get_value('Good', good, 'supplier')
+            supplier = frappe.db.get_value('Good', good, 'supplier')
             create_email(good, supplier)
         else:
             frappe.msgprint(f"Email already sent for good {good}")
 
 def create_email(good, supplier):
     domain = "https://cbam-dev.frappe.cloud/"
-    frappe.set_value('Good', good, 'sent_to_supplier_employee', 'Sent')
-    employee = frappe.get_value("Good", good, "employee")
+    frappe.db.set_value('Good', good, 'sent_to_supplier_employee', 'Sent')
+    employee = frappe.db.get_value("Good", good, "employee")
     is_data_confirmed_employee = frappe.db.get_value('Supplier Employee', employee, 'is_data_confirmed')
-    employee_email = frappe.get_value('Supplier Employee', employee, 'email')
-    employee_last_name = frappe.get_value('Supplier Employee', employee, 'last_name')
-    is_data_confirmed_supplier = frappe.get_value('Supplier', supplier, 'is_data_confirmed')
+    employee_email = frappe.db.get_value('Supplier Employee', employee, 'email')
+    employee_last_name = frappe.db.get_value('Supplier Employee', employee, 'last_name')
+    is_data_confirmed_supplier = frappe.db.get_value('Supplier', supplier, 'is_data_confirmed')
     supplier_doc = frappe.get_doc("Supplier", supplier)
     main_contact = [child.employee_number for child in supplier_doc.employees if child.is_main_contact]
     if employee in main_contact:
@@ -42,7 +42,7 @@ def create_email(good, supplier):
 
     if not is_data_confirmed_supplier and is_employee_main_contact:
         message_confirm_supplier = f"- Please verify and confirm the data we have for your company by clicking on the following link:  {domain}confirm-supplier-details/{supplier}/edit\n\n"
-        frappe.set_value('Supplier', supplier, 'status', "Sent for confirmation")
+        frappe.db.set_value('Supplier', supplier, 'status', "Sent for confirmation")
     else:
         message_confirm_supplier = ""
 

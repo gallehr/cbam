@@ -43,7 +43,7 @@ class Supplier(Document):
 			})
 			self.save()
 
-	def add_supplier_number_to_parent_field(self):
+	def add_supplier_number_to_parent_field(self): #STILL HAS TO BE TESTED WHEN SUPPLIER ADDS AN SUPPLIER
 		try:
 			user = frappe.session.user
 			user_doc = frappe.get_doc("User", user)
@@ -54,7 +54,7 @@ class Supplier(Document):
 				user_role_profiles_list = [profile.get('role_profile') for profile in role_profiles]
 
 				if "00 Supplier" in user_role_profiles_list:
-					supplier = frappe.get_value("Supplier Employee", {'email': user_doc.get('email')}, ['supplier_company'])
+					supplier = frappe.db.get_value("Supplier Employee", {'email': user_doc.get('email')}, ['supplier_company'])
 					self.parent_supplier = supplier
 					user_doc.save()
 
