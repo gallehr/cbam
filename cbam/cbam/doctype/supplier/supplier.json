@@ -41,6 +41,7 @@
   {
    "fieldname": "city",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "City"
   },
   {
@@ -96,7 +97,6 @@
    "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
    "fieldname": "company_email",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Company Email",
    "options": "Email"
   },
@@ -166,12 +166,12 @@
   {
    "fieldname": "street_and_number",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Street and Number"
   },
   {
    "fieldname": "country_code",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Country Code",
    "options": "Country Code"
   },
@@ -185,7 +185,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-06 17:48:23.291981",
+ "modified": "2024-09-07 10:28:42.724361",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",

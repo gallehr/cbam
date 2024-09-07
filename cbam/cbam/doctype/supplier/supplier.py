@@ -32,6 +32,8 @@ class Supplier(Document):
 			new_employee.phone_number = self.main_contact_employee_phone_number
 			new_employee.position = self.main_contact_employee_position
 			new_employee.insert()
+		# else:
+		# 	frappe.msgprint("Employee already exists - Please contact your administrator")
 
 	def add_main_employee_to_cht(self):
 		main_contact = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")

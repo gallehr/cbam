@@ -18,7 +18,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-03 15:10:04.110058",
+ "modified": "2024-09-07 10:48:12.229783",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-employee-details",
@@ -30,33 +30,6 @@
  "show_sidebar": 0,
  "title": "Please confirm your Details",
  "web_form_fields": [
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "supplier_company",
-   "fieldtype": "Link",
-   "hidden": 0,
-   "label": "Supplier Company",
-   "max_length": 0,
-   "max_value": 0,
-   "options": "Supplier",
-   "precision": "",
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "employee_data_section",
-   "fieldtype": "Section Break",
-   "hidden": 0,
-   "label": "Employee Data",
-   "max_length": 0,
-   "max_value": 0,
-   "precision": "",
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
   {
    "allow_read_on_all_link_options": 0,
    "fieldname": "last_name",

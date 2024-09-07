@@ -53,9 +53,11 @@
   {
    "fieldname": "supplier_company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Supplier Company",
    "options": "Supplier",
-   "permlevel": 1
+   "permlevel": 1,
+   "reqd": 1
   },
   {
    "fieldname": "employee_data_section",
@@ -87,7 +89,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 18:01:28.865644",
+ "modified": "2024-09-07 10:38:59.246611",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
