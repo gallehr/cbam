@@ -2,7 +2,7 @@ import frappe
 import json
 from datetime import datetime
 
-# Testing
+# Not completely tested yet
 @frappe.whitelist()
 def execute():
     workspace_paths = [
@@ -18,10 +18,10 @@ def execute():
         if 'roles' not in data:
             data['roles'] = []
 
-        new_role = {"role": "Reporting Declarant"}
-        data['roles'].append(new_role)
-
-        data['modified'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+        if {"role": "System Manager"} not in data['roles']:
+            new_role = {"role": "System Manager"}
+            data['roles'].append(new_role)
+            data['modified'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
         with open(path, 'w') as file:
             json.dump(data, file, indent=4)
