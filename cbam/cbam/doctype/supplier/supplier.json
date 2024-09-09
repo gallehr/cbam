@@ -42,7 +42,8 @@
    "fieldname": "city",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "City"
+   "label": "City",
+   "reqd": 1
   },
   {
    "fieldname": "supplier_name",
@@ -178,12 +179,13 @@
    "fieldname": "country",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Country"
+   "label": "Country",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-09 09:58:50.845517",
+ "modified": "2024-09-09 14:04:43.348372",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",

@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-09 10:00:37.933510",
+ "modified": "2024-09-09 14:05:16.424761",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-supplier-data",
@@ -135,7 +135,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {

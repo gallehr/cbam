@@ -41,7 +41,7 @@ def create_email(good, supplier):
     message_start = f'Dear Mr./Mrs. {employee_last_name},\n\nThank you for our continued collaboration. In light of the new European regulation, CBAM, we kindly request your confirmation by following the steps outlined below:\n\n1. Click on this link: {domain}login?redirect-to=%2Fapp%2Fwebsite#login-with-email-link and select the "Login with Email" button. Please use this email address, as it is the designated user account for you. \n2. Check your email inbox and click on the link provided in the email you receive.\n\nAfter logging in:\n\n'
 
     if not is_data_confirmed_supplier and is_employee_main_contact:
-        message_confirm_supplier = f"- Please verify and confirm the data we have for your company by clicking on the following link:  {domain}confirm-supplier-data/{supplier}/edit\n\n"
+        message_confirm_supplier = f'- Please verify and confirm the data we have for your company by clicking on this <a href="{domain}confirm-supplier-data/{supplier}/edit">link</a>\n\n'
         frappe.db.set_value('Supplier', supplier, 'status', "Sent for confirmation")
     else:
         message_confirm_supplier = ""

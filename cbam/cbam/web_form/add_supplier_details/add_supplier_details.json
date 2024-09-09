@@ -18,7 +18,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-28 08:55:48.123735",
+ "modified": "2024-09-09 14:20:07.487570",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-supplier-details",
@@ -28,7 +28,7 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
- "title": "Add supplier Details",
+ "title": "Add supplier Details and Contact Person",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,

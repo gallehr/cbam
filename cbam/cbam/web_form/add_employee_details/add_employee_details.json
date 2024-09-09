@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-09 09:27:47.528204",
+ "modified": "2024-09-09 14:18:50.460874",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-employee-details",
@@ -54,7 +54,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -106,7 +106,7 @@
    "options": "Email",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -134,20 +134,6 @@
    "precision": "",
    "read_only": 0,
    "reqd": 1,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "default": "0",
-   "fieldname": "is_data_confirmed",
-   "fieldtype": "Check",
-   "hidden": 0,
-   "label": "Contact details confirmed by supplier",
-   "max_length": 0,
-   "max_value": 0,
-   "precision": "",
-   "read_only": 0,
-   "reqd": 0,
    "show_in_filter": 0
   }
  ]
