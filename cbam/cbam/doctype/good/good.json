@@ -97,15 +97,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "Up to 8 digits, no spaces or other characters. DE: Zolltarifnummer",
-   "fieldname": "customs_tariff_number",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Customs tariff number",
-   "non_negative": 1,
-   "reqd": 1
-  },
-  {
    "description": "DE: \u00dcberlassungsdatum",
    "fieldname": "hand_over_date",
    "fieldtype": "Date",
@@ -524,6 +515,15 @@
   {
    "fieldname": "column_break_fkff",
    "fieldtype": "Column Break"
+  },
+  {
+   "description": "Up to 8 digits, no spaces or other characters.\nDE: Zolltarifnummer",
+   "fieldname": "customs_tariff_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customs Tariff Number",
+   "non_negative": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -533,7 +533,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-09 15:17:19.257777",
+ "modified": "2024-09-09 19:15:55.591279",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
