@@ -56,7 +56,6 @@
    "in_list_view": 1,
    "label": "Supplier Company",
    "options": "Supplier",
-   "permlevel": 1,
    "reqd": 1
   },
   {
@@ -71,7 +70,6 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Raw Data\nSent to Supplier Employee\nData confirmed by Employee",
-   "permlevel": 1,
    "read_only": 1
   },
   {
@@ -80,7 +78,7 @@
    "fieldname": "is_data_confirmed",
    "fieldtype": "Check",
    "label": "Contact details confirmed by supplier",
-   "permlevel": 2
+   "permlevel": 1
   },
   {
    "fieldname": "column_break_wcmc",
@@ -89,7 +87,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-07 10:38:59.246611",
+ "modified": "2024-09-09 10:57:10.647987",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
