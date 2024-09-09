@@ -7,14 +7,12 @@ from frappe.model.document import Document
 
 class Good(Document):
 	def validate(self):
-		self.get_responsible_employee()
+		self.get_main_contact_employee()
 		self.split_good()
-		if self.sent_to_supplier_employee == "Sent":
-			self.create_new_employee_user()
 
 	def after_insert(self):
-		self.add_to_linked_supplier()
-		self.add_to_linked_customs_import()
+		self.add_to_linked_supplier_cht()
+		self.add_to_linked_customs_import_cht()
 
 	def before_save(self):
 		if self.is_data_confirmed == True:
@@ -23,7 +21,7 @@ class Good(Document):
 	def on_trash(self):
 		self.delete_good_item()
 
-	def get_responsible_employee(self):
+	def get_main_contact_employee(self):
 		if self.supplier and not self.employee:
 			supplier_doc = frappe.get_doc("Supplier", self.supplier)
 			for child in supplier_doc.employees:
@@ -177,14 +175,14 @@ class Good(Document):
 					new_good.insert()
 					next_highest_split_number += 1
 
-	def add_to_linked_supplier(self):
+	def add_to_linked_supplier_cht(self):
 		supplier = frappe.get_doc("Supplier", self.supplier)
 		supplier.append("goods", {
 			"good_number": self.name
 		})
 		supplier.save()
 
-	def add_to_linked_customs_import(self):
+	def add_to_linked_customs_import_cht(self):
 		customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
 		customs_import.append("goods", {
 			"good_number": self.name
@@ -196,20 +194,25 @@ class Good(Document):
 		for item in supplier_item:
 			item.delete()
 
-	def create_new_employee_user(self):
-		employee_email = frappe.db.get_value("Supplier Employee", self.employee, "email")
-		all_users_list = frappe.get_all("User", filters={'email': employee_email}, fields=["name"], pluck="name")
-		if not all_users_list:
-			employee_docname = frappe.db.get_value("Supplier Employee", self.employee, "name")
-			employee_last_name = frappe.db.get_value("Supplier Employee", self.employee, "last_name")
-			employee_first_name = frappe.db.get_value("Supplier Employee", self.employee, "first_name")
-			frappe.db.set_value("Supplier Employee", employee_docname, "Status", "Sent to Supplier Employee")
+@frappe.whitelist() # Called by Send Email button through goods.js
+def create_new_supplier_user(good):
+	frappe.msgprint(f"Good: {good}")
+	employee_email = frappe.db.get_value("Supplier Employee", good.employee, "email")
+	all_users_list = frappe.get_all("User", filters={'email': employee_email}, fields=["name"], pluck="name")
+	if not all_users_list:
+		employee_docname = frappe.db.get_value("Supplier Employee", good.employee, "name")
+		employee_last_name = frappe.db.get_value("Supplier Employee", good.employee, "last_name")
+		employee_first_name = frappe.db.get_value("Supplier Employee", good.employee, "first_name")
+		frappe.db.set_value("Supplier Employee", employee_docname, "Status", "Sent to Supplier Employee")
 
-			new_user = frappe.new_doc("User")
-			new_user.email = employee_email
-			new_user.last_name = employee_last_name
-			new_user.first_name = employee_first_name
-			new_user.append("role_profiles", {
-				'role_profile': '00 Supplier',
-			})
-			new_user.insert()
+		new_user = frappe.new_doc("User")
+		new_user.email = employee_email
+		new_user.last_name = employee_last_name
+		new_user.first_name = employee_first_name
+		new_user.append("role_profiles", {
+			'role_profile': '00 Supplier',
+		})
+		new_user.insert()
+		frappe.msgprint(f"New user {employee_email} created for {employee_last_name} {employee_first_name}")
+	else:
+		frappe.msgprint(f"User {employee_email} already exists")

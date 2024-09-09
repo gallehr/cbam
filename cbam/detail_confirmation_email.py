@@ -38,20 +38,20 @@ def create_email(good, supplier):
     # Email creation depending on the data confirmation status
     subject = f'CBAM - Confirmation of Data'
 
-    message_start = f'Dear Mr./Mrs. {employee_last_name},\n\nThank you for our continued collaboration. In light of the new European regulation, CBAM, we kindly request your confirmation by following the steps outlined below:\n\n1. Click on this link: {domain}login?redirect-to=%2Fapp%2Fwebsite#login-with-email-link and select the "Login with Email" button. Please use this email address, as it is the designated user account for you. \n2. Check your email inbox and click on the link provided in the email you receive.\n\nAfter logging in:\n\n'
+    message_start = f'Dear Mr./Mrs. {employee_last_name},\n\nThank you for our continued collaboration. In light of the new European regulation, CBAM, we kindly request your confirmation by following the steps outlined below:\n\n1. Click on this <a href="{domain}login?redirect-to=%2Fapp%2Fwebsite#login-with-email-link" target="_blank">link</a> and select the "Login with Email" button. Please use this email address, as it is the designated user account for you. \n2. Check your email inbox and click on the link provided in the email you receive.\n\nAfter logging in:\n'
 
     if not is_data_confirmed_supplier and is_employee_main_contact:
-        message_confirm_supplier = f'- Please verify and confirm the data we have for your company by clicking on this <a href="{domain}confirm-supplier-data/{supplier}/edit">link</a>\n\n'
+        message_confirm_supplier = f'- Please verify and confirm the data we have for your company by clicking on this <a href="{domain}confirm-supplier-data/{supplier}/edit" target="_blank">link</a>.\n'
         frappe.db.set_value('Supplier', supplier, 'status', "Sent for confirmation")
     else:
         message_confirm_supplier = ""
 
     if not is_data_confirmed_employee:
-        message_confirm_employee = f"- Please verify and confirm that your personal information is correct by clicking on the following link: {domain}confirm-employee-details/{employee}/edit\n\n"
+        message_confirm_employee = f'- Please verify and confirm that your personal information is correct by clicking on this <a href="{domain}confirm-employee-details/{employee}/edit" target="_blank">link</a>.\n'
     else:
         message_confirm_employee = ""
 
-    message_end = f"- Review the list of goods we purchased from you, click each item, and update it with the required information. The list can be found by clicking this link: {domain}complete-goods-data/list\n\nWe would appreciate it if you could complete these steps at your earliest convenience.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n[John Doe]\n[Procurement Manager]\n[Company XYZ]"
+    message_end = f'- Review the list of goods we purchased from you, click each item, and update it with the required information. The list can be found by clicking this <a href="{domain}complete-goods-data/list" target="_blank">link</a>.\n\nWe would appreciate it if you could complete these steps at your earliest convenience.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n[John Doe]\n[Procurement Manager]\n[Company XYZ]'
 
     message = message_start + message_confirm_supplier + message_confirm_employee + message_end
 

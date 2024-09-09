@@ -97,9 +97,9 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "DE: Zolltarifnummer",
+   "description": "Up to 8 digits, no spaces or other characters. DE: Zolltarifnummer",
    "fieldname": "customs_tariff_number",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Customs tariff number",
    "non_negative": 1,
@@ -533,7 +533,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-09 14:48:53.332833",
+ "modified": "2024-09-09 15:17:19.257777",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
