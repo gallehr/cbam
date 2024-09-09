@@ -19,7 +19,7 @@
   "street_and_number",
   "zip_code",
   "city",
-  "country_code",
+  "country",
   "main_contact_section",
   "main_contact_employee_last_name",
   "main_contact_employee_first_name",
@@ -62,8 +62,7 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Raw Data\nSent for confirmation\nConfirmed",
-   "read_only": 1,
-   "read_only_depends_on": "eval:doc.is_data_confirmed==true"
+   "read_only": 1
   },
   {
    "fieldname": "company_phone_number",
@@ -169,23 +168,22 @@
    "label": "Street and Number"
   },
   {
-   "fieldname": "country_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Country Code",
-   "options": "Country Code"
-  },
-  {
    "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
    "fieldname": "parent_supplier",
    "fieldtype": "Data",
    "label": "Parent Supplier",
    "read_only": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Country"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-07 10:28:42.724361",
+ "modified": "2024-09-09 09:58:50.845517",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
@@ -221,5 +219,6 @@
    "title": "Confirmed"
   }
  ],
- "title_field": "supplier_name"
+ "title_field": "supplier_name",
+ "track_changes": 1
 }

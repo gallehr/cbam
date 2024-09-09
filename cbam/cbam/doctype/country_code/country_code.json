@@ -17,7 +17,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-06 17:59:41.672690",
+ "modified": "2024-09-09 09:51:57.965859",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Country Code",
@@ -37,6 +37,7 @@
    "write": 1
   }
  ],
+ "search_fields": "country_full_name",
  "sort_field": "name",
  "sort_order": "ASC",
  "states": [],

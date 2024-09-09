@@ -168,7 +168,8 @@
    "fieldname": "supplier",
    "fieldtype": "Link",
    "label": "Supplier",
-   "options": "Supplier"
+   "options": "Supplier",
+   "reqd": 1
   },
   {
    "depends_on": "eval:doc.good_values==\"Various Components\"",
@@ -202,7 +203,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "of this Supplier",
+   "description": "If left empty, this field will be automatically filled by the main contact of the Supplier, from the field on the left.",
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
@@ -521,7 +522,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-06 20:25:22.935216",
+ "modified": "2024-09-09 09:57:59.604260",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
