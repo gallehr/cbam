@@ -41,7 +41,7 @@
  "list_title": "Your Goods",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-09 16:58:51.354819",
+ "modified": "2024-09-09 17:04:28.149922",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "complete-goods-data",
@@ -51,6 +51,7 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
+ "success_message": "Thank you for confirming your company's data. Please go back to the email and click the next link on the list.",
  "title": "Please Confirm the Goods Data",
  "web_form_fields": [
   {

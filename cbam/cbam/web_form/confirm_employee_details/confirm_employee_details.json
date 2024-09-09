@@ -18,7 +18,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-09 14:18:21.586024",
+ "modified": "2024-09-09 17:06:14.254614",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-employee-details",
@@ -28,7 +28,8 @@
  "show_attachments": 0,
  "show_list": 0,
  "show_sidebar": 0,
- "title": "Please confirm your Details",
+ "success_message": "Thank you for confirming your contact details. Please go back to the email and click the next link on the list.",
+ "title": "Please confirm your Contact Details",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
