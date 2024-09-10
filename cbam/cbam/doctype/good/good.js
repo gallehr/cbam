@@ -15,20 +15,23 @@
 // })
 
 frappe.ui.form.on("Good", {
-	refresh(frm) {
-		frm.add_custom_button(__("Sent Email"), function () {
-			frappe.call({
-				method: "cbam.cbam.doctype.good.good.create_new_supplier_user", 
-				args: {
-					good: cur_frm.doc,
-				},
-			});
-			frappe.call({
-				method: "cbam.detail_confirmation_email.send_email", 
-				args: {
-					goods_list: cur_frm.docname,
-				},
-			});
-		}, __("⚠️ Look out! ⚠️"));
-	},
+    refresh(frm) {
+        frm.add_custom_button(__("Sent Email"), function () {
+            frappe.msgprint("Button clicked, calling create_new_supplier_user...");
+            frappe.call({
+                method: "cbam.cbam.doctype.good.good.create_new_supplier_user",
+                args: {
+                    employee: cur_frm.doc.employee,
+                },
+                callback: function(response) {
+                    frappe.call({
+                        method: "cbam.detail_confirmation_email.send_email",
+                        args: {
+                            goods_list: cur_frm.docname,
+                        },
+                    });
+                }
+            });
+        }, __("⚠️ Look out! ⚠️"));
+    },
 });
