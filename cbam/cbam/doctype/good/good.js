@@ -17,7 +17,6 @@
 frappe.ui.form.on("Good", {
     refresh(frm) {
         frm.add_custom_button(__("Sent Email"), function () {
-            frappe.msgprint("Button clicked, calling create_new_supplier_user...");
             frappe.call({
                 method: "cbam.cbam.doctype.good.good.create_new_supplier_user",
                 args: {

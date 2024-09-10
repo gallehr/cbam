@@ -344,19 +344,22 @@
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "installation",
    "fieldtype": "Data",
-   "label": "Installation"
+   "label": "Installation",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "emission_data_1",
    "fieldtype": "Data",
-   "label": "Emission Data 1"
+   "label": "Emission Data 1",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "emission_data_2",
    "fieldtype": "Data",
-   "label": "Emission Data 2"
+   "label": "Emission Data 2",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_ryft",
@@ -533,7 +536,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-09 19:15:55.591279",
+ "modified": "2024-09-10 11:06:24.063134",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
