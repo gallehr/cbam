@@ -196,7 +196,6 @@ class Good(Document):
 
 @frappe.whitelist() # Called by Send Email button through goods.js
 def create_new_supplier_user(employee):
-	frappe.msgprint(f"employee: {employee}")
 	employee_email = frappe.db.get_value("Supplier Employee", employee, "email")
 	users_list = frappe.get_all("User", filters={'email': employee_email}, fields=["name"], pluck="name")
 	if not users_list:
@@ -209,6 +208,11 @@ def create_new_supplier_user(employee):
 		new_user.email = employee_email
 		new_user.last_name = employee_last_name
 		new_user.first_name = employee_first_name
+
+        # Ensure role_profiles child table is initialized
+		if not new_user.role_profiles:
+			new_user.set("role_profiles", [])
+
 		new_user.append("role_profiles", {
 			'role_profile': '00 Supplier',
 		})
