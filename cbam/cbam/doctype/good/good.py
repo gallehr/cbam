@@ -209,7 +209,7 @@ def create_new_supplier_user(employee):
         new_user.last_name = employee_last_name
         new_user.first_name = employee_first_name
 
-        # Ensure role_profiles child table is initialized 
+        # Ensure role_profiles child table is initialized
         try:
             new_user.append("role_profiles", {
                 'role_profile': '00 Supplier',

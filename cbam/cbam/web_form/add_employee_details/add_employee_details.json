@@ -8,7 +8,7 @@
  "anonymous": 0,
  "apply_document_permissions": 0,
  "button_label": "Save",
- "client_script": "frappe.call({\n    method: \"frappe.client.get_list\",\n    args: {\n        doctype: \"Supplier Employee\",\n        filters: {\"email\": frappe.session.user}\n    },\n    callback: function (response) {\n        if (response.message) {\n\t\t\tif (response.message.length > 0){\n\t\t\t\tfrappe.web_form.set_value(\"supplier\", response.message[0].supplier_company)\n            }\n        }\n    }\n});",
+ "client_script": "frappe.call({\n    method: \"cbam.get_supplier_number.get_supplier_number\",\n    args: {\n        \"session_user\": frappe.session.user\n    },\n    callback: function (response) {\n        if (response.message) {\n            if (response.message.length > 0) {\n                frappe.web_form.set_value(\"supplier_company\", response.message);\n            }\n        }\n    }\n});\n",
  "condition_json": "[]",
  "creation": "2024-08-22 16:17:57.732941",
  "doc_type": "Supplier Employee",
@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-09 19:42:35.851572",
+ "modified": "2024-09-10 14:04:50.991572",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-employee-details",
@@ -29,8 +29,22 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
- "title": "Add additional Employee",
+ "title": "Add additional Employee Coworker",
  "web_form_fields": [
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "supplier_company",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "Supplier Company",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Supplier",
+   "precision": "",
+   "read_only": 1,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
   {
    "allow_read_on_all_link_options": 0,
    "fieldname": "employee_data_section",
@@ -120,20 +134,6 @@
    "precision": "",
    "read_only": 0,
    "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "supplier_company",
-   "fieldtype": "Link",
-   "hidden": 0,
-   "label": "Supplier Company",
-   "max_length": 0,
-   "max_value": 0,
-   "options": "Supplier",
-   "precision": "",
-   "read_only": 0,
-   "reqd": 1,
    "show_in_filter": 0
   }
  ]
