@@ -215,9 +215,6 @@ def create_new_supplier_user(employee):
                 'role_profile': '00 Supplier',
             })
         except AttributeError:
-            new_user.set("role_profiles", [])
-            new_user.append("role_profiles", {
-                'role_profile': '00 Supplier',
-            })
+            new_user.role_profile_name = "00 Supplier"
 
         new_user.insert()
