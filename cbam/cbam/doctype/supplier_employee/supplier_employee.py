@@ -7,6 +7,7 @@ from frappe.model.document import Document
 
 class SupplierEmployee(Document):
 	def before_save(self):
+		self.add_child()
 		if self.is_data_confirmed == True:
 			self.status = "Data confirmed by Employee"
 
@@ -18,3 +19,10 @@ class SupplierEmployee(Document):
 		for child in supplier_employees.employees:
 			if child.employee_email == self.email:
 				child.delete()
+
+	def add_child(self):
+		supplier_employee = frappe.get_doc("Supplier", self.supplier_company)
+		supplier_employee.append("employees", {
+			"employee_number": self.name,
+		})
+		supplier_employee.save()
