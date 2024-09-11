@@ -8,7 +8,7 @@
  "anonymous": 0,
  "apply_document_permissions": 0,
  "button_label": "Save",
- "client_script": "frappe.call({\n    method: \"cbam.get_supplier_number.get_supplier_number\",\n    args: {\n        \"session_user\": frappe.session.user\n    },\n    callback: function (response) {\n        if (response.message) {\n            if (response.message.length > 0) {\n                frappe.web_form.set_value(\"supplier_company\", response.message);\n            }\n        }\n    }\n});\n",
+ "client_script": "frappe.call({\n    method: \"cbam.get_supplier_number.get_supplier_number\",\n    args: {\n        \"session_user\": frappe.session.user\n    },\n    callback: function (response) {\n        console.log(`{frappe.session.user=\"${frappe.session.user}\"}`)\n        console.log(`{response=\"${response}\"}`)\n        if (response.message) {\n            console.log(`{response.message=\"${response.message}\"}`)\n            if (response.message.length > 0) {\n                frappe.web_form.set_value(\"supplier_company\", response.message);\n            }\n        }\n    }\n});\n",
  "condition_json": "[]",
  "creation": "2024-08-22 16:17:57.732941",
  "doc_type": "Supplier Employee",
@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-10 14:04:50.991572",
+ "modified": "2024-09-11 10:18:20.486597",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-employee-details",
@@ -29,7 +29,7 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
- "title": "Add additional Employee Coworker",
+ "title": "Add additional Employee of your Company",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,

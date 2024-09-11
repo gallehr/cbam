@@ -1,5 +1,5 @@
 # import frappe
-# # Inserting in Web Form still open
+
 def get_context(context):
 # 	user = frappe.session.user
 # 	supplier_employee_docname = frappe.get_all('Supplier Employee', filters={'email': user}, fields=['name'])

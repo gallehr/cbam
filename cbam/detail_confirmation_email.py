@@ -60,10 +60,10 @@ def create_email(good, supplier):
     frappe.msgprint(f"Email sent to {employee_email}:<br><br>{message}")
 
     # Uncomment the following code to send the email
-    # make(
-    #     recipients=employee_email,
-    #     sender=None,
-    #     subject=subject,
-    #     content= message_start + message_confirm_supplier + message_confirm_employee + message_end,
-    #     send_email=True
-    # )
+    make(
+        recipients=employee_email,
+        sender=None,
+        subject=subject,
+        content= message_start + message_confirm_supplier + message_confirm_employee + message_end,
+        send_email=True
+    )

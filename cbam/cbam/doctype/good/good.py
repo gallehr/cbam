@@ -201,7 +201,7 @@ def create_new_supplier_user(employee):
     if not users_list:
         employee_docname = frappe.db.get_value("Supplier Employee", employee, "name")
         employee_last_name = frappe.db.get_value("Supplier Employee", employee, "last_name")
-        employee_first_name = frappe.db.get_value("Supplier Employee", employee, "first_name")
+        employee_first_name = frappe.db.get_value("Supplier Employee", employee, "first_name") or employee_last_name
         frappe.db.set_value("Supplier Employee", employee_docname, "Status", "Sent to Supplier Employee")
 
         new_user = frappe.new_doc("User")
