@@ -1,16 +1,4 @@
 frappe.ready(function() {
-	// frappe.web_form.after_load = () => {
-	// 	frappe.msgprint('Please fill all values carefully');
-	// }
-	// // Corrected after_load function
-	// frappe.web_form.after_load = function() {
-	// 	frappe.msgprint("test");  // This should show "test" when the form loads
-	// 	console.log("Test Console")
-	// 	// Make sure 'supplier' is a string representing the field name
-	// 	let value = frappe.web_form.get_value('supplier');
-	// 	frappe.msgprint(value); // This will show the value of the supplier field
-	// }
-
 	frappe.web_form.validate = function() {
 		let data = frappe.web_form.get_values();
 		if (!data.is_data_confirmed) {
@@ -18,4 +6,19 @@ frappe.ready(function() {
 			return;
 		}
 	};
+
+	frappe.web_form.on("responsibility_1", function() {
+		let supplier = frappe.web_form.get_value('supplier');
+		if (supplier) {
+			frappe.call({
+				method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_filtered_supplier_employees",
+				args: {supplier},
+				callback: (r) => {
+					if (r.message.employeeOptions && r.message.employeeOptions.length > 0) {
+						frappe.web_form.fields_dict["responsible_employee_1"]._data = r.message.employeeOptions;
+					}
+				}
+			});
+		}
+	});
 });

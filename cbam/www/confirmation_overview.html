@@ -1,0 +1,38 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBAM Data Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <p>Please go through your data and confirm</p>
+
+        <section class="confirmation-section">
+            <h2>Please confirm your Data, one by one</h2>
+            <div class="steps">
+                <div class="step">
+                    <p>{{ test }}</p>
+                    <p>sadfasdf{{ employee }}</p>
+                    <h3>1. Confirm your Company Data</h3>
+                    <a href="/confirm-employee-details/{{ employee }}/edit"><button>Hello, {{ user }}</button></a>
+                </div>
+                <div class="step">
+                    <h3>2. Confirm your Personal Data</h3>
+                    <button>testbutton</button>
+                </div>
+                <div class="step">
+                    <h3>3. Complete the Goods Data</h3>
+                    <button>testbutton</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+{% endblock %}

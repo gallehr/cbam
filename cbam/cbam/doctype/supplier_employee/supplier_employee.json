@@ -89,7 +89,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-09 14:02:31.618008",
+ "modified": "2024-09-11 16:33:41.751663",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
@@ -109,6 +109,7 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [
