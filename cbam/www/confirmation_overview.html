@@ -21,7 +21,9 @@
             <p>User{{ user }}</p>
             <p>supplier{{ supplier }}</p> -->
             <!-- <p>{{is_employee_main_contact}}</p> -->
-
+            {% if employee == "No employee found" %}
+            <h3>Your user is not related to an Supplier, their Employees or any Goods</h3>
+            {% else %}
             <div class="confirmation-container">
                 <div class="steps">
                     {% if is_employee_main_contact %}
@@ -50,6 +52,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </section>
     </div>
 </body>

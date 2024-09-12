@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-11 16:14:19.137599",
+ "modified": "2024-09-12 15:39:33.308053",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-employee-details",
@@ -29,6 +29,9 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
+ "success_message": "Please wait. You will be redirected to the confirmation overview. ",
+ "success_title": "Thank you for completing your personal details",
+ "success_url": "/confirmation_overview",
  "title": "Add additional Employee of your Company",
  "web_form_fields": [
   {
