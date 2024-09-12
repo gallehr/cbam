@@ -15,12 +15,18 @@ class SupplierEmployee(Document):
 
 	def on_trash(self):
 		self.delete_child()
+		self.delete_link_in_good()
 
 	def delete_child(self):
 		supplier_employees = frappe.get_doc("Supplier", self.supplier_company)
 		for child in supplier_employees.employees:
 			if child.employee_email == self.email:
 				child.delete()
+
+	def delete_link_in_good(self):
+		goods_list = frappe.get_all("Good", filters={"employee": self.name}, fields=["name"])
+		for good in goods_list:
+			frappe.db.set_value("Good", good, "employee", None)
 
 	def add_child(self):
 		supplier_employee = frappe.get_doc("Supplier", self.supplier_company)
