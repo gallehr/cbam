@@ -14,19 +14,8 @@ def get_context(context):
     
     context.is_employee_data_confirmed = frappe.db.get_value('Supplier Employee', context.employee, 'is_data_confirmed')
     context.is_supplier_data_confirmed = frappe.db.get_value('Supplier', context.supplier, 'is_data_confirmed')
-
-
-    
-    # def create_email(good, supplier):
-    # domain = "https://cbam-dev.frappe.cloud/"
-    # employee = frappe.db.get_value("Good", good, "employee")
-    # is_data_confirmed_employee = frappe.db.get_value('Supplier Employee', employee, 'is_data_confirmed')
-    # employee_email = frappe.db.get_value('Supplier Employee', employee, 'email')
-    # employee_last_name = frappe.db.get_value('Supplier Employee', employee, 'last_name')
-    # is_data_confirmed_supplier = frappe.db.get_value('Supplier', supplier, 'is_data_confirmed')
-    # supplier_doc = frappe.get_doc("Supplier", supplier)
-    # main_contact = [child.employee_number for child in supplier_doc.employees if child.is_main_contact]
-    # if employee in main_contact:
-    #     is_employee_main_contact = True
-    # else:
-    #     is_employee_main_contact = False
+    context.goods_list = frappe.get_all('Good', filters={'employee': context.employee}, fields=['status'], pluck="status") or []
+    if "Open" in context.goods_list:
+        context.is_some_good_open = True
+    else:
+        context.is_some_good_open = False

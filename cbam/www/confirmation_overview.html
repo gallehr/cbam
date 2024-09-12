@@ -48,7 +48,11 @@
 
                     <div class="confirmation-box">
                         <h3>Complete the Goods Data</h3>
+                        {% if is_some_good_open %}
                         <a href="/goods_list"><button>Access</button></a>
+                        {% else %}
+                        <button class="button-done">Done</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>

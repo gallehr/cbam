@@ -81,7 +81,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Master Reference Number MRN",
-   "permlevel": 1,
    "reqd": 1
   },
   {
@@ -101,8 +100,7 @@
    "fieldname": "hand_over_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Hand over date",
-   "permlevel": 1
+   "label": "Hand over date"
   },
   {
    "fieldname": "values_section",
@@ -536,7 +534,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-10 11:06:24.063134",
+ "modified": "2024-09-12 17:05:22.996567",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
