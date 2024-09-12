@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:EMP-{###}-{supplier_company}",
+ "autoname": "format:EMP-{last_name}-{email}",
  "creation": "2024-08-22 10:08:47.311389",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,6 +10,7 @@
   "supplier_company",
   "column_break_wcmc",
   "is_data_confirmed",
+  "is_main_contact",
   "employee_data_section",
   "last_name",
   "first_name",
@@ -85,11 +86,17 @@
   {
    "fieldname": "column_break_wcmc",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_main_contact",
+   "fieldtype": "Check",
+   "label": "Main Contact"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-11 16:33:41.751663",
+ "modified": "2024-09-12 12:29:22.394106",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
@@ -109,7 +116,6 @@
    "write": 1
   }
  ],
- "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [
@@ -125,6 +131,5 @@
    "color": "Green",
    "title": "Data confirmed by Employee"
   }
- ],
- "title_field": "email"
+ ]
 }
