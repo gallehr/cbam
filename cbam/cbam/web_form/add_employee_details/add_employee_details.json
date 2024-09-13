@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-12 16:39:03.622633",
+ "modified": "2024-09-13 12:21:14.694981",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-employee-details",
@@ -32,7 +32,7 @@
  "success_message": "",
  "success_title": "",
  "success_url": "",
- "title": "Add additional Employee of your Company",
+ "title": "Employee at Your Company",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,

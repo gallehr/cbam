@@ -185,7 +185,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-13 10:55:03.141152",
+ "modified": "2024-09-13 11:24:01.014362",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
@@ -205,7 +205,6 @@
    "write": 1
   }
  ],
- "show_title_field_in_link": 1,
  "sort_field": "status",
  "sort_order": "ASC",
  "states": [
@@ -222,6 +221,5 @@
    "title": "Confirmed"
   }
  ],
- "title_field": "supplier_number",
  "track_changes": 1
 }
