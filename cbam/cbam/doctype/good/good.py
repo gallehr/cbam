@@ -190,9 +190,11 @@ class Good(Document):
 		customs_import.save()
 
 	def delete_good_item(self):
-		supplier_item = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
-		for item in supplier_item:
-			item.delete()
+		good_items = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
+		for good in good_items:
+			frappe.db.delete("Good", {
+				"name": good.name
+			})
 
 @frappe.whitelist()  # Called by Send Email button through goods.js
 def create_new_supplier_user(employee):

@@ -41,7 +41,7 @@
  "list_title": "Your Goods",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-12 17:01:46.638516",
+ "modified": "2024-09-13 10:06:36.436785",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "complete-goods-data",
@@ -53,7 +53,7 @@
  "show_sidebar": 0,
  "success_message": "Please wait. You will be redirected to the confirmation overview. ",
  "success_title": "Thank you for completing the Goods Data!",
- "success_url": "/goods-list",
+ "success_url": "/goods_list",
  "title": "Please Confirm the Goods Data",
  "web_form_fields": [
   {
@@ -870,21 +870,6 @@
    "precision": "",
    "read_only": 0,
    "reqd": 1,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "good_splits_section",
-   "fieldtype": "Section Break",
-   "hidden": 0,
-   "label": "Good Splits",
-   "max_length": 0,
-   "max_value": 0,
-   "precision": "",
-   "read_only": 1,
-   "read_only_depends_on": "",
-   "reqd": 0,
    "show_in_filter": 0
   }
  ]

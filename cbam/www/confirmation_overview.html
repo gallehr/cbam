@@ -14,16 +14,18 @@
         <p>EU's Carbon Border Adjustment Mechanism (CBAM) by Gallehr</p>
 
         <section class="confirmation-section">
-            <h2>Please go through your data and confirm</h2>
+            {% if employee == "No employee found" %}
+            
             <!-- Optional Debug Information -->
             <!-- <p>test{{ test }}</p>
             <p>Employee{{ employee }}</p>
             <p>User{{ user }}</p>
             <p>supplier{{ supplier }}</p> -->
             <!-- <p>{{is_employee_main_contact}}</p> -->
-            {% if employee == "No employee found" %}
-            <h3>Your user is not related to an Supplier, their Employees or any Goods</h3>
+            
+            <h2>Your user is not associated with a supplier, their employees, or any goods.</h2>
             {% else %}
+            <h2>Please go through your data and confirm</h2>
             <div class="confirmation-container">
                 <div class="steps">
                     {% if is_employee_main_contact %}
