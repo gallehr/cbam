@@ -191,11 +191,13 @@ class Good(Document):
 
 	def delete_good_item(self):
 		good_items = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
-		for good in good_items:
-			frappe.db.delete("Good", {
-				"name": good.name
+		for good_item in good_items:
+			frappe.db.delete("Good Item", {
+				"name": good_item
 			})
+		frappe.db.commit()
 
+		
 @frappe.whitelist()  # Called by Send Email button through goods.js
 def create_new_supplier_user(employee):
     #frappe.msgprint(f"Creating new user for {employee}")
