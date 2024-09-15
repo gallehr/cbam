@@ -1365,18 +1365,18 @@
   "name": "US"
  },
  {
-  "country_full_name": "India",
-  "docstatus": 0,
-  "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:03.209142",
-  "name": "IN"
- },
- {
   "country_full_name": "Turkey",
   "docstatus": 0,
   "doctype": "Country Code",
   "modified": "2024-09-03 12:52:03.209142",
   "name": "TR"
+ },
+ {
+  "country_full_name": "India",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "IN"
  },
  {
   "country_full_name": "Japan",

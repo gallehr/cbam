@@ -24,11 +24,16 @@ def send_email(goods_list):
 def create_email(good, supplier):
     # frappe.msgprint(f"Good: {good}, Supplier: {supplier}")
     domain = "https://cbam-dev.frappe.cloud/"
-    frappe.db.set_value('Good', good, 'sent_to_supplier_employee', 'Sent')
+    supplier_doc = frappe.get_doc("Supplier", supplier)
+    for good in supplier_doc.goods:
+        frappe.db.set_value('Good', good.good_number, 'sent_to_supplier_employee', 'Sent')
     employee = frappe.db.get_value("Good", good, "employee")
     #is_data_confirmed_employee = frappe.db.get_value('Supplier Employee', employee, 'is_data_confirmed')
     employee_email = frappe.db.get_value('Supplier Employee', employee, 'email')
     employee_last_name = frappe.db.get_value('Supplier Employee', employee, 'last_name')
+    is_employee_main_contact = frappe.db.get_value('Supplier Employee', employee, 'is_main_contact')
+    if is_employee_main_contact:
+        frappe.db.set_value('Supplier', supplier, 'status', "Sent for confirmation")
     #is_data_confirmed_supplier = frappe.db.get_value('Supplier', supplier, 'is_data_confirmed')
     #supplier_doc = frappe.get_doc("Supplier", supplier)
     #main_contact = [child.employee_number for child in supplier_doc.employees if child.is_main_contact]
@@ -37,7 +42,7 @@ def create_email(good, supplier):
     # else:
     #     is_employee_main_contact = False
 
-    # Email creation depending on the data confirmation status
+
     subject = f'CBAM - Confirmation of Data'
 
     message_start = f'Dear Mr./Mrs. {employee_last_name},<br><br>Thank you for our continued collaboration. In light of the new European regulation, CBAM, we kindly request your confirmation by following the steps outlined below:<br><br>1. Click on this <a href="{domain}login?redirect-to=%2Fapp%2Fwebsite#login-with-email-link" target="_blank">link</a> and select the "Login with Email" button. Please use this email address, as it is the designated user account for you. <br>2. Check your email inbox and click on the link provided in the email you receive.<br><br>After logging in, please go throgh the Confirmation and Complete-Goods process.<br><br>We would appreciate it if you could complete these steps at your earliest convenience.<br><br>Thank you for your prompt attention to this matter.<br><br>Best regards,<br>[John Doe]<br>[Procurement Manager]<br>[Company XYZ]'
@@ -55,12 +60,12 @@ def create_email(good, supplier):
 
     # message_end = f'- Review the list of goods we purchased from you, click each item, and update it with the required information. The list can be found by clicking this <a href="{domain}complete-goods-data/list" target="_blank">link</a>.<br><br>We would appreciate it if you could complete these steps at your earliest convenience.<br><br>Thank you for your prompt attention to this matter.<br><br>Best regards,<br>[John Doe]<br>[Procurement Manager]<br>[Company XYZ]'
 
-    message = message_start #+ message_confirm_supplier + message_confirm_employee + message_end
+    message = message_start # message_confirm_supplier + message_confirm_employee + message_end
 
     # For testing purposes
     frappe.msgprint(f"Email sent to {employee_email}:<br><br>{message}")
 
-    # Uncomment the following code to send the email
+
     try:
         make(
             recipients=employee_email,

@@ -197,7 +197,7 @@ class Good(Document):
 			})
 		frappe.db.commit()
 
-		
+
 @frappe.whitelist()  # Called by Send Email button through goods.js
 def create_new_supplier_user(employee):
     #frappe.msgprint(f"Creating new user for {employee}")

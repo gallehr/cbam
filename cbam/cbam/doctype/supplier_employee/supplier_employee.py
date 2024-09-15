@@ -18,10 +18,11 @@ class SupplierEmployee(Document):
 		self.delete_link_in_good()
 
 	def delete_child(self):
-		supplier_employees = frappe.get_doc("Supplier", self.supplier_company)
-		for child in supplier_employees.employees:
-			if child.employee_email == self.email:
-				child.delete()
+		if self.supplier_company:
+			supplier_employees = frappe.get_doc("Supplier", self.supplier_company)
+			for child in supplier_employees.employees:
+				if child.employee_number == self.name: #not tested yet. 
+					child.delete()
 
 	def delete_link_in_good(self):
 		goods_list = frappe.get_all("Good", filters={"employee": self.name}, fields=["name"])
