@@ -349,14 +349,14 @@
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "emission_data_1",
    "fieldtype": "Data",
-   "label": "Emission Data 1",
+   "label": "direct embedded emissions [t CO2//t product]",
    "read_only": 1
   },
   {
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "emission_data_2",
    "fieldtype": "Data",
-   "label": "Emission Data 2",
+   "label": "indirect embedded emissions [t CO2//t product]",
    "read_only": 1
   },
   {
@@ -534,7 +534,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-12 18:04:29.610167",
+ "modified": "2024-09-16 12:27:33.027253",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
