@@ -9,6 +9,7 @@ class SupplierEmployee(Document):
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Data confirmed by Employee"
+		self.confirmed_by_supplier()
 
 	def after_insert(self):
 		self.add_child()
@@ -48,3 +49,14 @@ class SupplierEmployee(Document):
 				child.employee_email = self.email
 				child.is_main_contact = self.is_main_contact
 				supplier_employees.save()
+
+	def confirmed_by_supplier(self):
+		user_email = frappe.session.user
+		try:
+			user = frappe.get_doc("User", user_email)
+		except frappe.DoesNotExistError:
+			frappe.throw(_("User not found"))
+		roles = [role.role for role in user.roles]
+		if "Supplier" in roles:
+			if self.is_data_confirmed != True:
+				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")

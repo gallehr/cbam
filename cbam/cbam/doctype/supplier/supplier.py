@@ -22,6 +22,7 @@ class Supplier(Document):
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Confirmed"
+		self.confirmed_by_supplier()
 
 
 	def create_new_employee(self):
@@ -79,3 +80,14 @@ class Supplier(Document):
 	def add_doc_name_as_supplier_number(self):
 		if not self.supplier_number:
 			self.supplier_number = self.name
+
+	def confirmed_by_supplier(self):
+		user_email = frappe.session.user
+		try:
+			user = frappe.get_doc("User", user_email)
+		except frappe.DoesNotExistError:
+			frappe.throw(_("User not found"))
+		roles = [role.role for role in user.roles]
+		if "Supplier" in roles:
+			if self.is_data_confirmed != True:
+				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")

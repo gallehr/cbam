@@ -17,6 +17,7 @@ class Good(Document):
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Done"
+		self.confirmed_by_supplier()
 
 	def on_trash(self):
 		self.delete_good_item()
@@ -196,6 +197,17 @@ class Good(Document):
 				"name": good_item
 			})
 		frappe.db.commit()
+
+	def confirmed_by_supplier(self):
+		user_email = frappe.session.user
+		try:
+			user = frappe.get_doc("User", user_email)
+		except frappe.DoesNotExistError:
+			frappe.throw(_("User not found"))
+		roles = [role.role for role in user.roles]
+		if "Supplier" in roles:
+			if self.is_data_confirmed != True:
+				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
 
 @frappe.whitelist()  # Called by Send Email button through goods.js
