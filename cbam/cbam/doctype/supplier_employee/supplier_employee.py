@@ -14,8 +14,8 @@ class SupplierEmployee(Document):
 		if self.is_data_confirmed == True:
 			self.status = "Data confirmed by Employee"
 
-	def after_insert(self):
-		self.add_child()
+	# def after_insert(self):
+	# 	self.add_child()
 
 	def on_trash(self):
 		self.delete_child()
