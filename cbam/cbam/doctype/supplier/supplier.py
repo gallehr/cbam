@@ -80,14 +80,11 @@ class Supplier(Document):
 
 
 	def check_confirmation_checkbox(self):
-		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
-		if not hasattr(self, '__unsaved'):
-			user_email = frappe.session.user
-			try:
-				user = frappe.get_doc("User", user_email)
-			except frappe.DoesNotExistError:
-				frappe.throw(_("User not found"))
-			roles = [role.role for role in user.roles]
-			if "Supplier" in roles:
-				if self.is_data_confirmed != True:
-					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+		user_email = frappe.session.user
+		try:
+			user = frappe.get_doc("User", user_email)
+		except frappe.DoesNotExistError:
+			frappe.throw(_("User not found"))
+		roles = [role.role for role in user.roles]
+		if "Supplier" in roles and self.status == "Sent for confirmation" and self.is_data_confirmed != True:
+			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")

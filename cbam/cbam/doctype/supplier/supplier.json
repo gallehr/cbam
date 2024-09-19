@@ -43,6 +43,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "City",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
    "reqd": 1
   },
   {
@@ -50,6 +51,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Supplier Name",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
    "reqd": 1
   },
   {
@@ -58,7 +60,7 @@
   },
   {
    "default": "Raw Data",
-   "description": "Describes the state of the Data Confirmation by the Main Contact Employee. \nRaw Data = Not sent to the Main Contact Employee yet.",
+   "description": "Raw Data = Not sent to the Main Contact Employee yet.<br>After sending, the data cannot be changed anymore.",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -68,7 +70,8 @@
   {
    "fieldname": "company_phone_number",
    "fieldtype": "Phone",
-   "label": "Company Phone Number"
+   "label": "Company Phone Number",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "fieldname": "column_break_xlzx",
@@ -91,20 +94,23 @@
    "fieldname": "supplier_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Supplier Number"
+   "label": "Supplier Number",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
    "fieldname": "company_email",
    "fieldtype": "Data",
    "label": "Company Email",
-   "options": "Email"
+   "options": "Email",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "fieldname": "zip_code",
    "fieldtype": "Data",
    "label": "Zip code",
-   "non_negative": 1
+   "non_negative": 1,
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "fieldname": "employees",
@@ -166,7 +172,8 @@
   {
    "fieldname": "street_and_number",
    "fieldtype": "Data",
-   "label": "Street and Number"
+   "label": "Street and Number",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
@@ -180,12 +187,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Country",
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-13 11:24:01.014362",
+ "modified": "2024-09-19 17:15:01.115768",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",

@@ -7,7 +7,7 @@ from frappe.model.document import Document
 
 class SupplierEmployee(Document):
 	def before_validate(self):
-		#self.check_confirmation_checkbox()
+		self.check_confirmation_checkbox()
 		self.insert_supplier_company()
 
 	def before_save(self):
@@ -67,13 +67,8 @@ class SupplierEmployee(Document):
 			return False
 
 	def check_confirmation_checkbox(self):
-		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
-		frappe.msgprint(f"{self.as_dict()}")
-		if not hasattr(self, '__unsaved'):
-			frappe.msgprint(f"if not attribue passed")
-			if self.is_supplier_user():
-				if self.is_data_confirmed != True:
-					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+		if self.status == "Sent to Supplier Employee" and self.is_supplier_user() and self.is_data_confirmed != True:
+			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
 	def insert_supplier_company(self):
 		if self.is_supplier_user() and not self.supplier_company:
