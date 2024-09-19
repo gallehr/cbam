@@ -73,9 +73,8 @@ class SupplierEmployee(Document):
 					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
 	def insert_supplier_company(self):
-		if self.is_supplier_user():
+		if self.is_supplier_user() and not self.supplier_company:
 			user = frappe.session.user
-			frappe.msgprint(f"User: {user}")
 			supplier_employee_docname = frappe.get_all('Supplier Employee', filters={'email': user}, fields=['name'])
 			if supplier_employee_docname:
 				supplier = frappe.get_value('Supplier Employee', supplier_employee_docname[0].name, 'supplier_company')
