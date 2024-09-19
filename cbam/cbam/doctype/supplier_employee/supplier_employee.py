@@ -67,7 +67,9 @@ class SupplierEmployee(Document):
 
 	def check_confirmation_checkbox(self):
 		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
+		frappe.msgprint(f"{self.as_dict()}")
 		if not hasattr(self, '__unsaved'):
+			frappe.msgprint(f"if not attribue passed")
 			if self.is_supplier_user():
 				if self.is_data_confirmed != True:
 					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
