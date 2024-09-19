@@ -6,18 +6,20 @@ from frappe.model.document import Document
 
 
 class Good(Document):
+	def before_validate(self):
+		self.check_confirmation_checkbox()
+
 	def validate(self):
 		self.get_main_contact_employee()
 		self.split_good()
 
-	def after_insert(self):
-		self.add_to_linked_supplier_cht()
-		self.add_to_linked_customs_import_cht()
-
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Done"
-		self.confirmed_by_supplier()
+
+	def after_insert(self):
+		self.add_to_linked_supplier_cht()
+		self.add_to_linked_customs_import_cht()
 
 	def on_trash(self):
 		self.delete_good_item()
@@ -198,16 +200,18 @@ class Good(Document):
 			})
 		frappe.db.commit()
 
-	def confirmed_by_supplier(self):
-		user_email = frappe.session.user
-		try:
-			user = frappe.get_doc("User", user_email)
-		except frappe.DoesNotExistError:
-			frappe.throw(_("User not found"))
-		roles = [role.role for role in user.roles]
-		if "Supplier" in roles:
-			if self.is_data_confirmed != True:
-				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+	def check_confirmation_checkbox(self):
+		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
+		if not hasattr(self, '__unsaved'):
+			user_email = frappe.session.user
+			try:
+				user = frappe.get_doc("User", user_email)
+			except frappe.DoesNotExistError:
+				frappe.throw(_("User not found"))
+			roles = [role.role for role in user.roles]
+			if "Supplier" in roles:
+				if self.is_data_confirmed != True:
+					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
 
 @frappe.whitelist()  # Called by Send Email button through goods.js

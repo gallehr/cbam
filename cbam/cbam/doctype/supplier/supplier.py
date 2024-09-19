@@ -12,18 +12,15 @@ class Supplier(Document):
 		self.add_supplier_number_to_parent_field()
 		self.add_doc_name_as_supplier_number()
 
-	def on_update(self):
-		self.create_new_employee()
-
-	def after_insert(self):
-		pass
-		#self.add_main_contact_check_in_cht()
+	def before_validate(self):
+		self.check_confirmation_checkbox()
 
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Confirmed"
-		self.confirmed_by_supplier()
 
+	def on_update(self):
+		self.create_new_employee()
 
 	def create_new_employee(self):
 		is_employee_registered = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")
@@ -81,13 +78,16 @@ class Supplier(Document):
 		if not self.supplier_number:
 			self.supplier_number = self.name
 
-	def confirmed_by_supplier(self):
-		user_email = frappe.session.user
-		try:
-			user = frappe.get_doc("User", user_email)
-		except frappe.DoesNotExistError:
-			frappe.throw(_("User not found"))
-		roles = [role.role for role in user.roles]
-		if "Supplier" in roles:
-			if self.is_data_confirmed != True:
-				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+
+	def check_confirmation_checkbox(self):
+		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
+		if not hasattr(self, '__unsaved'):
+			user_email = frappe.session.user
+			try:
+				user = frappe.get_doc("User", user_email)
+			except frappe.DoesNotExistError:
+				frappe.throw(_("User not found"))
+			roles = [role.role for role in user.roles]
+			if "Supplier" in roles:
+				if self.is_data_confirmed != True:
+					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
