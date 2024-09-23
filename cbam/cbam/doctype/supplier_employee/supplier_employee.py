@@ -38,7 +38,7 @@ class SupplierEmployee(Document):
 			frappe.db.set_value("Good", good, "employee", None)
 
 	def add_child(self):
-		frappe.msgprint("Add child is running")
+		# frappe.msgprint("Add child is running")
 		supplier_employee = frappe.get_doc("Supplier", self.supplier_company)
 		supplier_employee.append("employees", {
 			"employee_number": self.name,
@@ -47,7 +47,7 @@ class SupplierEmployee(Document):
 			"is_main_contact": self.is_main_contact
 		})
 		supplier_employee.save()
-		frappe.msgprint("Add child is done")
+		# frappe.msgprint("Add child is done")
 
 	def update_child(self):
 		supplier_employee_items = frappe.get_all("Supplier Employee Item", filters={"parent": self.supplier_company}, fields=["employee_number"], pluck="employee_number")
