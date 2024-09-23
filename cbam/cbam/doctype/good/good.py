@@ -10,10 +10,10 @@ class Good(Document):
 		self.check_confirmation_checkbox()
 
 	def validate(self):
-		self.get_main_contact_employee()
 		self.split_good()
 
 	def before_save(self):
+		self.get_main_contact_employee()
 		if self.is_data_confirmed == True:
 			self.status = "Done"
 
@@ -28,7 +28,7 @@ class Good(Document):
 		if self.supplier and not self.employee:
 			supplier_doc = frappe.get_doc("Supplier", self.supplier)
 			for child in supplier_doc.employees:
-				if child.is_main_contact == True:
+				if child.is_main_contact in ["1", 1, True]:
 					main_contact = child.employee_number
 					self.employee = main_contact
 
