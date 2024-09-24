@@ -47,46 +47,49 @@ class Supplier(Document):
 			})
 			self.save()
 
-	# def add_main_contact_check_in_cht(self):
-	# 	for child in self.employees:
-	# 		if child.employee_email == self.main_contact_employee_email:
-	# 			child.is_main_contact = 1
-	# 			self.save()
 
-	def add_supplier_number_to_parent_field(self): #STILL HAS TO BE TESTED WHEN SUPPLIER ADDS AN SUPPLIER
+	def add_supplier_number_to_parent_field(self):
 		try:
 			user = frappe.session.user
 			user_doc = frappe.get_doc("User", user)
+			frappe.msgprint(f"User: {user}")
 
 			if user_doc.role_profiles:
 				user_role_profiles_list = [profile.role_profile for profile in user_doc.role_profiles]
-
+				frappe.msgprint(f"User Role Profiles: {user_role_profiles_list}")
 				if "00 Supplier" in user_role_profiles_list:
 					user_supplier = frappe.db.get_value("Supplier Employee", {'email': user}, ['supplier_company'])
-
+					frappe.msgprint(f"User Supplier: {user_supplier}")
 					user_supplier_number = frappe.db.get_value("Supplier", user_supplier, 'supplier_number')
 
 					try:
 						original_parent_supplier_number = frappe.db.get_value("Supplier", user_supplier, 'original_parent_supplier_number')
+						frappe.msgprint(f"Tired Original Parent Supplier Number: {original_parent_supplier_number}")
 					except:
 						original_parent_supplier_number = None
 					if not original_parent_supplier_number:
 						original_parent_supplier_number = user_supplier_number
-
+						frappe.msgprint(f"After if not: Original Parent Supplier Number: {original_parent_supplier_number}")
 					try:
 						direct_parent_sub_supplier_level = frappe.db.get_value("Supplier", user_supplier, 'sub_supplier_level')
+						frappe.msgprint(f"Direct Parent Sub Supplier Level: {direct_parent_sub_supplier_level}")
 					except:
 						direct_parent_sub_supplier_level = None
-					
+
 					if direct_parent_sub_supplier_level is None:
 						direct_parent_sub_supplier_level = 0
+						frappe.msgprint(f"After if none: Direct Parent Sub Supplier Level: {direct_parent_sub_supplier_level}")
 
 					self.sub_supplier_level = direct_parent_sub_supplier_level + 1
 
 					self.original_parent_supplier_number = original_parent_supplier_number
+					frappe.msgprint(f"Original Parent Supplier Number: {original_parent_supplier_number}")
 					self.direct_parent_supplier = user_supplier
-
+					frappe.msgprint(f"Direct Parent Supplier: {user_supplier}")
 					self.supplier_number = f"{direct_parent_sub_supplier_level + 1}S-{original_parent_supplier_number}"
+					frappe.msgprint(f"Supplier Number: {self.supplier_number}")	
+				else:
+					frappe.throw("Cannot find your supplier number. Please contact the system administrator.")
 		except Exception as e:
 			# Log any errors encountered
 			frappe.log_error(message=str(e), title="Error processing supplier number")

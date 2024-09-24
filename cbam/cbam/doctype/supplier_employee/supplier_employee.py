@@ -64,7 +64,6 @@ class SupplierEmployee(Document):
 	def rename(self):
 		if self.name != f"EMP-{self.last_name}-{self.email}":
 			affected_goods = frappe.get_all("Good", filters={"employee": self.name}, fields=["name"], pluck="name")
-			frappe.msgprint(str(affected_goods))
 			frappe.rename_doc('Supplier Employee', self.name, f"EMP-{self.last_name}-{self.email}")
 			for good in affected_goods:
 				frappe.db.set_value("Good", good, "employee", f"EMP-{self.last_name}-{self.email}")

@@ -212,12 +212,13 @@
    "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
    "fieldname": "direct_parent_supplier",
    "fieldtype": "Data",
-   "label": "Direct Parent Supplier"
+   "label": "Direct Parent Supplier",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-24 15:20:49.695188",
+ "modified": "2024-09-24 16:23:52.764907",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
