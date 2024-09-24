@@ -15,11 +15,12 @@ class SupplierEmployee(Document):
 			self.status = "Data confirmed by Employee"
 		# self.rename()
 
-	def after_insert(self):
-		self.add_child()
+	# def after_insert(self):
+	# 	self.add_child()
 
 	def on_update(self):
 		self.update_child()
+		self.rename()
 
 	def on_trash(self):
 		self.delete_child()
@@ -38,7 +39,6 @@ class SupplierEmployee(Document):
 			frappe.db.set_value("Good", good, "employee", None)
 
 	def add_child(self):
-		# frappe.msgprint("Add child is running")
 		supplier_employee = frappe.get_doc("Supplier", self.supplier_company)
 		supplier_employee.append("employees", {
 			"employee_number": self.name,
@@ -47,38 +47,27 @@ class SupplierEmployee(Document):
 			"is_main_contact": self.is_main_contact
 		})
 		supplier_employee.save()
-		# frappe.msgprint("Add child is done")
 
 	def update_child(self):
-		supplier_employee_items = frappe.get_all("Supplier Employee Item", filters={"parent": self.supplier_company}, fields=["employee_number"], pluck="employee_number")
-		if self.name in supplier_employee_items:
-		# 	new_supplier_employee_item = frappe.new_doc("Supplier Employee Item")
-		# 	new_supplier_employee_item.employee_number = self.name
-		# 	new_supplier_employee_item.parenttype = "Supplier"
-		# 	new_supplier_employee_item.parentfield = "employees"
-		# 	new_supplier_employee_item.parent = self.supplier_company
-		# 	new_supplier_employee_item.save()
-		# else:
-			supplier = frappe.get_doc("Supplier", self.supplier_company)
-			for employee in supplier.employees:
-				if employee.employee_number == self.name:
-					employee.employee_last_name = self.last_name
-					employee.employee_email = self.email
-					employee.is_main_contact = self.is_main_contact
-			# supplier_employee_item = frappe.db.get_value("Supplier Employee Item", filters={"employee_number": self.name}, fields=["name"], pluck="name")
-			# frappe.db.set_value("Supplier Employee Item", supplier_employee_item, "employee_last_name", self.last_name)
-			# frappe.db.set_value("Supplier Employee Item", supplier_employee_item, "employee_email", self.email)
-			# frappe.db.set_value("Supplier Employee Item", supplier_employee_item, "is_main_contact", self.is_main_contact)
+		has_name_changed = self.has_value_changed("name")
+		has_last_name_changed = self.has_value_changed("last_name")
+		has_email_changed = self.has_value_changed("email")
+		has_is_main_contact_changed = self.has_value_changed("is_main_contact")
+		if has_name_changed or has_last_name_changed or has_email_changed or has_is_main_contact_changed:
+			supplier_employee_items = frappe.get_all("Supplier Employee Item", filters={"parent": self.supplier_company}, fields=["employee_number"], pluck="employee_number")
+			if self.name in supplier_employee_items:
+				supplier_employee_item = frappe.db.get_value("Supplier Employee Item", filters={"employee_number": self.name})
+				frappe.db.set_value("Supplier Employee Item", supplier_employee_item, "employee_last_name", self.last_name)
+				frappe.db.set_value("Supplier Employee Item", supplier_employee_item, "employee_email", self.email)
+				frappe.db.set_value("Supplier Employee Item", supplier_employee_item, "is_main_contact", self.is_main_contact)
 
-	# def rename(self):
-	# 	if self.name != f"EMP-{self.last_name}-{self.email}":
-	# 		goods_list = frappe.get_all("Good", filters={"employee": self.name}, fields=["name"])
-	# 		#frappe.throw("Rename if is running")
-	# 		self.name = f"EMP-{self.last_name}-{self.email}"
-	# 		self.save()
-	# 		self.delete_child()
-	# 		for good in goods_list:
-	# 			frappe.db.set_value("Good", good, "employee", self.name)
+	def rename(self):
+		if self.name != f"EMP-{self.last_name}-{self.email}":
+			affected_goods = frappe.get_all("Good", filters={"employee": self.name}, fields=["name"], pluck="name")
+			frappe.msgprint(str(affected_goods))
+			frappe.rename_doc('Supplier Employee', self.name, f"EMP-{self.last_name}-{self.email}")
+			for good in affected_goods:
+				frappe.db.set_value("Good", good, "employee", f"EMP-{self.last_name}-{self.email}")
 
 	def is_supplier_user(self):
 		user_email = frappe.session.user

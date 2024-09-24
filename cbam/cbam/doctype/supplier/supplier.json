@@ -9,7 +9,10 @@
   "status",
   "column_break_xlzx",
   "is_data_confirmed",
-  "parent_supplier",
+  "column_break_muwl",
+  "sub_supplier_level",
+  "original_parent_supplier_number",
+  "direct_parent_supplier",
   "contact_details_section",
   "supplier_number",
   "supplier_name",
@@ -91,6 +94,7 @@
    "permlevel": 1
   },
   {
+   "description": "Numbers only. If the number includes an S, it describes the level of Sub-Supplier. <br>E.g. S2-400006 is the Sub-Sub-Supplier of 400006.",
    "fieldname": "supplier_number",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -180,24 +184,40 @@
    "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
-   "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
-   "fieldname": "parent_supplier",
-   "fieldtype": "Data",
-   "label": "Parent Supplier",
-   "read_only": 1
-  },
-  {
    "fieldname": "country",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Country",
    "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
    "reqd": 1
+  },
+  {
+   "description": "Number of levels below the direct Supplier. E.g. Level 2 is the Sub-Sub-Supplier. ",
+   "fieldname": "sub_supplier_level",
+   "fieldtype": "Int",
+   "label": "Sub Supplier Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_muwl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "original_parent_supplier_number",
+   "fieldtype": "Data",
+   "label": "Original Parent Supplier Number",
+   "read_only": 1
+  },
+  {
+   "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
+   "fieldname": "direct_parent_supplier",
+   "fieldtype": "Data",
+   "label": "Direct Parent Supplier"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-20 11:05:24.256366",
+ "modified": "2024-09-24 15:20:49.695188",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
