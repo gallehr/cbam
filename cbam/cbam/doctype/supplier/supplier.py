@@ -54,38 +54,42 @@ class Supplier(Document):
 			user_doc = frappe.get_doc("User", user)
 			# frappe.msgprint(f"User: {user}")
 
-			try:
-				user_supplier = frappe.db.get_value("Supplier Employee", {'email': user}, ['supplier_company'])
-				# frappe.msgprint(f"User Supplier: {user_supplier}")
-				user_supplier_number = frappe.db.get_value("Supplier", user_supplier, 'supplier_number')
-			except:
-				frappe.throw("Cannot find your supplier number. Please contact the system administrator.")
-			try:
-				original_parent_supplier_number = frappe.db.get_value("Supplier", user_supplier, 'original_parent_supplier_number')
-				# frappe.msgprint(f"Tired Original Parent Supplier Number: {original_parent_supplier_number}")
-			except:
-				original_parent_supplier_number = None
-			if not original_parent_supplier_number:
-				original_parent_supplier_number = user_supplier_number
-				# frappe.msgprint(f"After if not: Original Parent Supplier Number: {original_parent_supplier_number}")
-			try:
-				direct_parent_sub_supplier_level = frappe.db.get_value("Supplier", user_supplier, 'sub_supplier_level')
-				# frappe.msgprint(f"Direct Parent Sub Supplier Level: {direct_parent_sub_supplier_level}")
-			except:
-				direct_parent_sub_supplier_level = None
+			if user_doc.role_profiles:
+				user_role_profiles_list = [profile.role_profile for profile in user_doc.role_profiles]
+				#frappe.msgprint(f"User Role Profiles: {user_role_profiles_list}")
+				if "00 Supplier" in user_role_profiles_list:
+					try:
+						user_supplier = frappe.db.get_value("Supplier Employee", {'email': user}, ['supplier_company'])
+						# frappe.msgprint(f"User Supplier: {user_supplier}")
+						user_supplier_number = frappe.db.get_value("Supplier", user_supplier, 'supplier_number')
+					except:
+						frappe.throw("Cannot find your supplier number. Please contact the system administrator.")
+					try:
+						original_parent_supplier_number = frappe.db.get_value("Supplier", user_supplier, 'original_parent_supplier_number')
+						# frappe.msgprint(f"Tired Original Parent Supplier Number: {original_parent_supplier_number}")
+					except:
+						original_parent_supplier_number = None
+					if not original_parent_supplier_number:
+						original_parent_supplier_number = user_supplier_number
+						# frappe.msgprint(f"After if not: Original Parent Supplier Number: {original_parent_supplier_number}")
+					try:
+						direct_parent_sub_supplier_level = frappe.db.get_value("Supplier", user_supplier, 'sub_supplier_level')
+						# frappe.msgprint(f"Direct Parent Sub Supplier Level: {direct_parent_sub_supplier_level}")
+					except:
+						direct_parent_sub_supplier_level = None
 
-			if direct_parent_sub_supplier_level is None:
-				direct_parent_sub_supplier_level = 0
-				# frappe.msgprint(f"After if none: Direct Parent Sub Supplier Level: {direct_parent_sub_supplier_level}")
+					if direct_parent_sub_supplier_level is None:
+						direct_parent_sub_supplier_level = 0
+						# frappe.msgprint(f"After if none: Direct Parent Sub Supplier Level: {direct_parent_sub_supplier_level}")
 
-			self.sub_supplier_level = direct_parent_sub_supplier_level + 1
+					self.sub_supplier_level = direct_parent_sub_supplier_level + 1
 
-			self.original_parent_supplier_number = original_parent_supplier_number
-			# frappe.msgprint(f"Original Parent Supplier Number: {original_parent_supplier_number}")
-			self.direct_parent_supplier = user_supplier
-			# frappe.msgprint(f"Direct Parent Supplier: {user_supplier}")
-			self.supplier_number = f"{direct_parent_sub_supplier_level + 1}S-{original_parent_supplier_number}"
-			# frappe.msgprint(f"Supplier Number: {self.supplier_number}")
+					self.original_parent_supplier_number = original_parent_supplier_number
+					# frappe.msgprint(f"Original Parent Supplier Number: {original_parent_supplier_number}")
+					self.direct_parent_supplier = user_supplier
+					# frappe.msgprint(f"Direct Parent Supplier: {user_supplier}")
+					self.supplier_number = f"{direct_parent_sub_supplier_level + 1}S-{original_parent_supplier_number}"
+					# frappe.msgprint(f"Supplier Number: {self.supplier_number}")
 		except Exception as e:
 			# Log any errors encountered
 			frappe.log_error(message=str(e), title="Error processing supplier number")
