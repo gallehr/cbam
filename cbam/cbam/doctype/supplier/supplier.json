@@ -8,11 +8,11 @@
  "field_order": [
   "status",
   "column_break_xlzx",
-  "is_data_confirmed",
-  "column_break_muwl",
   "sub_supplier_level",
   "original_parent_supplier_number",
   "direct_parent_supplier",
+  "column_break_muwl",
+  "is_data_confirmed",
   "contact_details_section",
   "supplier_number",
   "supplier_name",
@@ -203,13 +203,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "Supplier Level 0 / Direct Supplier of Reporting Declarant",
    "fieldname": "original_parent_supplier_number",
    "fieldtype": "Data",
    "label": "Original Parent Supplier Number",
    "read_only": 1
   },
   {
-   "description": "If empty, the supplier is a direct supplier of the Reporting Declarant.",
    "fieldname": "direct_parent_supplier",
    "fieldtype": "Data",
    "label": "Direct Parent Supplier",
@@ -218,7 +218,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-24 16:23:52.764907",
+ "modified": "2024-09-25 10:00:56.738292",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
