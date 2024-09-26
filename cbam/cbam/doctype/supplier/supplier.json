@@ -46,8 +46,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "City",
-   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
-   "reqd": 1
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "fieldname": "supplier_name",
@@ -120,7 +119,8 @@
    "fieldname": "employees",
    "fieldtype": "Table",
    "label": "Employees",
-   "options": "Supplier Employee Item"
+   "options": "Supplier Employee Item",
+   "read_only": 1
   },
   {
    "fieldname": "employee_section",
@@ -188,8 +188,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Country",
-   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
-   "reqd": 1
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
   },
   {
    "description": "Number of levels below the direct Supplier. E.g. Level 2 is the Sub-Sub-Supplier. ",
@@ -218,7 +217,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 13:09:40.776344",
+ "modified": "2024-09-26 11:07:14.790901",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
