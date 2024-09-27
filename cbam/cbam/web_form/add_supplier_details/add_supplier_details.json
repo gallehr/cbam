@@ -14,12 +14,14 @@
  "doc_type": "Supplier",
  "docstatus": 0,
  "doctype": "Web Form",
+ "hide_footer": 0,
+ "hide_navbar": 0,
  "idx": 0,
  "is_standard": 1,
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-18 10:24:08.227380",
+ "modified": "2024-09-26 11:12:31.601244",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-supplier-details",
@@ -84,7 +86,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -97,7 +99,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {

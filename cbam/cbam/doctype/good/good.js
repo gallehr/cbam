@@ -18,19 +18,10 @@ frappe.ui.form.on("Good", {
         frm.add_custom_button(__("Sent Email"), function () {
             // console.log("create new supplier");
             frappe.call({
-                method: "cbam.cbam.doctype.good.good.create_new_supplier_user",
+                method: "cbam.send_email_from_good.send_email",
                 args: {
-                    employee: cur_frm.doc.employee,
+                    good: cur_frm.docname,
                 },
-                callback: function(response) {
-                    // console.log("send_email");
-                    frappe.call({
-                        method: "cbam.detail_confirmation_email.send_email",
-                        args: {
-                            goods_list: cur_frm.docname,
-                        },
-                    });
-                }
             });
         }, __("⚠️ Look out! ⚠️"));
     },
