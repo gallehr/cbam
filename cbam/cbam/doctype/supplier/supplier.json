@@ -99,7 +99,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Supplier Number",
-   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
+   "reqd": 1
   },
   {
    "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
@@ -224,7 +225,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-30 15:20:36.891802",
+ "modified": "2024-09-30 15:52:58.403389",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
