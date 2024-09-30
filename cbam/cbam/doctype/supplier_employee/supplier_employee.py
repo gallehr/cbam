@@ -13,13 +13,12 @@ class SupplierEmployee(Document):
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Data confirmed by Employee"
-		# self.rename()
 
-	# def after_insert(self):
-	# 	self.add_child()
+	def after_insert(self):
+		self.add_to_supplier_cht()
 
 	def on_update(self):
-		self.update_child()
+		self.update_supplier_child()
 		self.rename()
 
 	def on_trash(self):
@@ -30,7 +29,7 @@ class SupplierEmployee(Document):
 		if self.supplier_company:
 			supplier_employees = frappe.get_doc("Supplier", self.supplier_company)
 			for child in supplier_employees.employees:
-				if child.employee_number == self.name: #not tested yet.
+				if child.employee_number == self.name:
 					child.delete()
 
 	def delete_link_in_good(self):
@@ -38,7 +37,7 @@ class SupplierEmployee(Document):
 		for good in goods_list:
 			frappe.db.set_value("Good", good, "employee", None)
 
-	def add_child(self):
+	def add_to_supplier_cht(self):
 		supplier_employee = frappe.get_doc("Supplier", self.supplier_company)
 		supplier_employee.append("employees", {
 			"employee_number": self.name,
@@ -48,7 +47,7 @@ class SupplierEmployee(Document):
 		})
 		supplier_employee.save()
 
-	def update_child(self):
+	def update_supplier_child(self):
 		has_name_changed = self.has_value_changed("name")
 		has_last_name_changed = self.has_value_changed("last_name")
 		has_email_changed = self.has_value_changed("email")

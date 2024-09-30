@@ -7,10 +7,13 @@ def get_context(context):
 
 @frappe.whitelist()
 def get_filtered_supplier_employees(supplier, employee):
-	# frappe.msgprint(f"Employee Function works. Supplier: {supplier}, Employee: {employee}")
-	employeeOptions = frappe.get_all("Supplier Employee Item", {"parenttype": "Supplier", "parentfield": "employees", "parent": supplier}, ["employee_number"],distinct=1)
+	#frappe.msgprint(f"Employee Function works. Supplier: {supplier}, Employee: {employee}")
+	# employeeOptions = frappe.get_all("Supplier Employee Item", {"parenttype": "Supplier", "parentfield": "employees", "parent": supplier}, ["employee_number"], distinct=1)
+	supplier_doc = frappe.get_doc("Supplier", supplier)
+	employeeOptions = [e.employee_number for e in supplier_doc.employees]
+	#frappe.msgprint(f"Employee Options: {employeeOptions}")
 	employeeOptions = [{"label": d.employee_number, "value": d.employee_number} for d in employeeOptions if d.employee_number != employee]
-	# frappe.msgprint(f"Employee Options: {employeeOptions}")
+	#frappe.msgprint(f"Employee Options: {str(employeeOptions)}")
 	return {
 		"employeeOptions": employeeOptions,
 	}

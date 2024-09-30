@@ -13,6 +13,7 @@
   "direct_parent_supplier",
   "column_break_muwl",
   "is_data_confirmed",
+  "confirmation_web_form",
   "contact_details_section",
   "supplier_number",
   "supplier_name",
@@ -98,7 +99,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Supplier Number",
-   "read_only_depends_on": "eval:doc.status!=\"Raw Data\""
+   "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
+   "reqd": 1
   },
   {
    "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
@@ -213,11 +215,17 @@
    "fieldtype": "Data",
    "label": "Direct Parent Supplier",
    "read_only": 1
+  },
+  {
+   "fieldname": "confirmation_web_form",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "confirmation web form"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 11:07:14.790901",
+ "modified": "2024-09-30 15:52:58.403389",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
