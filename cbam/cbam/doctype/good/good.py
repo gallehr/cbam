@@ -18,8 +18,8 @@ class Good(Document):
 			self.status = "Done"
 
 	def after_insert(self):
-		self.add_to_linked_supplier_cht()
-		self.add_to_linked_customs_import_cht()
+		self.add_to_supplier_cht()
+		self.add_to_customs_import_cht()
 
 	def on_trash(self):
 		self.delete_good_item()
@@ -178,14 +178,14 @@ class Good(Document):
 					new_good.insert()
 					next_highest_split_number += 1
 
-	def add_to_linked_supplier_cht(self):
+	def add_to_supplier_cht(self):
 		supplier = frappe.get_doc("Supplier", self.supplier)
 		supplier.append("goods", {
 			"good_number": self.name
 		})
 		supplier.save()
 
-	def add_to_linked_customs_import_cht(self):
+	def add_to_customs_import_cht(self):
 		customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
 		customs_import.append("goods", {
 			"good_number": self.name
@@ -204,12 +204,16 @@ class Good(Document):
 		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
 		if not hasattr(self, '__unsaved'):
 			user_email = frappe.session.user
+			# frappe.msgprint(f"User Email: {user_email}")
 			try:
 				user = frappe.get_doc("User", user_email)
+				# frappe.msgprint(f"User: {user}")
 			except frappe.DoesNotExistError:
 				frappe.throw(_("User not found"))
-			roles = [role.role for role in user.roles]
-			if "Supplier" in roles:
+			role_list = [r.role for r in user.roles]
+			if "Supplier" in role_list:
+				# frappe.msgprint("User is a supplier")
+				# frappe.msgprint(f"is data confirmed{self.is_data_confirmed}")
 				if self.is_data_confirmed != True:
 					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 

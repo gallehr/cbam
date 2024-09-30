@@ -54,10 +54,10 @@ class Supplier(Document):
 			user_doc = frappe.get_doc("User", user)
 			# frappe.msgprint(f"User: {user}")
 
-			if user_doc.role_profiles:
-				user_role_profiles_list = [profile.role_profile for profile in user_doc.role_profiles]
-				#frappe.msgprint(f"User Role Profiles: {user_role_profiles_list}")
-				if "00 Supplier" in user_role_profiles_list:
+			if user_doc.roles:
+				user_role_list = [r.role for r in user_doc.roles]
+				# frappe.msgprint(f"User Roles: {user_role_list}")
+				if "Supplier" in user_role_list:
 					try:
 						user_supplier = frappe.db.get_value("Supplier Employee", {'email': user}, ['supplier_company'])
 						# frappe.msgprint(f"User Supplier: {user_supplier}")
@@ -106,6 +106,6 @@ class Supplier(Document):
 			user = frappe.get_doc("User", user_email)
 		except frappe.DoesNotExistError:
 			frappe.throw(_("User not found"))
-		roles = [role.role for role in user.roles]
-		if "Supplier" in roles and self.status == "Sent for confirmation" and self.is_data_confirmed != True:
+		role_list = [r.role for r in user.roles]
+		if "Supplier" in role_list and self.confirmation_web_form == "true" and self.is_data_confirmed != True:
 			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")

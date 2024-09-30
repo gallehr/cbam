@@ -13,6 +13,7 @@
   "direct_parent_supplier",
   "column_break_muwl",
   "is_data_confirmed",
+  "confirmation_web_form",
   "contact_details_section",
   "supplier_number",
   "supplier_name",
@@ -213,11 +214,17 @@
    "fieldtype": "Data",
    "label": "Direct Parent Supplier",
    "read_only": 1
+  },
+  {
+   "fieldname": "confirmation_web_form",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "confirmation web form"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 11:07:14.790901",
+ "modified": "2024-09-30 15:20:36.891802",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
