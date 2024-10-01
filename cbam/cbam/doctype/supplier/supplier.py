@@ -21,31 +21,38 @@ class Supplier(Document):
 
 	def on_update(self):
 		self.create_new_employee()
-		self.add_main_employee_to_cht()
+
+	# def after_insert(self):
+	# 	self.add_main_employee_to_cht()
 
 	def create_new_employee(self):
-		is_employee_registered = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")
-		if not is_employee_registered:
-			new_employee = frappe.new_doc("Supplier Employee")
-			# new_employee.status = "Raw Data"
-			new_employee.is_main_contact = 1
-			new_employee.supplier_company = self.name
-			new_employee.last_name = self.main_contact_employee_last_name
-			new_employee.first_name = self.main_contact_employee_first_name
-			new_employee.email = self.main_contact_employee_email
-			new_employee.phone_number = self.main_contact_employee_phone_number
-			new_employee.position = self.main_contact_employee_position
-			new_employee.insert()
+		has_main_contact_employee_email_changed = self.has_value_changed("main_contact_employee_email")
+		has_main_contact_employee_last_name_changed = self.has_value_changed("main_contact_employee_last_name")
+		if has_main_contact_employee_email_changed or has_main_contact_employee_last_name_changed:
+			is_employee_registered = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email, 'last_name': self.main_contact_employee_last_name} , fields=["name"], pluck="name")
+			if not is_employee_registered:
+				new_employee = frappe.new_doc("Supplier Employee")
+				# new_employee.status = "Raw Data"
+				new_employee.is_main_contact = 1
+				new_employee.supplier_company = self.name
+				new_employee.last_name = self.main_contact_employee_last_name
+				new_employee.first_name = self.main_contact_employee_first_name
+				new_employee.email = self.main_contact_employee_email
+				new_employee.phone_number = self.main_contact_employee_phone_number
+				new_employee.position = self.main_contact_employee_position
+				new_employee.insert()
+			else:
+				frappe.throw("Employee already exists in the system")
 
-	def add_main_employee_to_cht(self):
-		main_contact = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")
-		employee_list = [child.employee_email for child in self.employees if child.employee_email == self.main_contact_employee_email]
-		if self.main_contact_employee_email not in employee_list:
-			self.append("employees", {
-				"employee_number": main_contact[0],
-				"is_main_contact": 1
-			})
-			self.save()
+	# def add_main_employee_to_cht(self):
+	# 	main_contact = frappe.get_list("Supplier Employee", filters={'email': self.main_contact_employee_email} , fields=["name"], pluck="name")
+	# 	employee_list = [child.employee_email for child in self.employees if child.employee_email == self.main_contact_employee_email]
+	# 	if self.main_contact_employee_email not in employee_list:
+	# 		self.append("employees", {
+	# 			"employee_number": main_contact[0],
+	# 			"is_main_contact": 1
+	# 			})
+	# 		self.save()
 
 
 	def sub_supplier(self):
