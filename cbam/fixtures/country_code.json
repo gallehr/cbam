@@ -1036,13 +1036,6 @@
   "name": "ST"
  },
  {
-  "country_full_name": "Saudi Arabia",
-  "docstatus": 0,
-  "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:03.209142",
-  "name": "SA"
- },
- {
   "country_full_name": "Senegal",
   "docstatus": 0,
   "doctype": "Country Code",
@@ -1125,13 +1118,6 @@
   "doctype": "Country Code",
   "modified": "2024-09-03 12:52:03.209142",
   "name": "SS"
- },
- {
-  "country_full_name": "Spain",
-  "docstatus": 0,
-  "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:03.209142",
-  "name": "ES"
  },
  {
   "country_full_name": "Sri Lanka",
@@ -1358,13 +1344,6 @@
   "name": "BR"
  },
  {
-  "country_full_name": "United States",
-  "docstatus": 0,
-  "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:03.209142",
-  "name": "US"
- },
- {
   "country_full_name": "Turkey",
   "docstatus": 0,
   "doctype": "Country Code",
@@ -1384,5 +1363,26 @@
   "doctype": "Country Code",
   "modified": "2024-09-03 12:52:03.209142",
   "name": "JP"
+ },
+ {
+  "country_full_name": "Saudi Arabia",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "SA"
+ },
+ {
+  "country_full_name": "Spain",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "ES"
+ },
+ {
+  "country_full_name": "United States",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "US"
  }
 ]
