@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-02 14:04:15.400163",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "emission_data"
+ ],
+ "fields": [
+  {
+   "fieldname": "emission_data",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Emission Data",
+   "options": "CBAM Emission Data"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-03 16:17:57.060069",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "CBAM Emission Data Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

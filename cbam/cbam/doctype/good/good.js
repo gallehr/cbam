@@ -13,6 +13,18 @@ frappe.ui.form.on('Good', {
     }
 })
 
+frappe.ui.form.on('Good', {
+    installation(frm) {
+        frm.set_query("emission_data", (doc) => {
+            return {
+                filters: {
+                    "installation_name": doc.installation
+                }
+            }
+        });
+    }
+})
+
 frappe.ui.form.on("Good", {
     refresh(frm) {
         frm.add_custom_button(__("Sent Email"), function () {

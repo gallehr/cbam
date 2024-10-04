@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-02 10:12:44.169444",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cbam_installation",
+  "uuid"
+ ],
+ "fields": [
+  {
+   "fieldname": "cbam_installation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "CBAM Installation",
+   "options": "CBAM Installation"
+  },
+  {
+   "fetch_from": "cbam_installation.uuid_installation",
+   "fieldname": "uuid",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "UUID",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-03 16:14:15.080791",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "CBAM Installation Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

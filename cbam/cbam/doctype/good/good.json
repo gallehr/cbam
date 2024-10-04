@@ -13,11 +13,12 @@
   "is_data_confirmed",
   "goods_data_section",
   "master_reference_number_mrn",
-  "good_description",
-  "hand_over_date",
-  "column_break_qjtl",
+  "invoice_number",
   "article_number",
   "customs_tariff_number",
+  "column_break_qjtl",
+  "good_description",
+  "hand_over_date",
   "internal_customs_import_number",
   "values_section",
   "column_break_kaso",
@@ -68,9 +69,10 @@
   "split_action_html",
   "requested_data_section",
   "installation",
+  "emission_data",
   "column_break_wczo",
-  "emission_data_1",
-  "emission_data_2",
+  "direct_emission_data",
+  "indirect_emission_data",
   "good_splits_section",
   "good_splits"
  ],
@@ -180,6 +182,7 @@
   },
   {
    "default": "Only one Component",
+   "description": "Field can only be changed by Supplier User.",
    "fieldname": "good_values",
    "fieldtype": "Select",
    "label": "Good Components",
@@ -211,7 +214,6 @@
   {
    "fieldname": "split_the_good_in_various_components_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
    "label": "Split the Good in various Components, if needed"
   },
   {
@@ -224,6 +226,7 @@
   {
    "fieldname": "good_split_information_html",
    "fieldtype": "HTML",
+   "hidden": 1,
    "label": "Good Split information HTML",
    "options": "<h4>Important</h4>\n<p>\n    If this Good is part of several components that have different CO2 values or need to be forwarded to other employees or suppliers, you need to <strong>split this Good</strong>. The present Good will become <em>immutable</em>. The requested data will be required for the resulting Good-Components.\n</p>\n<p>\n    Goods Components for which you aren't responsible will be forwarded. For this, it's <strong>mandatory</strong> that you provide the contact details of the responsible internal employee or the external supplier who provided you with the Good.\n</p>\n<p><strong>If you need to split, choose \u201cVarious Components\u201d here:</strong></p>\n<br>"
   },
@@ -341,22 +344,9 @@
   {
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "installation",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Installation",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
-   "fieldname": "emission_data_1",
-   "fieldtype": "Data",
-   "label": "Direct embedded emissions [t CO2//t product]",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
-   "fieldname": "emission_data_2",
-   "fieldtype": "Data",
-   "label": "Indirect embedded emissions [t CO2//t product]",
+   "options": "CBAM Installation",
    "read_only": 1
   },
   {
@@ -525,6 +515,37 @@
    "label": "Customs Tariff Number",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "description": "DE: Rechungsnummer",
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice number"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fieldname": "emission_data",
+   "fieldtype": "Link",
+   "label": "Emission Data (FILTER MISSING YET)",
+   "options": "CBAM Emission Data",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fetch_from": "emission_data.specific_direct_embedded_emissions",
+   "fieldname": "direct_emission_data",
+   "fieldtype": "Data",
+   "label": "Direct embedded emissions [t CO2/t product]",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "description": "Electricity consumed [MWh/t]",
+   "fetch_from": "emission_data.electricity_consumed",
+   "fieldname": "indirect_emission_data",
+   "fieldtype": "Data",
+   "label": "Indirect embedded emissions [t CO2/t product]",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -534,7 +555,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-09-16 12:38:05.491286",
+ "modified": "2024-10-03 16:39:54.559525",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
