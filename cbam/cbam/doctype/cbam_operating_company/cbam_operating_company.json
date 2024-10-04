@@ -129,7 +129,8 @@
    "fieldname": "installations",
    "fieldtype": "Table",
    "label": "Installations",
-   "options": "CBAM Installation Item"
+   "options": "CBAM Installation Item",
+   "read_only": 1
   },
   {
    "fieldname": "base_information_of_installation_section",
@@ -172,7 +173,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 16:05:09.880041",
+ "modified": "2024-10-04 10:02:05.091391",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Operating Company",
