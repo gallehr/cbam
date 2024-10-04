@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:EmD-installation_name-{####}",
+ "creation": "2024-10-02 10:40:00.483236",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "operating_company_and_installation_section",
+  "uuid_installation",
+  "installation_name",
+  "column_break_pwkc",
+  "uuid_operator_company",
+  "operator_name",
+  "emission_data_of_the_installation_section",
+  "type_of_applicable_reporting_methodology",
+  "applicable_reporting_methodology",
+  "column_break_gxzg",
+  "specific_direct_embedded_emissions",
+  "indirect_emissions_section",
+  "source_of_electricity",
+  "column_break_iywy",
+  "electricity_consumed",
+  "goods_covered_by_this_emissions_calculation_section",
+  "cn_codes"
+ ],
+ "fields": [
+  {
+   "fieldname": "operating_company_and_installation_section",
+   "fieldtype": "Section Break",
+   "label": "Operating Company and Installation"
+  },
+  {
+   "fetch_from": "installation_name.uuid_installation",
+   "fieldname": "uuid_installation",
+   "fieldtype": "Data",
+   "label": "UUID Installation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "installation_name",
+   "fieldtype": "Link",
+   "label": "Installation Name",
+   "options": "CBAM Installation"
+  },
+  {
+   "fetch_from": "installation_name.operating_company",
+   "fieldname": "operator_name",
+   "fieldtype": "Data",
+   "label": "Operator Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "emission_data_of_the_installation_section",
+   "fieldtype": "Section Break",
+   "label": "Emission data of the installation"
+  },
+  {
+   "fieldname": "type_of_applicable_reporting_methodology",
+   "fieldtype": "Select",
+   "label": "Type of applicable reporting methodology",
+   "options": "Commissions rules\nOther"
+  },
+  {
+   "depends_on": "eval:doc.type_of_applicable_reporting_methodology==\"Other\"",
+   "fieldname": "applicable_reporting_methodology",
+   "fieldtype": "Data",
+   "label": "Applicable reporting methodology",
+   "mandatory_depends_on": "eval:doc.type_of_applicable_reporting_methodology==\"Other\""
+  },
+  {
+   "description": "Example: 1.67 tCO2/t (t = tonnes of product)",
+   "fieldname": "specific_direct_embedded_emissions",
+   "fieldtype": "Data",
+   "label": "Specific (direct) embedded emissions [tCO2/t]"
+  },
+  {
+   "fieldname": "indirect_emissions_section",
+   "fieldtype": "Section Break",
+   "label": "Indirect Emissions"
+  },
+  {
+   "fieldname": "source_of_electricity",
+   "fieldtype": "Select",
+   "label": "Source of electricity",
+   "options": "Direct technical link to electricity generator\n(Bilateral) power purchase agreement\nReceived from the grid"
+  },
+  {
+   "description": "Example: 3.1 MWh/t (t = tonnes of product)",
+   "fieldname": "electricity_consumed",
+   "fieldtype": "Data",
+   "label": "Electricity consumed [MWh/t]"
+  },
+  {
+   "fieldname": "goods_covered_by_this_emissions_calculation_section",
+   "fieldtype": "Section Break",
+   "label": "Goods covered by this emissions calculation"
+  },
+  {
+   "description": "CN-Codes (8-digits) covered by this emissions\ncalculation (split data with \u201d ; \u201d)",
+   "fieldname": "cn_codes",
+   "fieldtype": "Small Text",
+   "label": "CN Codes"
+  },
+  {
+   "fieldname": "column_break_pwkc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gxzg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iywy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "installation_name.uuid_operating_company",
+   "fieldname": "uuid_operator_company",
+   "fieldtype": "Data",
+   "label": "UUID Operator Company",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-03 16:20:51.560652",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "CBAM Emission Data",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

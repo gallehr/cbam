@@ -15,8 +15,8 @@
         <table class="goods-table">
             <thead>
                 <tr>
-                    <th>Master Reference Number MRN</th>
-                    <th>Article Number</th>
+                    <th>Invoice Nr.</th>
+                    <th>Article Nr.</th>
                     <th>Good Description</th>
                     <th>Edit</th>
                 </tr>
@@ -25,7 +25,7 @@
                 <!-- Loop through the goods_list data and display each row -->
                 {% for good in goods_list %}
                 <tr>
-                    <td>{{ good.master_reference_number_mrn }}</td>
+                    <td>{{ good.invoice_number }}</td>
                     <td>{{ good.article_number }}</td>
                     <td>{{ good.good_description }}</td>
                     {% if good.status == "Open" %}

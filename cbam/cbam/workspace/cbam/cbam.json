@@ -5,11 +5,15 @@
    "label": "Supplier Status"
   },
   {
+   "chart_name": "Amount of registered Installations",
+   "label": "Registered Installations"
+  },
+  {
    "chart_name": "Goods Status Pie Chart",
    "label": "Good Status"
   }
  ],
- "content": "[{\"id\":\"PlDXw0rUoK\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">CBAM</span>\",\"col\":12}},{\"id\":\"Zrn94khC9Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Custom Import\",\"col\":3}},{\"id\":\"f1FCEKXOuF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"NEW Data Import\",\"col\":3}},{\"id\":\"GSVaAFlInt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MftZ-Vthqn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier List\",\"col\":3}},{\"id\":\"DR4yp_0ssL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier Employee\",\"col\":3}},{\"id\":\"Px4vhZvF0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Goods List\",\"col\":3}},{\"id\":\"fCVoiGCN0F\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vY2XLnRqJX\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Supplier Status\",\"col\":8}},{\"id\":\"zvAlOMnhd9\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed Supplier Details\",\"col\":4}},{\"id\":\"bLcxiEisU_\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Good Status\",\"col\":8}},{\"id\":\"i0--is7Z-_\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed or split Goods\",\"col\":4}},{\"id\":\"kN0hCEtpEF\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Suppliers since Yesterday\",\"col\":4}},{\"id\":\"2pwOx24n-_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Goods since Yesterday\",\"col\":4}}]",
+ "content": "[{\"id\":\"PlDXw0rUoK\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">CBAM</span>\",\"col\":12}},{\"id\":\"Zrn94khC9Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Custom Import\",\"col\":3}},{\"id\":\"f1FCEKXOuF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"NEW Data Import\",\"col\":3}},{\"id\":\"GSVaAFlInt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MftZ-Vthqn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier List\",\"col\":3}},{\"id\":\"DR4yp_0ssL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier Employee\",\"col\":3}},{\"id\":\"Px4vhZvF0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Goods List\",\"col\":3}},{\"id\":\"fCVoiGCN0F\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"gl-Zyozkr2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CBAM Operating Companies\",\"col\":3}},{\"id\":\"MH1A8M-rWg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CBAM Installations\",\"col\":3}},{\"id\":\"lLQ6OMEDON\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CBAM Emission Data\",\"col\":3}},{\"id\":\"m1lZW3JdI2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"5W83G_cB2p\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Registered Installations\",\"col\":6}},{\"id\":\"Ty_Lh9SLSe\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kN0hCEtpEF\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Suppliers since Yesterday\",\"col\":4}},{\"id\":\"2pwOx24n-_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Goods since Yesterday\",\"col\":4}},{\"id\":\"-HOr0L_aKp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vY2XLnRqJX\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Supplier Status\",\"col\":8}},{\"id\":\"zvAlOMnhd9\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed Supplier Details\",\"col\":4}},{\"id\":\"bLcxiEisU_\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Good Status\",\"col\":8}},{\"id\":\"i0--is7Z-_\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Confirmed or split Goods\",\"col\":4}}]",
  "creation": "2024-08-26 18:20:30.498993",
  "custom_blocks": [],
  "docstatus": 0,
@@ -33,7 +37,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-09-26 17:47:09.406520",
+ "modified": "2024-10-02 16:23:17.954920",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM",
@@ -81,6 +85,14 @@
   },
   {
    "color": "Grey",
+   "doc_view": "List",
+   "label": "CBAM Operating Companies",
+   "link_to": "CBAM Operating Company",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
    "doc_view": "New",
    "label": "NEW Data Import",
    "link_to": "Data Import",
@@ -90,8 +102,24 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "CBAM Installations",
+   "link_to": "CBAM Installation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Supplier List",
    "link_to": "Supplier",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "CBAM Emission Data",
+   "link_to": "CBAM Emission Data",
    "stats_filter": "[]",
    "type": "DocType"
   },
