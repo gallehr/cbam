@@ -1,9 +1,9 @@
 {
  "allow_comments": 0,
  "allow_delete": 0,
- "allow_edit": 1,
+ "allow_edit": 0,
  "allow_incomplete": 0,
- "allow_multiple": 1,
+ "allow_multiple": 0,
  "allow_print": 0,
  "anonymous": 0,
  "apply_document_permissions": 0,
@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-10-02 16:00:51.240751",
+ "modified": "2024-10-07 18:05:06.549531",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-operating-company-data",
@@ -27,7 +27,7 @@
  "published": 1,
  "route": "add-operating-company-data",
  "show_attachments": 0,
- "show_list": 1,
+ "show_list": 0,
  "show_sidebar": 0,
  "success_message": "Please wait. You will be redirected and ask to add the installation data. ",
  "success_title": "Thank you for adding the operating company data! ",
@@ -149,7 +149,7 @@
    "options": "I am the contact person\nDifferent contact person",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {

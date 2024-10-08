@@ -7,6 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "uuid",
+  "column_break_ohlj",
+  "parent_supplier",
   "base_information_of_operating_company_section",
   "legal_name_of_the_company",
   "address",
@@ -71,7 +73,6 @@
    "fetch_from": "company.city",
    "fieldname": "city",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "City",
    "reqd": 1
   },
@@ -156,12 +157,12 @@
    "permlevel": 2
   },
   {
-   "depends_on": "eval:doc.select_contact_person=='Different contact person'",
    "fieldname": "contact_person_employee",
    "fieldtype": "Link",
    "label": "Contact Person Employee",
    "mandatory_depends_on": "eval:doc.select_contact_person=='Different contact person'",
-   "options": "Supplier Employee"
+   "options": "Supplier Employee",
+   "read_only_depends_on": "eval:doc.select_contact_person=='I am the contact person'"
   },
   {
    "fetch_from": "contact_person_employee.first_name",
@@ -169,11 +170,22 @@
    "fieldtype": "Data",
    "label": "First Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ohlj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parent_supplier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parent Supplier",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-04 10:02:05.091391",
+ "modified": "2024-10-07 15:16:17.334748",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Operating Company",

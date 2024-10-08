@@ -1,13 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:EmD-installation_name-{####}",
+ "autoname": "format:EmD-{installation_name}-direct:{specific_direct_embedded_emissions}-indirect:{electricity_consumed}-{###}",
  "creation": "2024-10-02 10:40:00.483236",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "operating_company_and_installation_section",
   "uuid_installation",
+  "cbam_installation",
   "installation_name",
   "column_break_pwkc",
   "uuid_operator_company",
@@ -31,22 +32,17 @@
    "label": "Operating Company and Installation"
   },
   {
-   "fetch_from": "installation_name.uuid_installation",
+   "fetch_from": "cbam_installation.uuid_installation",
    "fieldname": "uuid_installation",
    "fieldtype": "Data",
    "label": "UUID Installation",
    "read_only": 1
   },
   {
-   "fieldname": "installation_name",
-   "fieldtype": "Link",
-   "label": "Installation Name",
-   "options": "CBAM Installation"
-  },
-  {
-   "fetch_from": "installation_name.operating_company",
+   "fetch_from": "cbam_installation.operating_company",
    "fieldname": "operator_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Operator Name",
    "read_only": 1
   },
@@ -115,16 +111,29 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "installation_name.uuid_operating_company",
+   "fetch_from": "cbam_installation.uuid_operating_company",
    "fieldname": "uuid_operator_company",
    "fieldtype": "Data",
    "label": "UUID Operator Company",
    "read_only": 1
+  },
+  {
+   "fieldname": "cbam_installation",
+   "fieldtype": "Link",
+   "label": "CBAM Installation",
+   "options": "CBAM Installation"
+  },
+  {
+   "fetch_from": "cbam_installation.name_of_the_installation",
+   "fieldname": "installation_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Installation Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 16:20:51.560652",
+ "modified": "2024-10-08 09:11:43.017093",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Emission Data",

@@ -526,7 +526,7 @@
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "emission_data",
    "fieldtype": "Link",
-   "label": "Emission Data (FILTER MISSING YET)",
+   "label": "Emission Data",
    "options": "CBAM Emission Data",
    "read_only": 1
   },
@@ -555,7 +555,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-03 16:39:54.559525",
+ "modified": "2024-10-07 18:02:22.888429",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",

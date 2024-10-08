@@ -35,4 +35,12 @@ frappe.ready(function() {
 			});
 		}
 	});
+	frappe.call({
+		method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_filtered_emission_data",
+		callback: (r) => {
+			if (r.message.emissionDataOptions && r.message.emissionDataOptions.length > 0) {
+				frappe.web_form.fields_dict["cbam_installation"]._data = r.message.installationOptions;
+			}
+		}
+	});
 });

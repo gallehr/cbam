@@ -14,17 +14,17 @@ class CBAMEmissionData(Document):
 
 
 	def add_to_installation_cht(self):
-		has_installation_name_changed = self.has_value_changed("installation_name")
-		if has_installation_name_changed:
-			installation = frappe.get_doc("CBAM Installation", self.installation_name)
+		has_cbam_installation_changed = self.has_value_changed("cbam_installation")
+		if has_cbam_installation_changed:
+			installation = frappe.get_doc("CBAM Installation", self.cbam_installation)
 			installation.append("emission_datas", {
 				"emission_data": self.name,
 			})
 			installation.save()
 
 	def delete_child_from_installation_cht(self):
-		if self.installation_name:
-			installation = frappe.get_doc("CBAM Installation", self.installation_name)
+		if self.cbam_installation:
+			installation = frappe.get_doc("CBAM Installation", self.cbam_installation)
 			for child in installation.emission_datas:
 				if child.emission_data == self.name:
 					child.delete()
