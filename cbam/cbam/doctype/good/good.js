@@ -18,7 +18,7 @@ frappe.ui.form.on('Good', {
         frm.set_query("emission_data", (doc) => {
             return {
                 filters: {
-                    "installation_name": doc.installation
+                    "cbam_installation": doc.installation
                 }
             }
         });
