@@ -30,14 +30,15 @@ class CBAMOperatingCompany(Document):
 			employee_list = frappe.get_all("Supplier Employee", filters={"email": user_email}, fields=["name"], pluck="name")
 			if not employee_list:
 				frappe.throw("You are not registered as an employee of a supplier. Please login with another user.")
-				return False
+				return False, []
 			elif len(employee_list) > 1:
 				frappe.throw("You are registered as an employee of more than one supplier. Please contact the system administrator.")
-				return False
+				return False, []
 			else:
 				return True, employee_list
 		else:
-			frappe.throw("You are not registered as a supplier. Please choose 'Different contact person' and add the contact person manually.")
+			frappe.msgprint("You are not registered as a supplier. Be aware that the Parent Supplier Field will not be filled out automatically. If you have chosen 'Same contact person', please change to 'Different contact person' as the contact person has to be filled out manually.")
+			return False, []
 
 	def add_user_as_contact_person(self):
 		has_select_contact_person_changed = self.has_value_changed("select_contact_person")
@@ -58,7 +59,7 @@ class CBAMOperatingCompany(Document):
 
 	def set_parent_supplier(self):
 		is_user_supplier, employee_list = self.check_if_user_supplieruser()
-		if is_user_supplier:
+		if is_user_supplier and not self.parent_supplier == "":
 			try:
 				supplier = frappe.db.get_value("Supplier Employee", employee_list[0], "supplier_company")
 				self.parent_supplier = supplier

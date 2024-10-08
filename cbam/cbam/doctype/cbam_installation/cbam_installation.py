@@ -10,19 +10,17 @@ class CBAMInstallation(Document):
 		self.generated_uuid()
 
 	def before_insert(self):
-		self.get_operating_company()
+		self.set_operating_company()
 
 	def before_validate(self):
 		self.add_same_contact_person()
-
-	# def before_insert(self):
-	# 	self.get_operating_company()
 
 	def after_insert(self):
 		self.add_to_operating_company_cht()
 
 	def on_trash(self):
 		self.delete_child_from_operating_company_cht()
+		self.delete_link_in_good()
 
 	def generated_uuid(self):
 		generated_uuid = uuid.uuid4()
@@ -64,6 +62,11 @@ class CBAMInstallation(Document):
 				if child.cbam_installation == self.name:
 					child.delete()
 
+	def delete_link_in_good(self):
+		linked_goods_list = frappe.get_all("Good", filters={"installation": self.name}, fields=["name"], pluck="name")
+		for good in linked_goods_list:
+			frappe.db.set_value("Good", good, "installation", "")
+
 	def check_if_supplier_user(self):
 		user_email = frappe.session.user
 		#frappe.msgprint(str(user_email))
@@ -86,7 +89,7 @@ class CBAMInstallation(Document):
 		else:
 			frappe.throw("You are not registered as a supplier. Please choose 'Different contact person' and add the contact person manually.")
 
-	def get_operating_company(self):
+	def set_operating_company(self):
 		is_supplier_user, employee_list = self.check_if_supplier_user()
 		if is_supplier_user:
 			#frappe.throw(str(is_supplier_user))
@@ -101,8 +104,9 @@ class CBAMInstallation(Document):
 				try:
 					uuid_operating_company_value = frappe.db.get_value("CBAM Operating Company", operating_company_list[0], "uuid")
 					self.uuid_operating_company = uuid_operating_company_value
+					self.parent_supplier = supplier
 				except:
-					frappe.throw("Cannot find a UUID for this CBAM Operating Company")
+					frappe.throw("Cannot find a UUID or Parent Supplier for this CBAM Operating Company")
 				#frappe.msgprint(str(operating_company_list[0]))
 		else:
 			frappe.throw("You are not registered as a supplier and therefore we cannot find the CBAM Operating Company. Please contact the system administrator.")

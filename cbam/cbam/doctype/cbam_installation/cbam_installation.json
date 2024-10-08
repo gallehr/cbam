@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:INS-{name_of_the_installation}-{#######}",
+ "autoname": "format:INS-{name_of_the_installation}-{country_code}-{###}",
  "creation": "2024-10-02 09:45:37.848827",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,6 +9,7 @@
   "uuid_operating_company",
   "column_break_ounr",
   "operating_company",
+  "parent_supplier",
   "base_information_of_installation_section",
   "uuid_installation",
   "name_of_the_installation",
@@ -52,16 +53,16 @@
    "label": "Base information of installation"
   },
   {
+   "fetch_from": "country_code.country_full_name",
    "fieldname": "country_of_the_installation",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Country of the installation",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "country_code",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Country Code",
    "options": "Country Code",
    "reqd": 1
@@ -95,8 +96,7 @@
   {
    "fieldname": "phone_number",
    "fieldtype": "Phone",
-   "label": "Phone Number",
-   "mandatory_depends_on": "eval:doc.contact_person=='Different contact person'"
+   "label": "Phone Number"
   },
   {
    "fieldname": "position",
@@ -219,6 +219,7 @@
   {
    "fieldname": "operating_company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Operating Company",
    "options": "CBAM Operating Company",
    "permlevel": 1,
@@ -254,6 +255,7 @@
   {
    "fieldname": "goods_covered_by_this_emissions_calculation_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Goods covered by this emissions calculation"
   },
   {
@@ -278,11 +280,19 @@
    "in_list_view": 1,
    "label": "Name of the installation",
    "reqd": 1
+  },
+  {
+   "fetch_from": "operating_company.parent_supplier",
+   "fieldname": "parent_supplier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parent Supplier",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-07 15:14:06.343768",
+ "modified": "2024-10-08 13:19:13.759940",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Installation",

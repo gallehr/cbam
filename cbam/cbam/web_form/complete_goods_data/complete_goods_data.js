@@ -35,11 +35,22 @@ frappe.ready(function() {
 			});
 		}
 	});
+
 	frappe.call({
 		method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_filtered_emission_data",
 		callback: (r) => {
 			if (r.message.emissionDataOptions && r.message.emissionDataOptions.length > 0) {
-				frappe.web_form.fields_dict["cbam_installation"]._data = r.message.installationOptions;
+				frappe.web_form.fields_dict["emission_data"]._data = r.message.emissionDataOptions;
+			}
+		}
+	});
+
+	// Hide Operating Company Section if Operating Company is Registered
+	frappe.call({
+		method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.is_operating_company_registered",
+		callback: (r) => {
+			if (r.message.isOperatingCompanyRegistered && r.message.isOperatingCompanyRegistered == 1) {
+				frappe.web_form.set_df_property("add_operating_company_section", "hidden", 1);
 			}
 		}
 	});

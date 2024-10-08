@@ -12,8 +12,8 @@
   "base_information_of_operating_company_section",
   "legal_name_of_the_company",
   "address",
-  "column_break_tngk",
   "city",
+  "column_break_tngk",
   "country_of_establishment",
   "country_code",
   "section_break_qaxm",
@@ -46,12 +46,12 @@
    "reqd": 1
   },
   {
-   "fetch_from": "company.country",
+   "fetch_from": "country_code.country_full_name",
    "fieldname": "country_of_establishment",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Country of establishment",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fetch_from": "company.street_and_number",
@@ -67,7 +67,8 @@
    "fieldname": "country_code",
    "fieldtype": "Link",
    "label": "Country Code",
-   "options": "Country Code"
+   "options": "Country Code",
+   "reqd": 1
   },
   {
    "fetch_from": "company.city",
@@ -180,12 +181,12 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Parent Supplier",
-   "read_only": 1
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-07 15:16:17.334748",
+ "modified": "2024-10-08 13:03:22.758241",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Operating Company",

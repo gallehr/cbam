@@ -11,6 +11,7 @@ class CBAMEmissionData(Document):
 
 	def on_trash(self):
 		self.delete_child_from_installation_cht()
+		self.delete_link_in_good()
 
 
 	def add_to_installation_cht(self):
@@ -28,3 +29,8 @@ class CBAMEmissionData(Document):
 			for child in installation.emission_datas:
 				if child.emission_data == self.name:
 					child.delete()
+
+	def delete_link_in_good(self):
+		linked_goods_list = frappe.get_all("Good", filters={"emission_data": self.name}, fields=["name"], pluck="name")
+		for good in linked_goods_list:
+			frappe.db.set_value("Good", good, "emission_data", None)

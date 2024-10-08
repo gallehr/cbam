@@ -78,7 +78,7 @@ def get_filtered_emission_data():
                 emission_data_options = [{"label": e.name, "value": e.installation_name} for e in emission_data_list]
                 #frappe.msgprint(f"Emission Data Options: {emission_data_options}")
             elif len(operating_company_list) < 1:
-                frappe.throw("Couldn't find any Operating Company for your Supplier.")
+                #frappe.throw("Couldn't find any Operating Company for your Supplier.")
                 return {
 					"emissionDataOptions": [],
 				}
@@ -92,3 +92,22 @@ def get_filtered_emission_data():
             }
     except:
         frappe.throw("Couldn't create a valid selection for the Field 'Emission Data'.")
+
+@frappe.whitelist()
+def is_operating_company_registered():
+    try:
+        is_supplier_user, employee_list = check_if_supplier_user()
+        if is_supplier_user:
+            supplier = frappe.db.get_value("Supplier Employee", employee_list[0], "supplier_company")
+            operating_company_list = frappe.db.get_all("CBAM Operating Company", filters={"parent_supplier": supplier}, fields=["name"], pluck="name")
+            #frappe.msgprint(f"Operating Company List: {operating_company_list}")
+            if len(operating_company_list) > 0:
+            	return {
+					"isOperatingCompanyRegistered": 1,
+				}
+            else:
+            	return {
+					"isOperatingCompanyRegistered": 0,
+				}
+    except:
+        frappe.throw("Error: Couldn't check if the Operating Company is registered.")
