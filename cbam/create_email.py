@@ -3,18 +3,10 @@ from frappe.core.doctype.communication.email import make
 
 
 def create_email(employee):
-    # frappe.msgprint(f"Good: {good}, Supplier: {supplier}")
     domain = "https://cbam-dev.frappe.cloud/"
-    # supplier_doc = frappe.get_doc("Supplier", supplier)
-    # for good in supplier_doc.goods:
-    #     frappe.db.set_value('Good', good.good_number, 'sent_to_supplier_employee', 'Sent')
-    # employee = frappe.db.get_value("Good", good, "employee")
-    #is_data_confirmed_employee = frappe.db.get_value('Supplier Employee', employee, 'is_data_confirmed')
+
     employee_email = frappe.db.get_value('Supplier Employee', employee, 'email')
     employee_last_name = frappe.db.get_value('Supplier Employee', employee, 'last_name')
-    # is_employee_main_contact = frappe.db.get_value('Supplier Employee', employee, 'is_main_contact')
-    # if is_employee_main_contact:
-    #     frappe.db.set_value('Supplier', supplier, 'status', "Sent for confirmation")
 
 
     subject = f'CBAM - Confirmation of Data'

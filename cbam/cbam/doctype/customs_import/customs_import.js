@@ -9,9 +9,9 @@
 
 frappe.ui.form.on("Customs Import", {
 	refresh(frm) {
-		frm.add_custom_button(__("Sent all Emails (yet not sent)"), function () {
+		frm.add_custom_button(__("Send all Emails (not yet sent)"), function () {
 			frappe.call({
-				method: "cbam.send_email_from_customs_import.create_user_and_send_email", // OPEN
+				method: "cbam.send_email_from_customs_import.create_user_and_send_email",
 				args: {
 					goods_list: cur_frm.doc.goods,
 				},

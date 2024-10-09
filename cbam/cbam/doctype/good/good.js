@@ -27,7 +27,7 @@ frappe.ui.form.on('Good', {
 
 frappe.ui.form.on("Good", {
     refresh(frm) {
-        frm.add_custom_button(__("Sent Email"), function () {
+        frm.add_custom_button(__("Send Email"), function () {
             // console.log("create new supplier");
             frappe.call({
                 method: "cbam.send_email_from_good.send_email",

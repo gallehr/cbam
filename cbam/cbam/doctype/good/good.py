@@ -47,7 +47,7 @@ class Good(Document):
 			next_highest_split_number = 0
 			if total_raw_mass != self.raw_mass:
 				original_raw_mass = self.raw_mass
-				frappe.throw(f"The raw mass total of the components is not equal to the raw mass of the original good. <br><br> The total should be {original_raw_mass}, not {total_raw_mass}. <br><br> Please change the raw masses of the components and ensure that they add up to a total of {original_raw_mass}")
+				frappe.throw(f"The raw mass total of the components is not equal to the raw mass of the original good. <br><br> The total should be {original_raw_mass}, not {total_raw_mass}. <br><br> Please change the raw masses of the components and ensure that they add up to a total of {original_raw_mass}.")
 			else:
 				self.status = "Done"
 				if self.split_raw_mass_1 and self.split_raw_mass_1 != "0":

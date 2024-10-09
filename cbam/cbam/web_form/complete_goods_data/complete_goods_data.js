@@ -51,6 +51,8 @@ frappe.ready(function() {
 		callback: (r) => {
 			if (r.message.isOperatingCompanyRegistered && r.message.isOperatingCompanyRegistered == 1) {
 				frappe.web_form.set_df_property("add_operating_company_section", "hidden", 1);
+			} else {
+				frappe.web_form.set_df_property("add_installations_and_emission_data_section", "hidden", 1);
 			}
 		}
 	});
