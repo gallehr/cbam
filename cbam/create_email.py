@@ -25,7 +25,7 @@ def create_email(employee):
     try:
         make(
             recipients=employee_doc.email,
-            sender=f"{employee_doc.first_name} {employee_doc.last_name} - {sending_company}",
+            sender=None,
             subject=subject,
             content=message,
             send_email=True
@@ -35,4 +35,4 @@ def create_email(employee):
         frappe.msgprint("An error occurred while sending the email. Please check the error log for more details.")
 
     # For testing purposes
-    frappe.msgprint(f"Email sent to {employee_doc.email}:<br><br>{message}")
+    frappe.throw(f"Email sent to {employee_doc.email}:<br><br>{message}")
