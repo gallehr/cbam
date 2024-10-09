@@ -33,7 +33,7 @@ class Good(Document):
 					self.employee = main_contact
 
 	def split_good(self):
-		if self.good_values == "Various Components":
+		if self.manufacture == "I am NOT the manufacturer of the whole amount of the product":
 			total_raw_mass = sum(
 				getattr(self, attr, 0) or 0
 				for attr in [

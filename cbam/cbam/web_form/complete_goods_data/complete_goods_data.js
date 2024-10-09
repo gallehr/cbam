@@ -1,6 +1,6 @@
 frappe.ready(function() {
 	// Employee Link Field Filter
-	frappe.web_form.on("good_values", function() {
+	frappe.web_form.on("manufacture", function() {
 		let supplier = frappe.web_form.get_value('supplier');
 		let employee = frappe.web_form.get_value('employee');
 		if (supplier) {
