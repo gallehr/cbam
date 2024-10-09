@@ -42,7 +42,7 @@
  "list_title": "Your Goods",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-10-08 11:46:43.142963",
+ "modified": "2024-10-09 09:36:39.412919",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "complete-goods-data",
@@ -106,7 +106,7 @@
    "max_length": 0,
    "max_value": 0,
    "precision": "",
-   "read_only": 0,
+   "read_only": 1,
    "reqd": 0,
    "show_in_filter": 0
   },
@@ -120,7 +120,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 1,
-   "read_only_depends_on": "eval:doc.status=='Done'",
+   "read_only_depends_on": "",
    "reqd": 0,
    "show_in_filter": 0
   },
@@ -286,7 +286,7 @@
    "precision": "",
    "read_only": 0,
    "read_only_depends_on": "eval:doc.status=='Done'",
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -791,12 +791,13 @@
   },
   {
    "allow_read_on_all_link_options": 0,
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldtype": "HTML",
    "hidden": 0,
    "label": "Add oc data",
    "max_length": 0,
    "max_value": 0,
-   "options": "<a href=\"/add-operating-company-data/new\" class=\"btn btn-primary btn-sm primary-action mb-5\" target=\"\">Add all Emission Data</a>",
+   "options": "<a href=\"/add-operating-company-data/new\" class=\"btn btn-primary btn-sm primary-action mb-5\" target=\"\">Add Emission Data</a>",
    "precision": "",
    "read_only": 0,
    "reqd": 0,
@@ -817,6 +818,7 @@
   },
   {
    "allow_read_on_all_link_options": 0,
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldtype": "HTML",
    "hidden": 0,
    "label": "Add Installation",
@@ -830,6 +832,7 @@
   },
   {
    "allow_read_on_all_link_options": 0,
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldtype": "HTML",
    "hidden": 0,
    "label": "Add Emission Data",

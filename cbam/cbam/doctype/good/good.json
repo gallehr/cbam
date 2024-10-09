@@ -190,8 +190,7 @@
    "fieldname": "good_values",
    "fieldtype": "Select",
    "label": "Good Components",
-   "options": "Only one Component\nVarious Components",
-   "read_only": 1
+   "options": "Only one Component\nVarious Components"
   },
   {
    "fieldname": "column_break_kaso",
@@ -555,6 +554,7 @@
   {
    "fieldname": "add_operating_company_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Add Operating Company"
   },
   {
@@ -565,6 +565,7 @@
   {
    "fieldname": "add_installations_and_emission_data_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Add Installations and Emission Data"
   },
   {
@@ -580,7 +581,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-08 10:13:05.306165",
+ "modified": "2024-10-09 09:07:40.543076",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
