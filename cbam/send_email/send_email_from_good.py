@@ -1,6 +1,6 @@
 import frappe
-from cbam.create_email import create_email
-from cbam.create_new_supplier_user import create_new_supplier_user
+from cbam.send_email.create_email import create_email
+from cbam.send_email.create_new_supplier_user import create_new_supplier_user
 from frappe.core.doctype.communication.email import make
 import json
 
