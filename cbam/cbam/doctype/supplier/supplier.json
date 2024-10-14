@@ -100,8 +100,7 @@
    "in_list_view": 1,
    "label": "Supplier Number",
    "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
