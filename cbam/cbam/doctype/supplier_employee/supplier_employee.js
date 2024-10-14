@@ -12,7 +12,7 @@ frappe.ui.form.on("Supplier Employee", {
 	refresh(frm) {
 		frm.add_custom_button(__("Send Email"), function () {
 			frappe.call({
-				method: "cbam.send_email_from_employee.create_user_and_send_email", // OPEN
+				method: "cbam.send_email.send_email_from_employee.create_user_and_send_email", // OPEN
 				args: {
 					employee: cur_frm.docname,
                     supplier: cur_frm.doc.supplier_company,

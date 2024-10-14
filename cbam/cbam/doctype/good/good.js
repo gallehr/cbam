@@ -30,7 +30,7 @@ frappe.ui.form.on("Good", {
         frm.add_custom_button(__("Send Email"), function () {
             // console.log("create new supplier");
             frappe.call({
-                method: "cbam.send_email_from_good.send_email",
+                method: "cbam.send_email.send_email_from_good.send_email",
                 args: {
                     good: cur_frm.docname,
                 },

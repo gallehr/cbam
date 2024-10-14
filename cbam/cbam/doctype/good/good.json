@@ -550,7 +550,8 @@
    "fieldname": "manufacture",
    "fieldtype": "Select",
    "label": "Manufacture",
-   "options": "I am the manufacture\nI am NOT the manufacturer of the whole amount of the product"
+   "options": "I am the manufacture\nI am NOT the manufacturer of the whole amount of the product",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -560,7 +561,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-09 12:20:04.627237",
+ "modified": "2024-10-14 10:35:24.810694",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
