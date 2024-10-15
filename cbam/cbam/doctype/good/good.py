@@ -3,26 +3,38 @@
 
 import frappe
 from frappe.model.document import Document
-
+from cbam.send_email.create_email import create_email
+from cbam.send_email.create_new_supplier_user import create_new_supplier_user
 
 class Good(Document):
-	def before_validate(self):
-		self.check_confirmation_checkbox()
+	# def before_validate(self):
+	# 	self.check_confirmation_checkbox()
 
 	def validate(self):
 		self.split_good()
 
 	def before_save(self):
+		self.delete_old_employee_if_supplier_changed()
 		self.get_main_contact_employee()
-		if self.is_data_confirmed == True:
+		if self.is_data_confirmed == True and self.manufacture == "I am the manufacturer":
 			self.status = "Done"
-
-	def after_insert(self):
 		self.add_to_supplier_cht()
+		self.add_to_employee_cht()
 		self.add_to_customs_import_cht()
 
+	def on_update(self):
+		self.add_split_good_to_parent_cht()
+
+	# def after_insert(self):
+	# 	self.add_split_good_to_parent_cht()
+
 	def on_trash(self):
-		self.delete_good_item()
+		self.delete_all_good_item()
+
+	def delete_old_employee_if_supplier_changed(self):
+		has_supplier_changed = self.has_value_changed("supplier")
+		if has_supplier_changed:
+			self.employee = None
 
 	def get_main_contact_employee(self):
 		if self.supplier and not self.employee:
@@ -49,9 +61,10 @@ class Good(Document):
 				original_raw_mass = self.raw_mass
 				frappe.throw(f"The raw mass total of the components is not equal to the raw mass of the original good. <br><br> The total should be {original_raw_mass}, not {total_raw_mass}. <br><br> Please change the raw masses of the components and ensure that they add up to a total of {original_raw_mass}.")
 			else:
-				self.status = "Done"
+				self.status = "Split"
 				if self.split_raw_mass_1 and self.split_raw_mass_1 != "0":
 					new_good = frappe.new_doc("Good")
+					new_good.parent_good = self.name
 					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
@@ -70,15 +83,13 @@ class Good(Document):
 						new_good.employee = self.responsible_employee_1
 					elif self.responsibility_1 == "Another supplier is responsible":
 						new_good.supplier = self.responsible_supplier_1
-						# ToDo new_good.employee = self.employee
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
-					# self.append("good_splits", new_good) DOESN'T WORK
-					# self.save()
 					next_highest_split_number += 1
 				if self.split_raw_mass_2 and self.split_raw_mass_2 != "0":
 					new_good = frappe.new_doc("Good")
+					new_good.parent_good = self.name
 					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
@@ -97,7 +108,6 @@ class Good(Document):
 						new_good.employee = self.responsible_employee_2
 					elif self.responsibility_2 == "Another supplier is responsible":
 						new_good.supplier = self.responsible_supplier_2
-						# ToDo new_good.employee = self.employee
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
@@ -122,7 +132,6 @@ class Good(Document):
 						new_good.employee = self.responsible_employee_3
 					elif self.responsibility_3 == "Another supplier is responsible":
 						new_good.supplier = self.responsible_supplier_3
-						# ToDo new_good.employee = self.employee
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
@@ -147,7 +156,6 @@ class Good(Document):
 						new_good.employee = self.responsible_employee_4
 					elif self.responsibility_4 == "Another supplier is responsible":
 						new_good.supplier = self.responsible_supplier_4
-						# ToDo new_good.employee = self.employee
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
@@ -179,20 +187,47 @@ class Good(Document):
 					next_highest_split_number += 1
 
 	def add_to_supplier_cht(self):
-		supplier = frappe.get_doc("Supplier", self.supplier)
-		supplier.append("goods", {
-			"good_number": self.name
-		})
-		supplier.save()
+		has_supplier_changed = self.has_value_changed("supplier")
+		if has_supplier_changed:
+			delete_good_item(self.name, "Supplier")
+			supplier = frappe.get_doc("Supplier", self.supplier)
+			supplier.append("goods", {
+				"good_number": self.name
+			})
+			supplier.save()
+
+	def add_to_employee_cht(self):
+		has_employee_changed = self.has_value_changed("employee")
+		if has_employee_changed:
+			delete_good_item(self.name, "Supplier Employee")
+			employee = frappe.get_doc("Supplier Employee", self.employee)
+			employee.append("goods", {
+				"good_number": self.name
+			})
+			employee.save()
 
 	def add_to_customs_import_cht(self):
-		customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
-		customs_import.append("goods", {
-			"good_number": self.name
-		})
-		customs_import.save()
+		has_internal_customs_import_number_changed = self.has_value_changed("internal_customs_import_number")
+		if has_internal_customs_import_number_changed:
+			delete_good_item(self.name, "Customs Import")
+			customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
+			customs_import.append("goods", {
+				"good_number": self.name
+			})
+			customs_import.save()
 
-	def delete_good_item(self):
+	def add_split_good_to_parent_cht(self):
+		if self.parent_good:
+			new_good_item = frappe.new_doc("Good Item")
+			new_good_item.parenttype = "Good"
+			new_good_item.parent = self.parent_good
+			new_good_item.parentfield = "good_components"
+			new_good_item.good_number = self.name
+			new_good_item.supplier = self.supplier
+			new_good_item.employee = self.employee
+			new_good_item.insert()
+
+	def delete_all_good_item(self):
 		good_items = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
 		for good_item in good_items:
 			frappe.db.delete("Good Item", {
@@ -217,3 +252,19 @@ class Good(Document):
 				if self.is_data_confirmed != True:
 					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
+# def send_email(employee):
+# 		try:
+# 			create_new_supplier_user(employee)
+# 		except Exception as e:
+# 			frappe.msgprint ("Couldn't create a new user for this employee.<br><br>Error: {e}")
+# 		sending_status = frappe.db.get_value("Supplier Employee", employee, "status")
+# 		if status == "Sent to employee":
+# 			frappe.db.set_value("Supplier Employee", self.employee, "status", "Sent to Supplier Employee")
+
+def delete_good_item(good, parenttype):
+	good_item_list = frappe.get_all("Good Item", filters={'good_number': good, 'parenttype': parenttype}, fields=["name"], pluck="name")
+	good_item = ', '.join(good_item_list)
+	frappe.db.delete("Good Item", {
+		"name": good_item
+	})
+	frappe.db.commit()

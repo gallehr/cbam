@@ -100,8 +100,7 @@
    "in_list_view": 1,
    "label": "Supplier Number",
    "read_only_depends_on": "eval:doc.status!=\"Raw Data\"",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "description": "Note: This is not the communication email. All communication will be through employee emails. The current email field is only used to complete company data and is not mandatory.",
@@ -220,13 +219,12 @@
   {
    "fieldname": "confirmation_web_form",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "confirmation web form"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-10 09:38:20.961003",
+ "modified": "2024-10-14 19:45:18.142299",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
