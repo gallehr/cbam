@@ -1,0 +1,318 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:INS-{name_of_the_installation}-{country_code}-{###}",
+ "creation": "2024-10-02 09:45:37.848827",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "uuid_operating_company",
+  "column_break_ounr",
+  "operating_company",
+  "parent_supplier",
+  "base_information_of_installation_section",
+  "uuid_installation",
+  "name_of_the_installation",
+  "column_break_ktcv",
+  "country_of_the_installation",
+  "country_code",
+  "section_break_bseo",
+  "html_information_contact_person",
+  "contact_person",
+  "contact_person_same_section",
+  "supplier_employee",
+  "first_name_same",
+  "last_name_same",
+  "position_same",
+  "column_break_osbo",
+  "email_same",
+  "phone_number_same",
+  "contact_person_section",
+  "first_name",
+  "last_name",
+  "position",
+  "column_break_rjxu",
+  "email",
+  "phone_number",
+  "general_information_of_the_installation_section",
+  "industry_sector_of_the_installation",
+  "emissions_data_tracking_of_the_installation_section",
+  "is_the_installation_tracking_emissions_data",
+  "define_how_emissions_get_monitored_reported_and_verified",
+  "is_the_installation_subject_to_an_emission_trading_system",
+  "which_emission_trading_system_link_to_legal_act",
+  "goods_covered_by_this_emissions_calculation_section",
+  "cn_codes",
+  "emission_data_section",
+  "emission_datas"
+ ],
+ "fields": [
+  {
+   "fieldname": "base_information_of_installation_section",
+   "fieldtype": "Section Break",
+   "label": "Base information of installation"
+  },
+  {
+   "fetch_from": "country_code.country_full_name",
+   "fieldname": "country_of_the_installation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Country of the installation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Link",
+   "label": "Country Code",
+   "options": "Country Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier_employee",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Supplier Employee (WILL BE FETCHED)",
+   "options": "Supplier Employee"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "mandatory_depends_on": "eval:doc.contact_person=='Different contact person'"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "mandatory_depends_on": "eval:doc.contact_person=='Different contact person'"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "mandatory_depends_on": "eval:doc.contact_person=='Different contact person'",
+   "options": "Email"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position",
+   "mandatory_depends_on": "eval:doc.contact_person=='Different contact person'"
+  },
+  {
+   "depends_on": "eval:doc.contact_person=='Different contact person'",
+   "fieldname": "contact_person_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "column_break_osbo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ktcv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_person_same_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Person (same linke Operating Company)"
+  },
+  {
+   "fetch_from": "supplier_employee.first_name",
+   "fieldname": "first_name_same",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier_employee.last_name",
+   "fieldname": "last_name_same",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier_employee.position",
+   "fieldname": "position_same",
+   "fieldtype": "Data",
+   "label": "Position",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier_employee.email",
+   "fieldname": "email_same",
+   "fieldtype": "Data",
+   "label": "Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier_employee.phone_number",
+   "fieldname": "phone_number_same",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_rjxu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "general_information_of_the_installation_section",
+   "fieldtype": "Section Break",
+   "label": "General information of the installation"
+  },
+  {
+   "fieldname": "is_the_installation_tracking_emissions_data",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Is the installation tracking emissions data?",
+   "options": "Yes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_bseo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "define_how_emissions_get_monitored_reported_and_verified",
+   "fieldtype": "Small Text",
+   "label": "Define how emissions get monitored, reported and verified:",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_the_installation_subject_to_an_emission_trading_system",
+   "fieldtype": "Select",
+   "label": "Is the installation subject to an emission trading system?",
+   "options": "Yes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "which_emission_trading_system_link_to_legal_act",
+   "fieldtype": "Data",
+   "label": "Which emission trading system (link to legal act)?",
+   "reqd": 1
+  },
+  {
+   "fieldname": "industry_sector_of_the_installation",
+   "fieldtype": "Select",
+   "label": "Industry sector of the installation",
+   "options": "Iron and Steal\nAluminium",
+   "reqd": 1
+  },
+  {
+   "description": "CN Codes falling under the\nCBAM-Regulation produced\nby the installation (split data with \u201d ; \u201d)",
+   "fieldname": "cn_codes",
+   "fieldtype": "Small Text",
+   "label": "CN Codes"
+  },
+  {
+   "fieldname": "emissions_data_tracking_of_the_installation_section",
+   "fieldtype": "Section Break",
+   "label": "Emissions data tracking of the installation"
+  },
+  {
+   "fieldname": "operating_company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Operating Company",
+   "options": "CBAM Operating Company",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "html_information_contact_person",
+   "fieldtype": "HTML",
+   "label": "HTML Information Contact Person",
+   "options": "<p>Please provide contact details of a person on this installation level if it differs\nfrom your operating company.</p>"
+  },
+  {
+   "fetch_from": "operating_company.uuid",
+   "fieldname": "uuid_operating_company",
+   "fieldtype": "Data",
+   "label": "UUID Operating Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Select",
+   "label": "Contact Person",
+   "options": "Same contact person as Operating Company\nDifferent contact person",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uuid_installation",
+   "fieldtype": "Data",
+   "label": "UUID Installation",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "goods_covered_by_this_emissions_calculation_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Goods covered by this emissions calculation"
+  },
+  {
+   "fieldname": "column_break_ounr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "emission_data_section",
+   "fieldtype": "Section Break",
+   "label": "Emission Data"
+  },
+  {
+   "fieldname": "emission_datas",
+   "fieldtype": "Table",
+   "label": "Emission Datas",
+   "options": "CBAM Emission Data Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "name_of_the_installation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of the installation",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "operating_company.parent_supplier",
+   "fieldname": "parent_supplier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parent Supplier",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-08 13:19:13.759940",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "CBAM Installation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

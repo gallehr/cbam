@@ -7,7 +7,9 @@
  "allow_print": 0,
  "anonymous": 0,
  "apply_document_permissions": 0,
+ "breadcrumbs": "[{\"label\": _(\"Goods List\"), \"route\":\"goods_list\"}]",
  "button_label": "Save",
+ "client_script": "\n",
  "condition_json": "[]",
  "creation": "2024-08-22 16:17:57.732941",
  "doc_type": "Supplier Employee",
@@ -18,7 +20,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-26 16:22:40.306970",
+ "modified": "2024-09-19 11:49:07.305781",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-employee-details",
@@ -28,35 +30,11 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 0,
- "title": "Add Employee Details",
+ "success_message": "Please wait. You will be redirected to the Goods List. ",
+ "success_title": "Thank you!",
+ "success_url": "/goods_list",
+ "title": "Add Employee at your Company",
  "web_form_fields": [
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "supplier_company",
-   "fieldtype": "Link",
-   "hidden": 0,
-   "label": "Supplier Company",
-   "max_length": 0,
-   "max_value": 0,
-   "options": "Supplier",
-   "precision": "",
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "employee_data_section",
-   "fieldtype": "Section Break",
-   "hidden": 0,
-   "label": "Employee Data",
-   "max_length": 0,
-   "max_value": 0,
-   "precision": "",
-   "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
   {
    "allow_read_on_all_link_options": 0,
    "fieldname": "last_name",
@@ -67,7 +45,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -119,7 +97,7 @@
    "options": "Email",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {

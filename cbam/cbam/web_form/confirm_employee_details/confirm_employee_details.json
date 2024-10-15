@@ -6,7 +6,8 @@
  "allow_multiple": 0,
  "allow_print": 0,
  "anonymous": 0,
- "apply_document_permissions": 0,
+ "apply_document_permissions": 1,
+ "breadcrumbs": "[{\"label\": _(\"Overview\"), \"route\":\"confirmation_overview\"}]",
  "button_label": "Save",
  "condition_json": "[]",
  "creation": "2024-08-22 16:35:17.801439",
@@ -18,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-26 13:53:57.928900",
+ "modified": "2024-09-13 13:19:18.523034",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-employee-details",
@@ -28,7 +29,10 @@
  "show_attachments": 0,
  "show_list": 0,
  "show_sidebar": 0,
- "title": "Please confirm your Details",
+ "success_message": "Please wait. You will be redirected to the confirmation overview. ",
+ "success_title": "Thank you for completing your personal details",
+ "success_url": "/confirmation_overview",
+ "title": "Please confirm your Contact Details",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
@@ -40,18 +44,19 @@
    "max_value": 0,
    "options": "Supplier",
    "precision": "",
-   "read_only": 0,
-   "reqd": 0,
+   "read_only": 1,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "employee_data_section",
+   "fieldname": "",
    "fieldtype": "Section Break",
    "hidden": 0,
-   "label": "Employee Data",
+   "label": "",
    "max_length": 0,
    "max_value": 0,
+   "options": "",
    "precision": "",
    "read_only": 0,
    "reqd": 0,
@@ -67,7 +72,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -80,7 +85,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -93,7 +98,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -118,7 +123,7 @@
    "max_value": 0,
    "options": "Email",
    "precision": "",
-   "read_only": 0,
+   "read_only": 1,
    "reqd": 0,
    "show_in_filter": 0
   },
@@ -132,7 +137,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -156,6 +161,18 @@
    "fieldtype": "Check",
    "hidden": 0,
    "label": "I confirm that the information provided is accurate and complete.",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "column_break_wcmc",
+   "fieldtype": "Column Break",
+   "hidden": 0,
    "max_length": 0,
    "max_value": 0,
    "precision": "",

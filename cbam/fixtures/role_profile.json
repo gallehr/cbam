@@ -1,0 +1,32 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-09-04 12:07:07.288109",
+  "name": "00 Reporting Declarant",
+  "role_profile": "00 Reporting Declarant",
+  "roles": [
+   {
+    "parent": "00 Reporting Declarant",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Reporting Declarant"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-09-04 12:38:01.405109",
+  "name": "00 Supplier",
+  "role_profile": "00 Supplier",
+  "roles": [
+   {
+    "parent": "00 Supplier",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Supplier"
+   }
+  ]
+ }
+]

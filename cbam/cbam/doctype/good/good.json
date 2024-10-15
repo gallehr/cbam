@@ -6,16 +6,20 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "sending_and_confirmation_states_section",
+  "sent_to_supplier_employee",
   "status",
-  "master_reference_number_mrn",
-  "column_break_nktj",
+  "column_break_fkff",
   "is_data_confirmed",
-  "hand_over_date",
   "goods_data_section",
+  "master_reference_number_mrn",
+  "invoice_number",
   "article_number",
   "customs_tariff_number",
   "column_break_qjtl",
   "good_description",
+  "hand_over_date",
+  "internal_customs_import_number",
   "values_section",
   "column_break_kaso",
   "raw_mass",
@@ -29,8 +33,7 @@
   "column_break_lqxr",
   "employee",
   "split_the_good_in_various_components_section",
-  "good_split_information_html",
-  "good_values",
+  "manufacture",
   "1_component_section",
   "split_raw_mass_1",
   "responsibility_1",
@@ -61,13 +64,16 @@
   "column_break_rjiw",
   "responsible_employee_5",
   "responsible_supplier_5",
-  "section_break_vhdv",
-  "split_action_html",
+  "add_operating_company_section",
+  "place_holder_for_web_form_button_oc",
+  "add_installations_and_emission_data_section",
+  "plance_holder_for_web_form_buttons_inst_and_ed",
   "requested_data_section",
   "installation",
+  "emission_data",
   "column_break_wczo",
-  "emission_data_1",
-  "emission_data_2",
+  "direct_emission_data",
+  "indirect_emission_data",
   "good_splits_section",
   "good_splits"
  ],
@@ -78,7 +84,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Master Reference Number MRN",
-   "permlevel": 1,
    "reqd": 1
   },
   {
@@ -94,22 +99,11 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "DE: Zolltariefnummer",
-   "fieldname": "customs_tariff_number",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Customs tariff number",
-   "non_negative": 1,
-   "reqd": 1
-  },
-  {
    "description": "DE: \u00dcberlassungsdatum",
    "fieldname": "hand_over_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Hand over date",
-   "permlevel": 1,
-   "reqd": 1
+   "label": "Hand over date"
   },
   {
    "fieldname": "values_section",
@@ -119,43 +113,47 @@
   {
    "description": "DE: Rohmasse (in metrischen Kilogram)",
    "fieldname": "raw_mass",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Raw mass in Kilograms",
    "non_negative": 1,
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
+   "precision": "2",
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
+   "reqd": 1
   },
   {
    "fieldname": "country_of_origin",
    "fieldtype": "Link",
    "label": "Country of origin",
    "options": "Country Code",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
+   "reqd": 1
   },
   {
    "description": "DE: Zollverfahren",
    "fieldname": "customs_procedure",
    "fieldtype": "Data",
    "label": "Customs procedure",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_jims",
    "fieldtype": "Column Break"
   },
   {
-   "description": "DE: Zollwert",
+   "description": "DE: Zollwert \u20ac",
    "fieldname": "customs_value",
    "fieldtype": "Currency",
    "label": "Customs value in Euro",
    "non_negative": 1,
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
   },
   {
    "fieldname": "shipping_country",
    "fieldtype": "Link",
    "label": "Shipping country",
    "options": "Country Code",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
   },
   {
    "fieldname": "supplier_section",
@@ -166,29 +164,23 @@
    "fieldname": "supplier",
    "fieldtype": "Link",
    "label": "Supplier",
-   "options": "Supplier"
+   "options": "Supplier",
+   "reqd": 1
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "good_splits_section",
    "fieldtype": "Section Break",
    "label": "Good Splits",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "good_splits",
    "fieldtype": "Table",
    "label": "Good Splits",
    "options": "Good Item",
-   "read_only_depends_on": "eval:doc.good_values==\"Various Components\""
-  },
-  {
-   "default": "Only one Component",
-   "fieldname": "good_values",
-   "fieldtype": "Select",
-   "label": "Good Components",
-   "options": "Only one Component\nVarious Components"
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
   },
   {
    "fieldname": "column_break_kaso",
@@ -199,7 +191,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "of this Supplier",
+   "description": "If left empty, this field will be automatically filled by the main contact of the Supplier, from the field on the left.",
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
@@ -209,7 +201,8 @@
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
    "fieldname": "requested_data_section",
    "fieldtype": "Section Break",
-   "label": "Requested Data"
+   "label": "Requested Data",
+   "read_only": 1
   },
   {
    "fieldname": "split_the_good_in_various_components_section",
@@ -217,50 +210,37 @@
    "label": "Split the Good in various Components, if needed"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
-   "fieldname": "split_action_html",
-   "fieldtype": "HTML",
-   "label": "Split Action HTML",
-   "options": "<button></button>"
-  },
-  {
-   "fieldname": "good_split_information_html",
-   "fieldtype": "HTML",
-   "label": "Good Split information HTML",
-   "options": "<h4>Important</h4>\n<p>\n    If this Good is part of several components that have different CO2 values or need to be forwarded to other employees or suppliers, you need to <strong>split this Good</strong>. The present Good will become <em>immutable</em>. The requested data will be required for the resulting Good-Components.\n</p>\n<p>\n    Goods Components for which you aren't responsible will be forwarded. For this, it's <strong>mandatory</strong> that you provide the contact details of the responsible internal employee or the external supplier who provided you with the Good.\n</p>\n<p><strong>If you need to split, choose \u201cVarious Components\u201d here:</strong></p>\n<br>"
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "responsibility_1",
    "fieldtype": "Select",
    "label": "Responsibility for 1. Component",
-   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\"",
+   "mandatory_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "options": "I'm the responsible Person\nAnother employee is responsible\nAnother supplier is responsible"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "responsibility_2",
    "fieldtype": "Select",
    "label": "Responsibility for 2. Component",
-   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\"",
+   "mandatory_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "options": "I'm the responsible Person\nAnother employee is responsible\nAnother supplier is responsible"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "responsibility_3",
    "fieldtype": "Select",
    "label": "Responsibility for 3. Component",
    "options": "I'm the responsible Person\nAnother employee is responsible\nAnother supplier is responsible"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "responsibility_4",
    "fieldtype": "Select",
    "label": "Responsibility for 4. Component",
    "options": "I'm the responsible Person\nAnother employee is responsible\nAnother supplier is responsible"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "responsibility_5",
    "fieldtype": "Select",
    "label": "Responsibility for 5. Component",
@@ -283,9 +263,10 @@
    "options": "Supplier"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "1_component_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "1. Component"
   },
   {
@@ -293,9 +274,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "2_component_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "2. Component"
   },
   {
@@ -303,35 +285,30 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "3_component_if_needed_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "3. Component, if needed"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "4_component_if_needed_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "4. Component, if needed"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "5_component_if_needed_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "5. Component, if needed"
-  },
-  {
-   "fieldname": "section_break_vhdv",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "article_number",
    "fieldtype": "Data",
    "label": "Article Number"
-  },
-  {
-   "fieldname": "column_break_nktj",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "goods_data_section",
@@ -340,21 +317,12 @@
   },
   {
    "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fetch_from": "emission_data.cbam_installation",
    "fieldname": "installation",
-   "fieldtype": "Data",
-   "label": "Installation"
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
-   "fieldname": "emission_data_1",
-   "fieldtype": "Data",
-   "label": "Emission Data 1"
-  },
-  {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
-   "fieldname": "emission_data_2",
-   "fieldtype": "Data",
-   "label": "Emission Data 2"
+   "fieldtype": "Link",
+   "label": "Installation",
+   "options": "CBAM Installation",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_ryft",
@@ -397,36 +365,41 @@
    "options": "Supplier"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "split_raw_mass_1",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "1. Component raw mass in Kilograms",
-   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
+   "mandatory_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
+   "precision": "2"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "split_raw_mass_2",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "2. Component raw mass in Kilograms",
-   "mandatory_depends_on": "eval:doc.good_values==\"Various Components\""
+   "mandatory_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
+   "precision": "2"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "split_raw_mass_3",
-   "fieldtype": "Int",
-   "label": "3. Component raw mass in Kilograms"
+   "fieldtype": "Float",
+   "label": "3. Component raw mass in Kilograms",
+   "precision": "2"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "split_raw_mass_4",
-   "fieldtype": "Int",
-   "label": "4. Component raw mass in Kilograms"
+   "fieldtype": "Float",
+   "label": "4. Component raw mass in Kilograms",
+   "precision": "2"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Various Components\"",
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
    "fieldname": "split_raw_mass_5",
-   "fieldtype": "Int",
-   "label": "5. Component raw mass in Kilograms"
+   "fieldtype": "Float",
+   "label": "5. Component raw mass in Kilograms",
+   "precision": "2"
   },
   {
    "depends_on": "eval:doc.responsibility_1==\"Another employee is responsible\"",
@@ -474,19 +447,121 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Open\nDone",
-   "permlevel": 1
+   "read_only": 1
   },
   {
    "default": "0",
+   "description": "Only the Supplier Employee can check this checkbox.",
    "fieldname": "is_data_confirmed",
    "fieldtype": "Check",
    "label": "Good details confirmed or split by supplier",
    "permlevel": 2
+  },
+  {
+   "fieldname": "internal_customs_import_number",
+   "fieldtype": "Link",
+   "label": "Internal Customs Import Number",
+   "options": "Customs Import",
+   "reqd": 1
+  },
+  {
+   "default": "Not sent",
+   "fieldname": "sent_to_supplier_employee",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Sent to Supplier Employee?",
+   "options": "Not sent\nSent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sending_and_confirmation_states_section",
+   "fieldtype": "Section Break",
+   "label": "Sending and Confirmation States"
+  },
+  {
+   "fieldname": "column_break_fkff",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Up to 8 digits, no spaces or other characters.\nDE: Zolltarifnummer",
+   "fieldname": "customs_tariff_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customs Tariff Number",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "description": "DE: Rechungsnummer",
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice number"
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fieldname": "emission_data",
+   "fieldtype": "Link",
+   "label": "Emission Data",
+   "options": "CBAM Emission Data",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "fetch_from": "emission_data.specific_direct_embedded_emissions",
+   "fieldname": "direct_emission_data",
+   "fieldtype": "Data",
+   "label": "Direct embedded emissions [t CO2/t product]",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "description": "Electricity consumed [MWh/t]",
+   "fetch_from": "emission_data.electricity_consumed",
+   "fieldname": "indirect_emission_data",
+   "fieldtype": "Data",
+   "label": "Indirect embedded emissions [t CO2/t product]",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_operating_company_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Add Operating Company"
+  },
+  {
+   "fieldname": "place_holder_for_web_form_button_oc",
+   "fieldtype": "Button",
+   "label": "Place holder for Web Form Button OC"
+  },
+  {
+   "fieldname": "add_installations_and_emission_data_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Add Installations and Emission Data"
+  },
+  {
+   "fieldname": "plance_holder_for_web_form_buttons_inst_and_ed",
+   "fieldtype": "Button",
+   "label": "Plance holder for Web Form Buttons Inst and ED"
+  },
+  {
+   "default": "I am the manufacture",
+   "description": "Field can only be changed by Supplier User.",
+   "fieldname": "manufacture",
+   "fieldtype": "Select",
+   "label": "Manufacture",
+   "options": "I am the manufacture\nI am NOT the manufacturer of the whole amount of the product",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-08-26 16:14:30.569282",
+ "links": [
+  {
+   "link_doctype": "Supplier",
+   "link_fieldname": "supplier"
+  }
+ ],
+ "modified": "2024-10-14 10:35:24.810694",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -506,8 +581,9 @@
    "write": 1
   }
  ],
- "sort_field": "creation",
- "sort_order": "DESC",
+ "search_fields": "master_reference_number_mrn",
+ "sort_field": "name",
+ "sort_order": "ASC",
  "states": [
   {
    "color": "Gray",

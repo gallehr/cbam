@@ -1,0 +1,44 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Goods</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="goods-list-container">
+        <h1>Your Goods</h1>
+        <!-- Displaying the goods list in a table -->
+        <table class="goods-table">
+            <thead>
+                <tr>
+                    <th>Invoice Nr.</th>
+                    <th>Article Nr.</th>
+                    <th>Good Description</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through the goods_list data and display each row -->
+                {% for good in goods_list %}
+                <tr>
+                    <td>{{ good.invoice_number }}</td>
+                    <td>{{ good.article_number }}</td>
+                    <td>{{ good.good_description }}</td>
+                    {% if good.status == "Open" %}
+                    <td><a href="/complete-goods-data/{{ good.name }}/edit"><button>Edit</button></a></td>
+                    {% else %}
+                    <td><button class="button-done">Done</button></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/confirmation_overview"><button>Back to Overview Page</button></a>
+    </div>
+</body>
+</html>
+{% endblock %}

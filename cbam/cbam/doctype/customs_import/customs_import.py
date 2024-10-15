@@ -1,9 +1,17 @@
 # Copyright (c) 2024, phamos GmbH and contributors
 # For license information, please see license.txt
 
-# customs_import frappe
+import frappe
 from frappe.model.document import Document
 
 
 class CustomsImport(Document):
-	pass
+	def on_trash(self):
+		self.delete_all_goods()
+
+	def delete_all_goods(self):
+		for good in self.goods:
+			frappe.db.set_value("Good", good.name, "internal_customs_import_number", None)
+			frappe.db.delete("Good", {
+				"name": good.name
+			})

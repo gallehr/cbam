@@ -9,7 +9,9 @@
   "good_number",
   "good_mrn",
   "good_description",
-  "supplier"
+  "supplier",
+  "sent_to_employee",
+  "status"
  ],
  "fields": [
   {
@@ -17,7 +19,8 @@
    "fieldname": "good_description",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Good description"
+   "label": "Good description",
+   "read_only": 1
   },
   {
    "fieldname": "good_number",
@@ -31,20 +34,38 @@
    "fieldname": "good_mrn",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Good MRN"
+   "label": "Good MRN",
+   "read_only": 1
   },
   {
    "fetch_from": "good_number.supplier",
    "fieldname": "supplier",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Supplier"
+   "label": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "good_number.sent_to_supplier_employee",
+   "fieldname": "sent_to_employee",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sent to Employee?",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "good_number.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-27 12:29:04.836893",
+ "modified": "2024-09-19 12:47:44.191067",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good Item",

@@ -1,0 +1,66 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBAM Data Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <p>EU's Carbon Border Adjustment Mechanism (CBAM) by Gallehr</p>
+
+        <section class="confirmation-section">
+            {% if employee == "No employee found" %}
+            
+            <!-- Optional Debug Information -->
+            <!-- <p>test{{ test }}</p>
+            <p>Employee{{ employee }}</p>
+            <p>User{{ user }}</p>
+            <p>supplier{{ supplier }}</p> -->
+            <!-- <p>{{is_employee_main_contact}}</p> -->
+            
+            <h2>Your user is not associated with a supplier, their employees, or any goods.</h2>
+            {% else %}
+            <h2>Please go through your data and confirm</h2>
+            <div class="confirmation-container">
+                <div class="steps">
+                    {% if is_employee_main_contact %}
+                    <div class="confirmation-box">
+                        <h3>Confirm your Company Data</h3>
+                        {% if is_supplier_data_confirmed %}
+                        <button class="button-done">Done</button>
+                        {% else %}
+                        <a href="/confirm-supplier-data/{{ supplier }}/edit"><button>Access</button></a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    <div class="confirmation-box">
+                        <h3>Confirm your Personal Data</h3>
+                        {% if is_employee_data_confirmed %}
+                        <button class="button-done">Done</button>
+                        {% else %}
+                        <a href="/confirm-employee-details/{{ employee }}/edit"><button>Access</button></a>
+                        {% endif %}
+                    </div>
+
+                    <div class="confirmation-box">
+                        <h3>Complete the Goods Data</h3>
+                        {% if is_some_good_open %}
+                        <a href="/goods_list"><button>Access</button></a>
+                        {% else %}
+                        <button class="button-done">Done</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>
+{% endblock %}
