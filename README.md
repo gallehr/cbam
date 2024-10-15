@@ -1,6 +1,6 @@
 ### CBAM
 
-Handling The EU\'s Carbon Border Adjustment Mechanism (CBABAM))
+Handling The EU\'s Carbon Border Adjustment Mechanism (CBAM)) 
 
 ### Installation
 
