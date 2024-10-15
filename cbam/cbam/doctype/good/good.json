@@ -26,6 +26,7 @@
   "raw_mass",
   "customs_procedure",
   "customs_value",
+  "currency",
   "column_break_jims",
   "country_of_origin",
   "shipping_country",
@@ -76,8 +77,7 @@
   "direct_emission_data",
   "indirect_emission_data",
   "goods_components_section",
-  "good_components",
-  "currency"
+  "good_components"
  ],
  "fields": [
   {
@@ -186,7 +186,7 @@
    "options": "Supplier Employee"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "depends_on": "eval:doc.manufacture==\"I am the manufacture\"",
    "fieldname": "requested_data_section",
    "fieldtype": "Section Break",
    "label": "Requested Data",
@@ -304,7 +304,7 @@
    "label": "Goods Data"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "depends_on": "eval:doc.manufacture==\"I am the manufacture\"",
    "fetch_from": "emission_data.cbam_installation",
    "fieldname": "installation",
    "fieldtype": "Link",
@@ -486,7 +486,7 @@
    "label": "Invoice number"
   },
   {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "depends_on": "eval:doc.manufacture==\"I am the manufacture\"",
    "fieldname": "emission_data",
    "fieldtype": "Link",
    "label": "Emission Data",
@@ -494,7 +494,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "depends_on": "eval:doc.manufacture==\"I am the manufacture\"",
    "fetch_from": "emission_data.specific_direct_embedded_emissions",
    "fieldname": "direct_emission_data",
    "fieldtype": "Data",
@@ -502,7 +502,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.good_values==\"Only one Component\"",
+   "depends_on": "eval:doc.manufacture==\"I am the manufacture\"",
    "description": "Electricity consumed [MWh/t]",
    "fetch_from": "emission_data.electricity_consumed",
    "fieldname": "indirect_emission_data",
@@ -542,6 +542,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.status==\"Split\"",
    "fieldname": "good_components",
    "fieldtype": "Table",
    "label": "Good Components",
@@ -576,7 +577,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-15 09:19:17.598370",
+ "modified": "2024-10-15 20:50:34.215668",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
