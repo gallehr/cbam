@@ -13,6 +13,7 @@ class Supplier(Document):
 		self.add_doc_name_as_supplier_number()
 
 	def before_validate(self):
+		self.set_confirmation_web_form_to_none()
 		self.check_confirmation_checkbox()
 
 	def before_save(self):
@@ -106,7 +107,6 @@ class Supplier(Document):
 		if not self.supplier_number:
 			self.supplier_number = self.name
 
-
 	def check_confirmation_checkbox(self):
 		user_email = frappe.session.user
 		try:
@@ -116,3 +116,8 @@ class Supplier(Document):
 		role_list = [r.role for r in user.roles]
 		if "Supplier" in role_list and self.confirmation_web_form == "true" and self.is_data_confirmed != True:
 			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+
+	def set_confirmation_web_form_to_none(self):
+		has_value_changed = self.has_value_changed("confirmation_web_form")
+		if not has_value_changed and self.confirmation_web_form:
+			self.confirmation_web_form = None

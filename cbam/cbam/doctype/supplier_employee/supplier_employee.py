@@ -7,6 +7,7 @@ from frappe.model.document import Document
 
 class SupplierEmployee(Document):
 	def before_validate(self):
+		self.set_confirmation_web_form_to_none()
 		self.check_confirmation_checkbox()
 		self.insert_supplier_company_if_from_web_form()
 
@@ -22,8 +23,13 @@ class SupplierEmployee(Document):
 		self.rename()
 
 	def on_trash(self):
+		self.delete_all_cht_entries()
 		self.delete_child()
 		self.delete_link_in_good()
+
+	def delete_all_cht_entries(self):
+		for good in self.goods:
+			good.delete()
 
 	def delete_child(self):
 		if self.supplier_company:
@@ -80,8 +86,13 @@ class SupplierEmployee(Document):
 			return False
 
 	def check_confirmation_checkbox(self):
-		if self.status == "Sent to Supplier Employee" and self.is_supplier_user() and self.is_data_confirmed != True:
-			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+		if self.confirmation_web_form == "true" and self.is_supplier_user() and self.is_data_confirmed != True:
+			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form or confirm first your personal data.")
+
+	def set_confirmation_web_form_to_none(self):
+		has_value_changed = self.has_value_changed("confirmation_web_form")
+		if not has_value_changed and self.confirmation_web_form:
+			self.confirmation_web_form = None
 
 	def insert_supplier_company_if_from_web_form(self):
 		if self.is_supplier_user() and not self.supplier_company:

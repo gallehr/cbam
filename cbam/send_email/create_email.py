@@ -38,7 +38,7 @@ def create_email(recipient_employee):
                 sender_position = ""
             else:
                 sender_position = f"{sender_position}<br>"
-            email_start_text = f"DUMMY TEXT: <br>Dear Mr./Mrs. {recipient_employee_last_name},<br><br>I hope this email finds you well. I am forwarding the below request to you, as you are my Sub-Supplier. To facilitate the process, I have created a user account for you, and kindly ask you to complete the three steps described below:<br><br>1. Registration<br>2. Access to data request<br>3. Data request<br><br>Thank you in advance for your cooperation, and I would appreciate it if you could address this at your earliest convenience. <br><br>Best regards,<br>{sender_employee_first_name} {sender_employee_last_name}<br>{sender_position}{sender_company}<br><br>----------------------------<br><br><em>Dear Mr./Mrs. {sender_employee_last_name},<br><br>Our company "
+            email_start_text = f"DUMMY TEXT: <br>Dear Mr./Mrs. {recipient_employee_last_name},<br><br>I hope this email finds you well. I am forwarding the below request to you, as you are my Coworker/Sub-Supplier. To facilitate the process, I have created a user account for you, and kindly ask you to complete the three steps described below:<br><br>1. Registration<br>2. Access to data request<br>3. Data request<br><br>Thank you in advance for your cooperation, and I would appreciate it if you could address this at your earliest convenience. <br><br>Best regards,<br>{sender_employee_first_name} {sender_employee_last_name}<br>{sender_position}{sender_company}<br><br>----------------------------<br><br><em>Dear Mr./Mrs. {sender_employee_last_name},<br><br>Our company "
             email_end_text = "</em>"
 
 

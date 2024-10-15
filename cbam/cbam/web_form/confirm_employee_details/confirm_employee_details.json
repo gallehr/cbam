@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-09-13 13:19:18.523034",
+ "modified": "2024-10-15 11:22:28.709506",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-employee-details",
@@ -85,7 +85,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -98,7 +98,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -137,7 +137,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 1,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -173,6 +173,20 @@
    "fieldname": "column_break_wcmc",
    "fieldtype": "Column Break",
    "hidden": 0,
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "true",
+   "fieldname": "confirmation_web_form",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "confirmation web form",
    "max_length": 0,
    "max_value": 0,
    "precision": "",

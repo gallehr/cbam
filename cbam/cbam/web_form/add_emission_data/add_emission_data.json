@@ -19,7 +19,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-10-08 11:51:36.044135",
+ "modified": "2024-10-15 11:39:36.031765",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "add-emission-data",
@@ -58,7 +58,7 @@
    "options": "CBAM Installation",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -98,7 +98,7 @@
    "options": "Commissions rules\nOther",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -139,7 +139,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -166,7 +166,7 @@
    "options": "Direct technical link to electricity generator\n(Bilateral) power purchase agreement\nReceived from the grid",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -192,7 +192,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   }
  ]

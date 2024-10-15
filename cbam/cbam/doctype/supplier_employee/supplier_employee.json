@@ -11,13 +11,16 @@
   "column_break_wcmc",
   "is_data_confirmed",
   "is_main_contact",
+  "confirmation_web_form",
   "employee_data_section",
   "last_name",
   "first_name",
   "position",
   "column_break_hlao",
   "email",
-  "phone_number"
+  "phone_number",
+  "goods_section",
+  "goods"
  ],
  "fields": [
   {
@@ -97,11 +100,29 @@
    "fieldname": "is_main_contact",
    "fieldtype": "Check",
    "label": "Main Contact"
+  },
+  {
+   "fieldname": "goods_section",
+   "fieldtype": "Section Break",
+   "label": "Goods"
+  },
+  {
+   "fieldname": "goods",
+   "fieldtype": "Table",
+   "label": "Goods",
+   "options": "Good Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confirmation_web_form",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "confirmation web form"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-19 17:11:04.428698",
+ "modified": "2024-10-14 18:06:00.689173",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",

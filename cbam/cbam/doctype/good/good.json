@@ -9,6 +9,7 @@
   "sending_and_confirmation_states_section",
   "sent_to_supplier_employee",
   "status",
+  "parent_good",
   "column_break_fkff",
   "is_data_confirmed",
   "goods_data_section",
@@ -74,8 +75,9 @@
   "column_break_wczo",
   "direct_emission_data",
   "indirect_emission_data",
-  "good_splits_section",
-  "good_splits"
+  "goods_components_section",
+  "good_components",
+  "currency"
  ],
  "fields": [
   {
@@ -146,7 +148,8 @@
    "fieldtype": "Currency",
    "label": "Customs value in Euro",
    "non_negative": 1,
-   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
+   "options": "currency",
+   "read_only": 1
   },
   {
    "fieldname": "shipping_country",
@@ -166,21 +169,6 @@
    "label": "Supplier",
    "options": "Supplier",
    "reqd": 1
-  },
-  {
-   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
-   "fieldname": "good_splits_section",
-   "fieldtype": "Section Break",
-   "label": "Good Splits",
-   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
-  },
-  {
-   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
-   "fieldname": "good_splits",
-   "fieldtype": "Table",
-   "label": "Good Splits",
-   "options": "Good Item",
-   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
   },
   {
    "fieldname": "column_break_kaso",
@@ -446,7 +434,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Open\nDone",
+   "options": "Open\nSent\nSplit\nDone",
    "read_only": 1
   },
   {
@@ -552,6 +540,33 @@
    "label": "Manufacture",
    "options": "I am the manufacture\nI am NOT the manufacturer of the whole amount of the product",
    "read_only": 1
+  },
+  {
+   "fieldname": "good_components",
+   "fieldtype": "Table",
+   "label": "Good Components",
+   "options": "Good Item"
+  },
+  {
+   "depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\"",
+   "fieldname": "goods_components_section",
+   "fieldtype": "Section Break",
+   "label": "Goods Components ",
+   "read_only_depends_on": "eval:doc.manufacture==\"I am NOT the manufacturer of the whole amount of the product\""
+  },
+  {
+   "description": "Shows the direct Parent, from which this Good was split.",
+   "fieldname": "parent_good",
+   "fieldtype": "Data",
+   "label": "Parent Good",
+   "read_only": 1
+  },
+  {
+   "default": "EUR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -561,7 +576,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-14 10:35:24.810694",
+ "modified": "2024-10-15 09:19:17.598370",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -588,6 +603,14 @@
   {
    "color": "Gray",
    "title": "Open"
+  },
+  {
+   "color": "Purple",
+   "title": "Split"
+  },
+  {
+   "color": "Yellow",
+   "title": "Sent"
   },
   {
    "color": "Green",
