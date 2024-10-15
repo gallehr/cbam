@@ -184,8 +184,7 @@
    "fieldname": "define_how_emissions_get_monitored_reported_and_verified",
    "fieldtype": "Small Text",
    "label": "Define how emissions get monitored, reported and verified:",
-   "mandatory_depends_on": "eval:doc.is_the_installation_tracking_emissions_data==\"Yes\"",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.is_the_installation_tracking_emissions_data==\"Yes\""
   },
   {
    "fieldname": "is_the_installation_subject_to_an_emission_trading_system",
@@ -199,8 +198,7 @@
    "fieldname": "which_emission_trading_system_link_to_legal_act",
    "fieldtype": "Data",
    "label": "Which emission trading system (link to legal act)?",
-   "mandatory_depends_on": "eval:doc.is_the_installation_subject_to_an_emission_trading_system==\"Yes\"",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.is_the_installation_subject_to_an_emission_trading_system==\"Yes\""
   },
   {
    "fieldname": "industry_sector_of_the_installation",
@@ -296,7 +294,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-15 11:35:34.546728",
+ "modified": "2024-10-15 19:55:38.761113",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Installation",

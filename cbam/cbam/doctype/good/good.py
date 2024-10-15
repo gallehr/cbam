@@ -16,7 +16,7 @@ class Good(Document):
 	def before_save(self):
 		self.delete_old_employee_if_supplier_changed()
 		self.get_main_contact_employee()
-		if self.is_data_confirmed == True and self.manufacture == "I am the manufacturer":
+		if self.is_data_confirmed == True and self.manufacture == "I am the manufacture":
 			self.status = "Done"
 		self.add_to_supplier_cht()
 		self.add_to_employee_cht()
@@ -24,9 +24,7 @@ class Good(Document):
 
 	def on_update(self):
 		self.add_split_good_to_parent_cht()
-
-	# def after_insert(self):
-	# 	self.add_split_good_to_parent_cht()
+		self.send_email()
 
 	def on_trash(self):
 		self.delete_all_good_item()
@@ -192,7 +190,10 @@ class Good(Document):
 			delete_good_item(self.name, "Supplier")
 			supplier = frappe.get_doc("Supplier", self.supplier)
 			supplier.append("goods", {
-				"good_number": self.name
+				"good_number": self.name,
+				"supplier": self.supplier,
+				"employee": self.employee,
+				"status": self.status
 			})
 			supplier.save()
 
@@ -202,7 +203,10 @@ class Good(Document):
 			delete_good_item(self.name, "Supplier Employee")
 			employee = frappe.get_doc("Supplier Employee", self.employee)
 			employee.append("goods", {
-				"good_number": self.name
+				"good_number": self.name,
+				"supplier": self.supplier,
+				"employee": self.employee,
+				"status": self.status
 			})
 			employee.save()
 
@@ -212,7 +216,10 @@ class Good(Document):
 			delete_good_item(self.name, "Customs Import")
 			customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
 			customs_import.append("goods", {
-				"good_number": self.name
+				"good_number": self.name,
+				"supplier": self.supplier,
+				"employee": self.employee,
+				"status": self.status
 			})
 			customs_import.save()
 
@@ -252,14 +259,21 @@ class Good(Document):
 				if self.is_data_confirmed != True:
 					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
-# def send_email(employee):
-# 		try:
-# 			create_new_supplier_user(employee)
-# 		except Exception as e:
-# 			frappe.msgprint ("Couldn't create a new user for this employee.<br><br>Error: {e}")
-# 		sending_status = frappe.db.get_value("Supplier Employee", employee, "status")
-# 		if status == "Sent to employee":
-# 			frappe.db.set_value("Supplier Employee", self.employee, "status", "Sent to Supplier Employee")
+	def send_email(self):
+		employee_goods_status_list = frappe.get_all("Good", filters={'employee': self.employee}, fields=["status"], pluck="status")
+		if all(status == "Done" for status in employee_goods_status_list):
+			owner_employee_email = frappe.db.get_value("Supplier Employee", self.employee, "email")
+			new_employee_list = frappe.get_all("Supplier Employee", filters={'owner': self.employee}, fields=["name"], pluck="name")
+			frappe.msgprint(f"New Employee List: {new_employee_list}")
+			for employee in new_employee_list:
+				try:
+					create_new_supplier_user(employee)
+				except Exception as e:
+					frappe.msgprint ("Couldn't create a new user for the employee {employee}.<br><br>Error: {e}")
+				try:
+					create_email(employee)
+				except Exception as e:
+					frappe.msgprint ("Couldn't create an email for the employee {employee}.<br><br>Error: {e}")
 
 def delete_good_item(good, parenttype):
 	good_item_list = frappe.get_all("Good Item", filters={'good_number': good, 'parenttype': parenttype}, fields=["name"], pluck="name")

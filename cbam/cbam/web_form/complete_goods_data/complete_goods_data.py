@@ -73,9 +73,9 @@ def get_filtered_emission_data():
             operating_company_list = frappe.db.get_all("CBAM Operating Company", filters={"parent_supplier": supplier}, fields=["name"], pluck="name")
             #frappe.msgprint(f"Operating Company List: {operating_company_list}")
             if len(operating_company_list) == 1:
-                emission_data_list = frappe.get_all("CBAM Emission Data", filters={"operator_name": operating_company_list[0]}, fields=["name", "installation_name"])
+                emission_data_list = frappe.get_all("CBAM Emission Data", filters={"operator_name": operating_company_list[0]}, fields=["name"])
                 #frappe.msgprint(f"Emission Data List: {emission_data_list}")
-                emission_data_options = [{"label": e.name, "value": e.installation_name} for e in emission_data_list]
+                emission_data_options = [{"label": e.name, "value": e.name} for e in emission_data_list]
                 #frappe.msgprint(f"Emission Data Options: {emission_data_options}")
             elif len(operating_company_list) < 1:
                 #frappe.throw("Couldn't find any Operating Company for your Supplier.")

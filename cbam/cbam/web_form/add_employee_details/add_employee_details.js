@@ -1,7 +1,7 @@
 // console.log("add_employee_details.js loaded");
 frappe.ready(function() {
     frappe.call({
-        method: "cbam.get_supplier_number.get_supplier_number",
+        method: "cbam.get_supplier_number",
         callback: function (response) {
             // console.log(`{frappe.session.user="${frappe.session.user}"}`)
             // console.log(`{response="${response}"}`)
