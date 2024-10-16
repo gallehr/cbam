@@ -7,11 +7,9 @@ from cbam.send_email.create_email import create_email
 from cbam.send_email.create_new_supplier_user import create_new_supplier_user
 
 class Good(Document):
-	# def before_validate(self):
-	# 	self.check_confirmation_checkbox()
-
-	def validate(self):
-		self.split_good()
+	def before_validate(self):
+		self.set_confirmation_web_form_to_none()
+		self.check_confirmation_checkbox()
 
 	def before_save(self):
 		self.delete_old_employee_if_supplier_changed()
@@ -22,8 +20,10 @@ class Good(Document):
 		self.add_to_employee_cht()
 		self.add_to_customs_import_cht()
 
-	def on_update(self):
-		self.add_split_good_to_parent_cht()
+	def validate(self):
+		self.split_good()
+
+	def on_change(self):
 		self.send_email()
 
 	def on_trash(self):
@@ -31,7 +31,7 @@ class Good(Document):
 
 	def delete_old_employee_if_supplier_changed(self):
 		has_supplier_changed = self.has_value_changed("supplier")
-		if has_supplier_changed:
+		if has_supplier_changed and not self.is_new():
 			self.employee = None
 
 	def get_main_contact_employee(self):
@@ -84,6 +84,12 @@ class Good(Document):
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
+					self.append("good_components", {
+						"good_number": new_good.name,
+						"supplier": new_good.supplier,
+						"employee": new_good.employee,
+						"status": "Raw Data"
+					})
 					next_highest_split_number += 1
 				if self.split_raw_mass_2 and self.split_raw_mass_2 != "0":
 					new_good = frappe.new_doc("Good")
@@ -102,6 +108,7 @@ class Good(Document):
 						new_good.supplier = self.supplier
 						new_good.employee = self.employee
 					elif self.responsibility_2 == "Another employee is responsible":
+						#frappe.msgprint(f"Responsible Employee 1: {self.responsible_employee_2}") #! Testing
 						new_good.supplier = self.supplier
 						new_good.employee = self.responsible_employee_2
 					elif self.responsibility_2 == "Another supplier is responsible":
@@ -109,9 +116,16 @@ class Good(Document):
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
+					self.append("good_components", {
+						"good_number": new_good.name,
+						"supplier": new_good.supplier,
+						"employee": new_good.employee,
+						"status": "Raw Data"
+					})
 					next_highest_split_number += 1
 				if self.split_raw_mass_3 and self.split_raw_mass_3 != "0":
 					new_good = frappe.new_doc("Good")
+					new_good.parent_good = self.name
 					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
@@ -133,9 +147,16 @@ class Good(Document):
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
+					self.append("good_components", {
+						"good_number": new_good.name,
+						"supplier": new_good.supplier,
+						"employee": new_good.employee,
+						"status": "Raw Data"
+					})
 					next_highest_split_number += 1
 				if self.split_raw_mass_4 and self.split_raw_mass_4 != "0":
 					new_good = frappe.new_doc("Good")
+					new_good.parent_good = self.name
 					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
@@ -157,9 +178,16 @@ class Good(Document):
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
+					self.append("good_components", {
+						"good_number": new_good.name,
+						"supplier": new_good.supplier,
+						"employee": new_good.employee,
+						"status": "Raw Data"
+					})
 					next_highest_split_number += 1
 				if self.split_raw_mass_5 and self.split_raw_mass_5 != "0":
 					new_good = frappe.new_doc("Good")
+					new_good.parent_good = self.name
 					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
 					new_good.hand_over_date = self.hand_over_date
 					new_good.article_number = self.article_number
@@ -178,10 +206,15 @@ class Good(Document):
 						new_good.employee = self.responsible_employee_5
 					elif self.responsibility_5 == "Another supplier is responsible":
 						new_good.supplier = self.responsible_supplier_5
-						# ToDo new_good.employee = self.employee
 					else:
 						frappe.throw("Please select a responsibility")
 					new_good.insert()
+					self.append("good_components", {
+						"good_number": new_good.name,
+						"supplier": new_good.supplier,
+						"employee": new_good.employee,
+						"status": "Raw Data"
+					})
 					next_highest_split_number += 1
 
 	def add_to_supplier_cht(self):
@@ -223,16 +256,6 @@ class Good(Document):
 			})
 			customs_import.save()
 
-	def add_split_good_to_parent_cht(self):
-		if self.parent_good:
-			new_good_item = frappe.new_doc("Good Item")
-			new_good_item.parenttype = "Good"
-			new_good_item.parent = self.parent_good
-			new_good_item.parentfield = "good_components"
-			new_good_item.good_number = self.name
-			new_good_item.supplier = self.supplier
-			new_good_item.employee = self.employee
-			new_good_item.insert()
 
 	def delete_all_good_item(self):
 		good_items = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
@@ -243,35 +266,38 @@ class Good(Document):
 		frappe.db.commit()
 
 	def check_confirmation_checkbox(self):
-		# if no attribute __unsaved means, the document is updated through a Web Form because only then (update + web form) self doesn't have this attribute
-		if not hasattr(self, '__unsaved'):
-			user_email = frappe.session.user
-			# frappe.msgprint(f"User Email: {user_email}")
-			try:
-				user = frappe.get_doc("User", user_email)
-				# frappe.msgprint(f"User: {user}")
-			except frappe.DoesNotExistError:
-				frappe.throw(_("User not found"))
-			role_list = [r.role for r in user.roles]
-			if "Supplier" in role_list:
-				# frappe.msgprint("User is a supplier")
-				# frappe.msgprint(f"is data confirmed{self.is_data_confirmed}")
-				if self.is_data_confirmed != True:
-					frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+		user_email = frappe.session.user
+		try:
+			user = frappe.get_doc("User", user_email)
+		except frappe.DoesNotExistError:
+			frappe.throw(_("User not found"))
+		role_list = [r.role for r in user.roles]
+		if "Supplier" in role_list and self.confirmation_web_form == "true" and self.is_data_confirmed != True:
+				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+
+	def set_confirmation_web_form_to_none(self):
+		has_value_changed = self.has_value_changed("confirmation_web_form")
+		if not has_value_changed and self.confirmation_web_form:
+			self.confirmation_web_form = None
 
 	def send_email(self):
 		employee_goods_status_list = frappe.get_all("Good", filters={'employee': self.employee}, fields=["status"], pluck="status")
-		if all(status == "Done" for status in employee_goods_status_list):
+		# frappe.msgprint(f"Employee Goods Status List of {self.employee} is {employee_goods_status_list}")
+		if employee_goods_status_list and all(status in ["Done", "Split"] for status in employee_goods_status_list):
+			# frappe.msgprint("Until here")
 			owner_employee_email = frappe.db.get_value("Supplier Employee", self.employee, "email")
+			# frappe.msgprint(f"Owner Employee Email: {owner_employee_email}")
 			new_employee_list = frappe.get_all("Supplier Employee", filters={'owner': self.employee}, fields=["name"], pluck="name")
-			frappe.msgprint(f"New Employee List: {new_employee_list}")
+			# frappe.msgprint(f"New Employee List: {new_employee_list}")
 			for employee in new_employee_list:
 				try:
 					create_new_supplier_user(employee)
+					frappe.msgprint(f"Created a new user for the employee {employee}")
 				except Exception as e:
 					frappe.msgprint ("Couldn't create a new user for the employee {employee}.<br><br>Error: {e}")
 				try:
 					create_email(employee)
+					frappe.msgprint(f"Created an email for the employee {employee}")
 				except Exception as e:
 					frappe.msgprint ("Couldn't create an email for the employee {employee}.<br><br>Error: {e}")
 

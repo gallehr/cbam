@@ -181,12 +181,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Parent Supplier",
+   "read_only": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-08 13:03:22.758241",
+ "modified": "2024-10-16 15:16:16.821473",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Operating Company",
