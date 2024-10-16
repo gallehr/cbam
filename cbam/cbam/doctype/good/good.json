@@ -12,6 +12,7 @@
   "parent_good",
   "column_break_fkff",
   "is_data_confirmed",
+  "confirmation_web_form",
   "goods_data_section",
   "master_reference_number_mrn",
   "invoice_number",
@@ -568,6 +569,12 @@
    "fieldtype": "Link",
    "label": "Currency",
    "options": "Currency"
+  },
+  {
+   "fieldname": "confirmation_web_form",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "confirmation_web_form"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -577,7 +584,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-15 20:50:34.215668",
+ "modified": "2024-10-16 15:18:11.014625",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
