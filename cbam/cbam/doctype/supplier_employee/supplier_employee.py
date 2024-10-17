@@ -11,6 +11,9 @@ class SupplierEmployee(Document):
 		self.check_confirmation_checkbox()
 		self.insert_supplier_company_if_from_web_form()
 
+	def validate(self):
+		self.validate_main_employee_in_supplier(False)
+
 	def before_save(self):
 		if self.is_data_confirmed == True:
 			self.status = "Data confirmed by Employee"
@@ -23,9 +26,22 @@ class SupplierEmployee(Document):
 		self.rename()
 
 	def on_trash(self):
+		if not self.flags.is_bulk_delete:
+			self.validate_main_employee_in_supplier(True)
 		self.delete_all_cht_entries()
 		self.delete_child()
 		self.delete_link_in_good()
+
+
+	#validates the main employee for supplier
+	def validate_main_employee_in_supplier(self, flag):
+		if not frappe.db.exists("Supplier Employee", {
+			"name": ["!=", self.name], 
+			"supplier_company":self.supplier_company, 
+			"is_main_contact":1
+		}) and self.is_main_contact == flag:
+			frappe.throw("At least 1 main Employee must exist for Suppier {}".format(self.supplier_company))
+
 
 	def delete_all_cht_entries(self):
 		for good in self.goods:

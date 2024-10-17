@@ -29,7 +29,31 @@
 
 frappe.ui.form.on('Supplier', {
 	refresh(frm) {
-		// your code here
+		if(frappe.user.has_role("System Manager")){
+
+			
+			frm.add_custom_button(__("Delete All Employees"), function(){
+				frappe.msgprint({
+					title: __('Delete All Employees?'),
+					message: __('This will delete all the linked employees. Are you sure you want to proceed?'),
+					primary_action_label: __("Proceed"),
+					indicator:'red',
+					primary_action:{
+						
+						action(values) {
+							frappe.call({
+								method: "delete_linked_employees",
+								doc: frm.doc,
+								callback(r){
+									msgprint(__("Deleted all employees successfully."))
+								}
+							});
+						}
+					}
+				});
+			})
+		}
+		
 	}
 })
 

@@ -4,6 +4,7 @@
 import frappe
 from frappe.model.document import Document
 import uuid
+from frappe.utils import cstr
 
 class CBAMInstallation(Document):
 	def before_naming(self):
@@ -23,8 +24,8 @@ class CBAMInstallation(Document):
 		self.delete_link_in_good()
 
 	def generated_uuid(self):
-		generated_uuid = uuid.uuid4()
-		self.uuid_installation = generated_uuid
+
+		self.uuid_installation =cstr(uuid.uuid4()) 
 
 	def add_same_contact_person(self):
 		has_contact_person_changed = self.has_value_changed("contact_person")
