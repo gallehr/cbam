@@ -6,7 +6,7 @@
 import frappe
 from frappe.model.document import Document
 from frappe.utils import cstr
-
+from frappe import _
 class Supplier(Document):
 	def before_insert(self):
 		self.sub_supplier()
@@ -125,10 +125,17 @@ class Supplier(Document):
 	
 	@frappe.whitelist()
 	def delete_linked_employees(self):
-		for employee in frappe.get_all("Supplier Employee", filters={"supplier_company": self.name}, fields=["name"]):
-			try:
+		success = True
+		employees = frappe.get_all("Supplier Employee", filters={"supplier_company": self.name}, fields=["name"])
+		if not employees:
+			return _("No Associated Employee found.")
+		try:
+			for employee in employees:
 				doc = frappe.get_doc("Supplier Employee", employee.name)
 				doc.flags.is_bulk_delete = True
 				doc.delete()
-			except Exception as e:
-				frappe.throw(cstr(e))
+		except Exception as e:
+			success = False
+			frappe.throw(cstr(e))
+		if success:
+			return _("Deleted all employees successfully.")
