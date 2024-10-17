@@ -5,7 +5,7 @@
 
 import frappe
 from frappe.model.document import Document
-
+from frappe.utils import cstr
 
 class Supplier(Document):
 	def before_insert(self):
@@ -121,3 +121,14 @@ class Supplier(Document):
 		has_value_changed = self.has_value_changed("confirmation_web_form")
 		if not has_value_changed and self.confirmation_web_form:
 			self.confirmation_web_form = None
+
+	
+	@frappe.whitelist()
+	def delete_linked_employees(self):
+		for employee in frappe.get_all("Supplier Employee", filters={"supplier_company": self.name}, fields=["name"]):
+			try:
+				doc = frappe.get_doc("Supplier Employee", employee.name)
+				doc.flags.is_bulk_delete = True
+				doc.delete()
+			except Exception as e:
+				frappe.throw(cstr(e))

@@ -26,7 +26,8 @@ class SupplierEmployee(Document):
 		self.rename()
 
 	def on_trash(self):
-		self.validate_main_employee_in_supplier(True)
+		if not self.flags.is_bulk_delete:
+			self.validate_main_employee_in_supplier(True)
 		self.delete_all_cht_entries()
 		self.delete_child()
 		self.delete_link_in_good()

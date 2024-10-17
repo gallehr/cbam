@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import Document
 import uuid
-
+from frappe.utils import cstr
 
 class CBAMOperatingCompany(Document):
 	def before_naming(self):
@@ -16,8 +16,7 @@ class CBAMOperatingCompany(Document):
 		self.set_parent_supplier()
 
 	def generated_uuid(self):
-		generated_uuid = uuid.uuid4()
-		self.uuid = generated_uuid
+		self.uuid = cstr(uuid.uuid4())
 
 	def check_if_user_supplieruser(self):
 		user_email = frappe.session.user
