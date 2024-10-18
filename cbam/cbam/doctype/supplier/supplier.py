@@ -9,19 +9,28 @@ from frappe.utils import cstr
 from frappe import _
 class Supplier(Document):
 	def before_insert(self):
+		
 		self.sub_supplier()
 		self.add_doc_name_as_supplier_number()
 
 	def before_validate(self):
+		#self._create_new_employee()
 		self.set_confirmation_web_form_to_none()
 		self.check_confirmation_checkbox()
 
 	def before_save(self):
+		#self._create_new_employee()
 		if self.is_data_confirmed == True:
 			self.status = "Confirmed"
 
 	def on_update(self):
 		self.create_new_employee()
+
+
+#	def validate(self):
+#		pass
+	
+
 
 	# def after_insert(self):
 	# 	self.add_main_employee_to_cht()
