@@ -219,12 +219,13 @@
   {
    "fieldname": "confirmation_web_form",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "confirmation web form"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-14 19:45:18.142299",
+ "modified": "2024-10-16 10:22:13.728176",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",

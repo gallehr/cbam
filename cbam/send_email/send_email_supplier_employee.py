@@ -12,7 +12,8 @@ def create_user_and_send_email(employee, supplier):
             create_email(employee)
             frappe.db.set_value("Supplier Employee", employee, "status", "Sent to Supplier Employee")
             for good in good_list:
-                frappe.db.set_value('Good', good, 'sent_to_supplier_employee', 'Sent')
+                frappe.db.set_value('Good', good, 'sent_to_supplier_employee', 'Sent') # Can be removed soon
+                frappe.db.set_value('Good', good, 'status', 'Sent')
             is_employee_main_contact = frappe.db.get_value('Supplier Employee', employee, 'is_main_contact')
             if is_employee_main_contact:
                 frappe.db.set_value('Supplier', supplier, 'status', "Sent for confirmation")
