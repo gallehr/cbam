@@ -1,7 +1,7 @@
 {
  "allow_comments": 0,
  "allow_delete": 0,
- "allow_edit": 0,
+ "allow_edit": 1,
  "allow_incomplete": 0,
  "allow_multiple": 0,
  "allow_print": 0,
@@ -20,7 +20,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-10-16 11:48:07.667404",
+ "modified": "2024-10-18 16:41:08.813332",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "confirm-supplier-data",
