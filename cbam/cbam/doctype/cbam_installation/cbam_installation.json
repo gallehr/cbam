@@ -14,8 +14,9 @@
   "uuid_installation",
   "name_of_the_installation",
   "column_break_ktcv",
-  "country_of_the_installation",
+  "city",
   "country_code",
+  "country_of_the_installation",
   "section_break_bseo",
   "html_information_contact_person",
   "contact_person",
@@ -290,11 +291,17 @@
    "in_list_view": 1,
    "label": "Parent Supplier",
    "read_only": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-15 19:55:38.761113",
+ "modified": "2024-10-21 09:38:31.706732",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Installation",
