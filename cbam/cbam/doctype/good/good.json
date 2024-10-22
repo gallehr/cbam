@@ -7,7 +7,6 @@
  "engine": "InnoDB",
  "field_order": [
   "sending_and_confirmation_states_section",
-  "sent_to_supplier_employee",
   "status",
   "parent_good",
   "column_break_fkff",
@@ -431,11 +430,12 @@
    "options": "Supplier Employee"
   },
   {
-   "default": "Open",
+   "default": "Raw Data",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
-   "options": "Open\nSent\nSplit\nDone",
+   "options": "Raw Data\nSent for completing\nSplit\nDone",
    "read_only": 1
   },
   {
@@ -452,15 +452,6 @@
    "label": "Internal Customs Import Number",
    "options": "Customs Import",
    "reqd": 1
-  },
-  {
-   "default": "Not sent",
-   "fieldname": "sent_to_supplier_employee",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Sent to Supplier Employee?",
-   "options": "Not sent\nSent",
-   "read_only": 1
   },
   {
    "fieldname": "sending_and_confirmation_states_section",
@@ -584,7 +575,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-16 15:18:11.014625",
+ "modified": "2024-10-22 10:55:16.036642",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -610,15 +601,15 @@
  "states": [
   {
    "color": "Gray",
-   "title": "Open"
+   "title": "Raw Data"
+  },
+  {
+   "color": "Yellow",
+   "title": "Sent for completing"
   },
   {
    "color": "Purple",
    "title": "Split"
-  },
-  {
-   "color": "Yellow",
-   "title": "Sent"
   },
   {
    "color": "Green",
