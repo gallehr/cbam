@@ -15,14 +15,7 @@
 
         <section class="confirmation-section">
             {% if employee == "No employee found" %}
-            
-            <!-- Optional Debug Information -->
-            <!-- <p>test{{ test }}</p>
-            <p>Employee{{ employee }}</p>
-            <p>User{{ user }}</p>
-            <p>supplier{{ supplier }}</p> -->
-            <!-- <p>{{is_employee_main_contact}}</p> -->
-            
+
             <h2>Your user is not associated with a supplier, their employees, or any goods.</h2>
             {% else %}
             <h2>Please go through your data and confirm</h2>
@@ -50,7 +43,7 @@
 
                     <div class="confirmation-box">
                         <h3>Complete the Goods Data</h3>
-                        {% if is_some_good_open %}
+                        {% if is_some_good_pending %}
                         <a href="/goods_list"><button>Access</button></a>
                         {% else %}
                         <button class="button-done">Done</button>

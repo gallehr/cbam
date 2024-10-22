@@ -28,7 +28,7 @@
                     <td>{{ good.invoice_number }}</td>
                     <td>{{ good.article_number }}</td>
                     <td>{{ good.good_description }}</td>
-                    {% if good.status == "Open" %}
+                    {% if good.status == "Raw Data" %}
                     <td><a href="/complete-goods-data/{{ good.name }}/edit"><button>Edit</button></a></td>
                     {% else %}
                     <td><button class="button-done">Done</button></td>
