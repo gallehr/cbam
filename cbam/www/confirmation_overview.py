@@ -14,7 +14,7 @@ def get_context(context):
         context.is_employee_data_confirmed = frappe.db.get_value('Supplier Employee', context.employee, 'is_data_confirmed')
         context.is_supplier_data_confirmed = frappe.db.get_value('Supplier', context.supplier, 'is_data_confirmed')
         context.goods_list = frappe.get_all('Good', filters={'employee': context.employee}, fields=['status'], pluck="status") or []
-        if "Raw Data" in context.goods_list:
+        if any(status in context.goods_list for status in ["Raw Data", "Sent for completing"]):
             context.is_some_good_pending = True
         else:
             context.is_some_good_pending = False
