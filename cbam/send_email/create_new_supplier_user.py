@@ -5,26 +5,22 @@ import json
 
 @frappe.whitelist()  # Called by Send Email button through goods.js
 def create_new_supplier_user(employee):
-    frappe.msgprint(f"From create_new_supplier_user: Creating new user for {employee}")
-    employee_email = frappe.db.get_value("Supplier Employee", employee, "email")
-    users_list = frappe.get_all("User", filters={'email': employee_email}, fields=["name"], pluck="name")
-    if not users_list:
-        employee_docname = frappe.db.get_value("Supplier Employee", employee, "name")
-        employee_last_name = frappe.db.get_value("Supplier Employee", employee, "last_name")
-        employee_first_name = frappe.db.get_value("Supplier Employee", employee, "first_name") or employee_last_name
-        frappe.db.set_value("Supplier Employee", employee_docname, "Status", "Sent to Supplier Employee")
-
-        new_user = frappe.new_doc("User")
-        new_user.email = employee_email
-        new_user.send_welcome_email = 0
-        new_user.last_name = employee_last_name
-        new_user.first_name = employee_first_name
+    #frappe.msgprint(f"From create_new_supplier_user: Creating new user for {employee}")
+    employee_doc = frappe.get_doc("Supplier Employee", employee)
+    if not frappe.db.exists("User", employee_doc.email):
 
         try:
-            new_user.append("role_profiles", {
-                'role_profile': '00 Supplier',
+            new_user = frappe.new_doc("User")
+            new_user.email = employee_doc.email
+            new_user.send_welcome_email = False
+            new_user.last_name = employee_doc.last_name
+            new_user.first_name = employee_doc.first_name or employee_doc.last_name
+            new_user.append("roles", {
+                'role': 'Supplier'
             })
-        except AttributeError:
-            new_user.role_profile_name = "00 Supplier"
-
-        new_user.insert()
+      
+            new_user.save(ignore_permissions=True)
+            frappe.db.set_value("Supplier Employee", employee_doc.name, "Status", "Sent to Supplier Employee")
+        except Exception as e:
+            frappe.log_error(frappe.get_traceback(), f"An error occured while creating user for {employee_doc.name}")
+       

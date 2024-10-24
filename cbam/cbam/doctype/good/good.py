@@ -13,23 +13,21 @@ class Good(Document):
 
 	def before_save(self):
 		self.delete_old_employee_if_supplier_changed()
-		self.get_main_contact_employee()
+		
 		if self.is_data_confirmed == True and self.manufacture == "I am the manufacture":
 			self.status = "Done"
 		self.add_to_supplier_cht()
 		self.add_to_employee_cht()
 
 	def validate(self):
-		self.split_good()
-		self.add_to_customs_import_cht()
-
-	def on_change(self):
-		self.send_email()
+		if self.manufacture == "I am NOT the manufacturer of the whole amount of the product" and not self.good_splitted:
+			self.split_good()
 
 	def on_trash(self):
 		self.delete_all_good_item()
 
 	def delete_old_employee_if_supplier_changed(self):
+		return
 		has_supplier_changed = self.has_value_changed("supplier")
 		if has_supplier_changed and not self.is_new():
 			self.employee = None
@@ -42,180 +40,66 @@ class Good(Document):
 					main_contact = child.employee_number
 					self.employee = main_contact
 
+	def handle_total_raw_mass(self):
+		total_raw_mass = sum(
+			getattr(self, attr, 0) or 0
+			for attr in [
+				'split_raw_mass_1',
+				'split_raw_mass_2',
+				'split_raw_mass_3',
+				'split_raw_mass_4',
+				'split_raw_mass_5'
+			]
+		)
+		if total_raw_mass != self.raw_mass:
+			original_raw_mass = self.raw_mass
+
+			frappe.throw(f"The raw mass total of the components is not equal to the raw mass of the original good. <br><br> The total should be {original_raw_mass}, not {total_raw_mass}. <br><br> Please change the raw masses of the components and ensure that they add up to a total of {original_raw_mass}.")
+
 	def split_good(self):
-		if self.manufacture == "I am NOT the manufacturer of the whole amount of the product":
-			total_raw_mass = sum(
-				getattr(self, attr, 0) or 0
-				for attr in [
-					'split_raw_mass_1',
-					'split_raw_mass_2',
-					'split_raw_mass_3',
-					'split_raw_mass_4',
-					'split_raw_mass_5'
-				]
-			)
-			next_highest_split_number = 0
-			if total_raw_mass != self.raw_mass:
-				original_raw_mass = self.raw_mass
-				frappe.throw(f"The raw mass total of the components is not equal to the raw mass of the original good. <br><br> The total should be {original_raw_mass}, not {total_raw_mass}. <br><br> Please change the raw masses of the components and ensure that they add up to a total of {original_raw_mass}.")
-			else:
-				self.status = "Split"
-				if self.split_raw_mass_1 and self.split_raw_mass_1 != "0":
-					new_good = frappe.new_doc("Good")
-					new_good.parent_good = self.name
-					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
-					new_good.hand_over_date = self.hand_over_date
-					new_good.article_number = self.article_number
-					new_good.customs_tariff_number = self.customs_tariff_number
-					new_good.good_description = self.good_description
-					new_good.internal_customs_import_number = self.internal_customs_import_number
-					new_good.country_of_origin = self.country_of_origin
-					new_good.shipping_country = self.shipping_country
-					new_good.customs_procedure = self.customs_procedure
-					new_good.raw_mass = self.split_raw_mass_1
-					if self.responsibility_1 == "I'm the responsible Person":
-						new_good.supplier = self.supplier
-						new_good.employee = self.employee
-					elif self.responsibility_1 == "Another employee is responsible":
-						new_good.supplier = self.supplier
-						new_good.employee = self.responsible_employee_1
-					elif self.responsibility_1 == "Another supplier is responsible":
-						new_good.supplier = self.responsible_supplier_1
-					else:
-						frappe.throw("Please select a responsibility")
-					new_good.insert()
-					self.append("good_components", {
-						"good_number": new_good.name,
-						"supplier": new_good.supplier,
-						"employee": new_good.employee,
-						"status": "Raw Data"
-					})
-					next_highest_split_number += 1
-				if self.split_raw_mass_2 and self.split_raw_mass_2 != "0":
-					new_good = frappe.new_doc("Good")
-					new_good.parent_good = self.name
-					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
-					new_good.hand_over_date = self.hand_over_date
-					new_good.article_number = self.article_number
-					new_good.good_description = self.good_description
-					new_good.internal_customs_import_number = self.internal_customs_import_number
-					new_good.customs_tariff_number = self.customs_tariff_number
-					new_good.country_of_origin = self.country_of_origin
-					new_good.shipping_country = self.shipping_country
-					new_good.customs_procedure = self.customs_procedure
-					new_good.raw_mass = self.split_raw_mass_2
-					if self.responsibility_2 == "I'm the responsible Person":
-						new_good.supplier = self.supplier
-						new_good.employee = self.employee
-					elif self.responsibility_2 == "Another employee is responsible":
-						#frappe.msgprint(f"Responsible Employee 1: {self.responsible_employee_2}") #! Testing
-						new_good.supplier = self.supplier
-						new_good.employee = self.responsible_employee_2
-					elif self.responsibility_2 == "Another supplier is responsible":
-						new_good.supplier = self.responsible_supplier_2
-					else:
-						frappe.throw("Please select a responsibility")
-					new_good.insert()
-					self.append("good_components", {
-						"good_number": new_good.name,
-						"supplier": new_good.supplier,
-						"employee": new_good.employee,
-						"status": "Raw Data"
-					})
-					next_highest_split_number += 1
-				if self.split_raw_mass_3 and self.split_raw_mass_3 != "0":
-					new_good = frappe.new_doc("Good")
-					new_good.parent_good = self.name
-					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
-					new_good.hand_over_date = self.hand_over_date
-					new_good.article_number = self.article_number
-					new_good.good_description = self.good_description
-					new_good.internal_customs_import_number = self.internal_customs_import_number
-					new_good.customs_tariff_number = self.customs_tariff_number
-					new_good.country_of_origin = self.country_of_origin
-					new_good.shipping_country = self.shipping_country
-					new_good.customs_procedure = self.customs_procedure
-					new_good.raw_mass = self.split_raw_mass_3
-					if self.responsibility_3 == "I'm the responsible Person":
-						new_good.supplier = self.supplier
-						new_good.employee = self.employee
-					elif self.responsibility_3 == "Another employee is responsible":
-						new_good.supplier = self.supplier
-						new_good.employee = self.responsible_employee_3
-					elif self.responsibility_3 == "Another supplier is responsible":
-						new_good.supplier = self.responsible_supplier_3
-					else:
-						frappe.throw("Please select a responsibility")
-					new_good.insert()
-					self.append("good_components", {
-						"good_number": new_good.name,
-						"supplier": new_good.supplier,
-						"employee": new_good.employee,
-						"status": "Raw Data"
-					})
-					next_highest_split_number += 1
-				if self.split_raw_mass_4 and self.split_raw_mass_4 != "0":
-					new_good = frappe.new_doc("Good")
-					new_good.parent_good = self.name
-					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
-					new_good.hand_over_date = self.hand_over_date
-					new_good.article_number = self.article_number
-					new_good.good_description = self.good_description
-					new_good.internal_customs_import_number = self.internal_customs_import_number
-					new_good.customs_tariff_number = self.customs_tariff_number
-					new_good.country_of_origin = self.country_of_origin
-					new_good.shipping_country = self.shipping_country
-					new_good.customs_procedure = self.customs_procedure
-					new_good.raw_mass = self.split_raw_mass_4
-					if self.responsibility_4 == "I'm the responsible Person":
-						new_good.supplier = self.supplier
-						new_good.employee = self.employee
-					elif self.responsibility_4 == "Another employee is responsible":
-						new_good.supplier = self.supplier
-						new_good.employee = self.responsible_employee_4
-					elif self.responsibility_4 == "Another supplier is responsible":
-						new_good.supplier = self.responsible_supplier_4
-					else:
-						frappe.throw("Please select a responsibility")
-					new_good.insert()
-					self.append("good_components", {
-						"good_number": new_good.name,
-						"supplier": new_good.supplier,
-						"employee": new_good.employee,
-						"status": "Raw Data"
-					})
-					next_highest_split_number += 1
-				if self.split_raw_mass_5 and self.split_raw_mass_5 != "0":
-					new_good = frappe.new_doc("Good")
-					new_good.parent_good = self.name
-					new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"{next_highest_split_number:02}"
-					new_good.hand_over_date = self.hand_over_date
-					new_good.article_number = self.article_number
-					new_good.good_description = self.good_description
-					new_good.internal_customs_import_number = self.internal_customs_import_number
-					new_good.customs_tariff_number = self.customs_tariff_number
-					new_good.country_of_origin = self.country_of_origin
-					new_good.shipping_country = self.shipping_country
-					new_good.customs_procedure = self.customs_procedure
-					new_good.raw_mass = self.split_raw_mass_5
-					if self.responsibility_5 == "I'm the responsible Person":
-						new_good.supplier = self.supplier
-						new_good.employee = self.employee
-					elif self.responsibility_5 == "Another employee is responsible":
-						new_good.supplier = self.supplier
-						new_good.employee = self.responsible_employee_5
-					elif self.responsibility_5 == "Another supplier is responsible":
-						new_good.supplier = self.responsible_supplier_5
-					else:
-						frappe.throw("Please select a responsibility")
-					new_good.insert()
-					self.append("good_components", {
-						"good_number": new_good.name,
-						"supplier": new_good.supplier,
-						"employee": new_good.employee,
-						"status": "Raw Data"
-					})
-					next_highest_split_number += 1
+		self.handle_total_raw_mass()		
+		for i in range(5):
+			good_no = i+1
+			if getattr(self, f"split_raw_mass_{good_no}") > 0:
+				self.create_new_good_doc(good_no)
+
+		self.status = "Split"
+		self.good_splitted = 1
+
+	def create_new_good_doc(self, good_no):
+		new_good = frappe.new_doc("Good")
+		new_good.parent_good = self.name
+		new_good.hand_over_date = self.hand_over_date
+		new_good.article_number = self.article_number
+		new_good.customs_tariff_number = self.customs_tariff_number
+		new_good.good_description = self.good_description
+		new_good.internal_customs_import_number = self.internal_customs_import_number
+		new_good.country_of_origin = self.country_of_origin
+		new_good.shipping_country = self.shipping_country
+		new_good.customs_procedure = self.customs_procedure
+		new_good.master_reference_number_mrn = self.master_reference_number_mrn + "-" + f"0{good_no-1}"
+		new_good.raw_mass = getattr(self, f"split_raw_mass_{good_no}")
+		responsiblity = getattr(self, f"responsibility_{good_no}")
+		if responsiblity == "I'm the responsible Person":
+			new_good.supplier = self.supplier
+			new_good.employee = self.employee
+		elif responsiblity == "Another employee is responsible":
+			new_good.supplier = self.supplier
+			new_good.employee = getattr(self, f"responsible_employee_{good_no}")
+		elif responsiblity == "Another supplier is responsible":
+			new_good.supplier = getattr(self, f"responsible_supplier_{good_no}")
+		else:
+			frappe.throw("Please select a responsibility")
+		new_good.get_main_contact_employee()
+		new_good.insert()
+
+		self.append("good_components", {
+			"good_number": new_good.name,
+			"supplier": new_good.supplier,
+			"employee": new_good.employee,
+			"status": "Raw Data"
+		})
+		new_good.send_email(responsiblity)
 
 	def add_to_supplier_cht(self):
 		if self.has_value_changed("supplier") and not self.is_new():
@@ -292,26 +176,29 @@ class Good(Document):
 		if not has_value_changed and self.confirmation_web_form:
 			self.confirmation_web_form = None
 
-	def send_email(self):
-		employee_goods_status_list = frappe.get_all("Good", filters={'employee': self.employee}, fields=["status"], pluck="status")
-		# frappe.msgprint(f"Employee Goods Status List of {self.employee} is {employee_goods_status_list}")
-		if employee_goods_status_list and all(status in ["Done", "Split"] for status in employee_goods_status_list):
-			# frappe.msgprint("Until here")
-			owner_employee_email = frappe.db.get_value("Supplier Employee", self.employee, "email")
-			# frappe.msgprint(f"Owner Employee Email: {owner_employee_email}")
-			new_employee_list = frappe.get_all("Supplier Employee", filters={'owner': self.employee}, fields=["name"], pluck="name")
-			# frappe.msgprint(f"New Employee List: {new_employee_list}")
-			for employee in new_employee_list:
-				try:
-					create_new_supplier_user(employee)
-					frappe.msgprint(f"Created a new user for the employee {employee}")
-				except Exception as e:
-					frappe.msgprint ("Couldn't create a new user for the employee {employee}.<br><br>Error: {e}")
-				try:
-					create_email(employee)
-					frappe.msgprint(f"Created an email for the employee {employee}")
-				except Exception as e:
-					frappe.msgprint ("Couldn't create an email for the employee {employee}.<br><br>Error: {e}")
+	def send_email(self, responsiblity=None, employee=None):
+		if responsiblity:
+			employee_email = frappe.db.get_value("Supplier Employee", self.employee, "email")
+			user_exists = frappe.db.exists("User", employee_email)
+			settings = frappe.get_single("CBAM Settings")
+		
+			if responsiblity == "Another employee is responsible":
+				template = settings.tier_1_registered_employee_template
+				if not user_exists:
+					template = settings.tier_1_unregistered_employee_template
+					create_new_supplier_user(self.employee)
+
+			elif responsiblity == "Another supplier is responsible":
+				template = settings.tier_n1_registered_template
+				if not user_exists:
+					create_new_supplier_user(self.employee)
+					template = settings.tier_n1_unregistered_template
+
+			notification = frappe.get_doc("Notification", template)
+			notification.send(self)
+
+
+
 
 def delete_good_item(good, parenttype):
 	good_item_list = frappe.get_all("Good Item", filters={'good_number': good, 'parenttype': parenttype}, fields=["name"], pluck="name")

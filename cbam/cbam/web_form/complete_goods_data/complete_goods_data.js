@@ -11,29 +11,38 @@ frappe.ready(function() {
 					// debugger;
 					if (r.message.employeeOptions && r.message.employeeOptions.length > 0) {
 						frappe.web_form.fields_dict["responsible_employee_1"]._data = r.message.employeeOptions;
+						frappe.web_form.fields_dict["responsible_employee_2"]._data = r.message.employeeOptions;
+						frappe.web_form.fields_dict["responsible_employee_3"]._data = r.message.employeeOptions;
+						frappe.web_form.fields_dict["responsible_employee_4"]._data = r.message.employeeOptions;
+						frappe.web_form.fields_dict["responsible_employee_5"]._data = r.message.employeeOptions;
 					}
 				}
 			});
+			let supplier = frappe.web_form.get_value('supplier');
+			if (supplier) {
+				frappe.call({
+					method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_suppliers_owned_by_supplier_employees",
+					args: {supplier},
+					callback: (r) => {
+						//debugger;
+						console.log(r.message)
+						if (r.message.supplier_options && r.message.supplier_options.length > 0) {
+							
+							frappe.web_form.fields_dict["responsible_supplier_1"]._data = r.message.employeeOptions;
+							frappe.web_form.fields_dict["responsible_supplier_2"]._data = r.message.employeeOptions;
+							frappe.web_form.fields_dict["responsible_supplier_3"]._data = r.message.employeeOptions;
+							frappe.web_form.fields_dict["responsible_supplier_4"]._data = r.message.employeeOptions;
+							frappe.web_form.fields_dict["responsible_supplier_5"]._data = r.message.employeeOptions;
+						}
+					}
+				});
+			}
 		}
 	});
 
 	// Supplier Link Field Filter
-	frappe.web_form.on("responsibility_1", function() {
-		let supplier = frappe.web_form.get_value('supplier');
-		if (supplier) {
-			frappe.call({
-				method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_suppliers_owned_by_supplier_employees",
-				args: {supplier},
-				callback: (r) => {
-					//debugger;
-					frappe.msgprint(r)
-					if (r.message.employeeOptions && r.message.employeeOptions.length > 0) {
-						frappe.msgprint('Suppliers owned by the selected employee: ');
-						frappe.web_form.fields_dict["responsible_employee_1"]._data = r.message.employeeOptions;
-					}
-				}
-			});
-		}
+	frappe.web_form.on("manufacture", function() {
+		
 	});
 
 	frappe.call({

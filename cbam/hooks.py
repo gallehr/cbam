@@ -245,13 +245,14 @@ role_home_page = {
 fixtures = [
     {"dt": "Country Code"},
     {"dt": "Role", "filters": [
-    [
-        "name", "in", [
-            "Reporting Declarant",
-            "Supplier"
+        [
+            "name", "in", [
+                "Reporting Declarant",
+                "Supplier"
+            ]
         ]
     ]
-]},
+    },
     {"dt": "Role Profile", "filters": [
     [
         "name", "in", [
@@ -259,7 +260,8 @@ fixtures = [
             "00 Supplier"
         ]
     ]
-]},
+]
+},
     {"dt": "Custom DocPerm", "filters": [
         [
             "role", "in", [
@@ -268,4 +270,15 @@ fixtures = [
             ]
         ]
     ]},
+     {"dt": "Notification", "filters": [
+        [
+            "name", "in", [
+                "Tier n+1 Unregistered Supplier Template",
+                "Tier n+1 Registered Supplier Template",
+                "Tier 1 Unregistered Employee Template",
+                "Tier 1 Registered Employee Template"
+            ]
+        ]
+    ]
+    },
 ]
