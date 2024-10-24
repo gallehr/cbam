@@ -6,7 +6,10 @@ frappe.ready(function() {
 		if (supplier) {
 			frappe.call({
 				method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_filtered_supplier_employees",
-				args: {supplier, employee},
+				args: {
+					supplier: supplier, 
+					employee:employee
+				},
 				callback: (r) => {
 					// debugger;
 					if (r.message.employeeOptions && r.message.employeeOptions.length > 0) {
@@ -18,11 +21,13 @@ frappe.ready(function() {
 					}
 				}
 			});
-			let supplier = frappe.web_form.get_value('supplier');
+			
 			if (supplier) {
 				frappe.call({
 					method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_suppliers_owned_by_supplier_employees",
-					args: {supplier},
+					args: {
+						supplier: supplier
+					},
 					callback: (r) => {
 						//debugger;
 						console.log(r.message)
@@ -41,9 +46,7 @@ frappe.ready(function() {
 	});
 
 	// Supplier Link Field Filter
-	frappe.web_form.on("manufacture", function() {
-		
-	});
+
 
 	frappe.call({
 		method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_filtered_emission_data",
