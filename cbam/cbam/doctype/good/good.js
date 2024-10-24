@@ -10,8 +10,18 @@ frappe.ui.form.on('Good', {
                 }
             }
         });
+    },
+    refresh(frm) {
+        frm.set_query("employee", (doc) => {
+            return {
+                filters: {
+                    "supplier_company": doc.supplier
+                }
+            }
+        });
     }
 })
+
 
 frappe.ui.form.on('Good', {
     installation(frm) {

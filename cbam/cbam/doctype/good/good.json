@@ -436,6 +436,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Raw Data\nSent for completing\nSplit\nDone",
    "read_only_depends_on": "eval:!frappe.user.has_role(\"System Manager\")"
@@ -590,7 +591,11 @@
    "link_fieldname": "supplier"
   }
  ],
+<<<<<<< HEAD
  "modified": "2024-10-23 13:21:00.030874",
+=======
+ "modified": "2024-10-24 09:59:58.952106",
+>>>>>>> d7ec10472b9786c38138094eb83ba26aa2142f96
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -630,5 +635,6 @@
    "color": "Green",
    "title": "Done"
   }
- ]
+ ],
+ "track_changes": 1
 }

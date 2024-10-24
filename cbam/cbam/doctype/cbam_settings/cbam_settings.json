@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-21 09:51:43.135195",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "emission_data_submission_details_section",
+  "tier_n1_unregistered_template",
+  "tier_n1_registered_template",
+  "column_break_tiem",
+  "tier_1_unregistered_employee_template",
+  "tier_1_registered_employee_template"
+ ],
+ "fields": [
+  {
+   "description": "This Email Template will be used to Request Signup and Submission of Emission Data from Tier n+1 Supplier's Main Contact.",
+   "fieldname": "tier_n1_unregistered_template",
+   "fieldtype": "Link",
+   "label": "Tier n+1 Unregistered Supplier Template",
+   "options": "Notification"
+  },
+  {
+   "description": "This Email Template will be used to Request Submission of Emission Data from Tier n+1 Supplier's Main Contact.",
+   "fieldname": "tier_n1_registered_template",
+   "fieldtype": "Link",
+   "label": "Tier n+1 Registered Supplier Template",
+   "options": "Notification"
+  },
+  {
+   "description": "This Email Template will be used to Request Signup and Submission of Emission Data from Tier 1 Supplier's Main Contact.",
+   "fieldname": "tier_1_unregistered_employee_template",
+   "fieldtype": "Link",
+   "label": "Tier 1 Unregistered Employee Template",
+   "options": "Notification"
+  },
+  {
+   "description": "This Email Template will be used to Request Submission of Emission Data from Tier 1 Supplier's Main Contact",
+   "fieldname": "tier_1_registered_employee_template",
+   "fieldtype": "Link",
+   "label": "Tier 1 Registered Employee Template",
+   "options": "Notification"
+  },
+  {
+   "fieldname": "emission_data_submission_details_section",
+   "fieldtype": "Section Break",
+   "label": "Emission Data Submission Details"
+  },
+  {
+   "fieldname": "column_break_tiem",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-10-21 14:02:43.819317",
+ "modified_by": "Administrator",
+ "module": "CBAM",
+ "name": "CBAM Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

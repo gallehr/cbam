@@ -301,7 +301,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-21 09:38:31.706732",
+ "modified": "2024-10-24 10:03:01.629321",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Installation",
@@ -323,5 +323,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

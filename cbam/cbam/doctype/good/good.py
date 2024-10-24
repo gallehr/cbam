@@ -18,12 +18,10 @@ class Good(Document):
 			self.status = "Done"
 		self.add_to_supplier_cht()
 		self.add_to_employee_cht()
-		self.add_to_customs_import_cht()
 
 	def validate(self):
 		if self.manufacture == "I am NOT the manufacturer of the whole amount of the product" and not self.good_splitted:
 			self.split_good()
-
 
 	def on_trash(self):
 		self.delete_all_good_item()
@@ -40,7 +38,6 @@ class Good(Document):
 				if child.is_main_contact in ["1", 1, True]:
 					main_contact = child.employee_number
 					self.employee = main_contact
-
 
 	def handle_total_raw_mass(self):
 		total_raw_mass = sum(
@@ -67,7 +64,6 @@ class Good(Document):
 
 		self.status = "Split"
 		self.good_splitted = 1
-
 
 	def create_new_good_doc(self, good_no):
 		new_good = frappe.new_doc("Good")
@@ -104,12 +100,10 @@ class Good(Document):
 		})
 		new_good.send_email(responsiblity)
 
-
-
 	def add_to_supplier_cht(self):
-		has_supplier_changed = self.has_value_changed("supplier")
-		if has_supplier_changed:
+		if self.has_value_changed("supplier") and not self.is_new():
 			delete_good_item(self.name, "Supplier")
+		if not frappe.db.exists("Good Item", {"good_number": self.name, "parenttype": "Supplier"}):
 			supplier = frappe.get_doc("Supplier", self.supplier)
 			supplier.append("goods", {
 				"good_number": self.name,
@@ -118,11 +112,13 @@ class Good(Document):
 				"status": self.status
 			})
 			supplier.save()
+		else:
+			self.update_good_items()
 
 	def add_to_employee_cht(self):
-		has_employee_changed = self.has_value_changed("employee")
-		if has_employee_changed:
+		if self.has_value_changed("employee") and not self.is_new():
 			delete_good_item(self.name, "Supplier Employee")
+		if not frappe.db.exists("Good Item", {"good_number": self.name, "parenttype": "Supplier Employee"}):
 			employee = frappe.get_doc("Supplier Employee", self.employee)
 			employee.append("goods", {
 				"good_number": self.name,
@@ -131,11 +127,13 @@ class Good(Document):
 				"status": self.status
 			})
 			employee.save()
+		else:
+			self.update_good_items()
 
 	def add_to_customs_import_cht(self):
-		has_internal_customs_import_number_changed = self.has_value_changed("internal_customs_import_number")
-		if has_internal_customs_import_number_changed:
+		if self.has_value_changed("internal_customs_import_number") and not self.is_new():
 			delete_good_item(self.name, "Customs Import")
+		if not frappe.db.exists("Good Item", {"good_number": self.name, "parenttype": "Customs Import"}):
 			customs_import = frappe.get_doc("Customs Import", self.internal_customs_import_number)
 			customs_import.append("goods", {
 				"good_number": self.name,
@@ -144,7 +142,15 @@ class Good(Document):
 				"status": self.status
 			})
 			customs_import.save()
+		else:
+			self.update_good_items()
 
+	def update_good_items(self):
+		frappe.db.set_value("Good Item", {"good_number": self.name}, {
+			"supplier": self.supplier,
+			"employee": self.employee,
+			"status": self.status
+			})
 
 	def delete_all_good_item(self):
 		good_items = frappe.get_all("Good Item", filters={'good_number': self.name}, fields=["name"], pluck="name")
@@ -162,7 +168,7 @@ class Good(Document):
 			frappe.throw(_("User not found"))
 		role_list = [r.role for r in user.roles]
 		if "Supplier" in role_list and self.confirmation_web_form == "true" and self.is_data_confirmed != True:
-				frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
+			frappe.throw("Please check the 'Data Confirmed' checkbox before submitting the form.")
 
 	def set_confirmation_web_form_to_none(self):
 		has_value_changed = self.has_value_changed("confirmation_web_form")
@@ -189,6 +195,8 @@ class Good(Document):
 
 			notification = frappe.get_doc("Notification", template)
 			notification.send(self)
+
+
 
 
 def delete_good_item(good, parenttype):
