@@ -134,7 +134,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-08 13:19:31.597297",
+ "modified": "2024-10-24 10:03:12.160836",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Emission Data",
@@ -156,5 +156,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -66,6 +66,8 @@
    "description": "Raw Data = Not sent to the Main Contact Employee yet.<br>After sending, the data cannot be changed anymore.",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Raw Data\nSent for confirmation\nConfirmed",
    "read_only": 1
@@ -225,7 +227,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-16 10:22:13.728176",
+ "modified": "2024-10-24 09:57:07.071296",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier",
