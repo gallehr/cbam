@@ -26,7 +26,7 @@ frappe.ready(function() {
 				args: {supplier},
 				callback: (r) => {
 					//debugger;
-					frappe.msgprint(r)
+					console.log(r.message)
 					if (r.message.employeeOptions && r.message.employeeOptions.length > 0) {
 						frappe.msgprint('Suppliers owned by the selected employee: ');
 						frappe.web_form.fields_dict["responsible_employee_1"]._data = r.message.employeeOptions;

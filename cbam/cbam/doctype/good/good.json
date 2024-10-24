@@ -34,8 +34,10 @@
   "supplier",
   "column_break_lqxr",
   "employee",
+  "employee_email",
   "split_the_good_in_various_components_section",
   "manufacture",
+  "good_splitted",
   "1_component_section",
   "split_raw_mass_1",
   "responsibility_1",
@@ -436,7 +438,7 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "Raw Data\nSent for completing\nSplit\nDone",
-   "read_only": 1
+   "read_only_depends_on": "eval:!frappe.user.has_role(\"System Manager\")"
   },
   {
    "default": "0",
@@ -530,8 +532,7 @@
    "fieldname": "manufacture",
    "fieldtype": "Select",
    "label": "Manufacture",
-   "options": "I am the manufacture\nI am NOT the manufacturer of the whole amount of the product",
-   "read_only": 1
+   "options": "I am the manufacture\nI am NOT the manufacturer of the whole amount of the product"
   },
   {
    "depends_on": "eval:doc.status==\"Split\"",
@@ -566,6 +567,20 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "confirmation_web_form"
+  },
+  {
+   "default": "0",
+   "fieldname": "good_splitted",
+   "fieldtype": "Check",
+   "label": "Good Splitted",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.email",
+   "fieldname": "employee_email",
+   "fieldtype": "Data",
+   "label": "Employee Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -575,7 +590,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-22 10:55:16.036642",
+ "modified": "2024-10-23 13:21:00.030874",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
