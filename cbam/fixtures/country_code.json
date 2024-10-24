@@ -35,13 +35,6 @@
   "name": "DZ"
  },
  {
-  "country_full_name": "Andorra",
-  "docstatus": 0,
-  "doctype": "Country Code",
-  "modified": "2024-09-03 12:52:03.209142",
-  "name": "AD"
- },
- {
   "country_full_name": "Angola",
   "docstatus": 0,
   "doctype": "Country Code",
@@ -1384,5 +1377,12 @@
   "doctype": "Country Code",
   "modified": "2024-09-03 12:52:03.209142",
   "name": "US"
+ },
+ {
+  "country_full_name": "Andorra",
+  "docstatus": 0,
+  "doctype": "Country Code",
+  "modified": "2024-09-03 12:52:03.209142",
+  "name": "AD"
  }
 ]
