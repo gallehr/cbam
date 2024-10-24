@@ -27,6 +27,7 @@ class Good(Document):
 		self.delete_all_good_item()
 
 	def delete_old_employee_if_supplier_changed(self):
+		return
 		has_supplier_changed = self.has_value_changed("supplier")
 		if has_supplier_changed and not self.is_new():
 			self.employee = None
