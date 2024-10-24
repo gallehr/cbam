@@ -35,8 +35,6 @@
   "column_break_rjxu",
   "email",
   "phone_number",
-  "general_information_of_the_installation_section",
-  "industry_sector_of_the_installation",
   "emissions_data_tracking_of_the_installation_section",
   "is_the_installation_tracking_emissions_data",
   "define_how_emissions_get_monitored_reported_and_verified",
@@ -164,11 +162,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "general_information_of_the_installation_section",
-   "fieldtype": "Section Break",
-   "label": "General information of the installation"
-  },
-  {
    "fieldname": "is_the_installation_tracking_emissions_data",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -200,13 +193,6 @@
    "fieldtype": "Data",
    "label": "Which emission trading system (link to legal act)?",
    "mandatory_depends_on": "eval:doc.is_the_installation_subject_to_an_emission_trading_system==\"Yes\""
-  },
-  {
-   "fieldname": "industry_sector_of_the_installation",
-   "fieldtype": "Select",
-   "label": "Industry sector of the installation",
-   "options": "Iron and Steal\nAluminium",
-   "reqd": 1
   },
   {
    "description": "CN Codes falling under the\nCBAM-Regulation produced\nby the installation (split data with \u201d ; \u201d)",
@@ -245,8 +231,7 @@
    "fieldname": "contact_person",
    "fieldtype": "Select",
    "label": "Contact Person",
-   "options": "Same contact person as Operating Company\nDifferent contact person",
-   "reqd": 1
+   "options": "Same contact person as Operating Company\nDifferent contact person"
   },
   {
    "fieldname": "uuid_installation",
@@ -295,13 +280,12 @@
   {
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City",
-   "reqd": 1
+   "label": "City"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-24 10:03:01.629321",
+ "modified": "2024-10-24 10:33:11.767975",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "CBAM Installation",
