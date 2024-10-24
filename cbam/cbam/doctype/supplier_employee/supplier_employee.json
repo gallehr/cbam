@@ -79,6 +79,8 @@
    "description": "Raw Data =  Not sent to the Employee yet. <br>After sending, the data cannot be changed anymore.\n",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Raw Data\nSent to Supplier Employee\nData confirmed by Employee",
    "read_only": 1
@@ -122,7 +124,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-14 18:06:00.689173",
+ "modified": "2024-10-24 09:59:45.239615",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Supplier Employee",
@@ -157,5 +159,6 @@
    "color": "Green",
    "title": "Data confirmed by Employee"
   }
- ]
+ ],
+ "track_changes": 1
 }

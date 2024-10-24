@@ -35,10 +35,10 @@
  "links": [
   {
    "link_doctype": "Good",
-   "link_fieldname": "good_number"
+   "link_fieldname": "internal_customs_import_number"
   }
  ],
- "modified": "2024-09-06 20:28:11.774005",
+ "modified": "2024-10-24 09:59:16.616143",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Customs Import",
@@ -60,5 +60,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

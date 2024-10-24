@@ -434,6 +434,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Raw Data\nSent for completing\nSplit\nDone",
    "read_only": 1
@@ -575,7 +576,7 @@
    "link_fieldname": "supplier"
   }
  ],
- "modified": "2024-10-22 10:55:16.036642",
+ "modified": "2024-10-24 09:59:58.952106",
  "modified_by": "Administrator",
  "module": "CBAM",
  "name": "Good",
@@ -615,5 +616,6 @@
    "color": "Green",
    "title": "Done"
   }
- ]
+ ],
+ "track_changes": 1
 }
