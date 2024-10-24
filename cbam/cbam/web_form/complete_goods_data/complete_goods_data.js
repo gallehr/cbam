@@ -21,7 +21,7 @@ frappe.ready(function() {
 					}
 				}
 			});
-			
+			// Supplier Link Field Filter
 			if (supplier) {
 				frappe.call({
 					method: "cbam.cbam.web_form.complete_goods_data.complete_goods_data.get_suppliers_owned_by_supplier_employees",
@@ -30,14 +30,14 @@ frappe.ready(function() {
 					},
 					callback: (r) => {
 						//debugger;
-						console.log(r.message)
+						
 						if (r.message.supplier_options && r.message.supplier_options.length > 0) {
 							
-							frappe.web_form.fields_dict["responsible_supplier_1"]._data = r.message.employeeOptions;
-							frappe.web_form.fields_dict["responsible_supplier_2"]._data = r.message.employeeOptions;
-							frappe.web_form.fields_dict["responsible_supplier_3"]._data = r.message.employeeOptions;
-							frappe.web_form.fields_dict["responsible_supplier_4"]._data = r.message.employeeOptions;
-							frappe.web_form.fields_dict["responsible_supplier_5"]._data = r.message.employeeOptions;
+							frappe.web_form.fields_dict["responsible_supplier_1"]._data = r.message.supplier_options;
+							frappe.web_form.fields_dict["responsible_supplier_2"]._data = r.message.supplier_options;
+							frappe.web_form.fields_dict["responsible_supplier_3"]._data = r.message.supplier_options;
+							frappe.web_form.fields_dict["responsible_supplier_4"]._data = r.message.supplier_options;
+							frappe.web_form.fields_dict["responsible_supplier_5"]._data = r.message.supplier_options;
 						}
 					}
 				});
@@ -45,7 +45,7 @@ frappe.ready(function() {
 		}
 	});
 
-	// Supplier Link Field Filter
+	
 
 
 	frappe.call({
